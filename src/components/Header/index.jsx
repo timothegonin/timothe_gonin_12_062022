@@ -5,7 +5,7 @@ import Logo from '../../assets/logo.svg'
 function Header() {
   return (
     <Navbar bg="dark" className="d-flex justify-content-between">
-      <Container className="m-0" fluid>
+      <Container fluid>
         <Navbar.Brand href="/" className="col-2">
           <img alt="" src={Logo} />{' '}
           <span className="text-primary">SportSee</span>
