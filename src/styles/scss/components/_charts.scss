@@ -1,0 +1,16 @@
+.charts {
+  &__content {
+    height: 320px;
+    width: 835px;
+    &--small {
+      height: 263px;
+      width: 258px;
+    }
+  }
+  &-info {
+    &__content {
+      height: 124px;
+      width: 258px;
+    }
+  }
+}
