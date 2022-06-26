@@ -3,13 +3,17 @@ import React from 'react'
 function Dashboard() {
   return (
     <main>
-      <h1>Bonjour Thomas</h1>
-      <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
+      <section className="my-5">
+        <h1>
+          Bonjour <span className="text-primary">Thomas</span>
+        </h1>
+        <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
+      </section>
 
-      <div className="d-flex justify-content-evenly">
+      <div className="charts d-flex justify-content-between">
         {/* Charts Block */}
-        <div className="charts__containerss">
-          <div className="charts__content bg-danger mb-3"></div>
+        <div className="charts__containers">
+          <div className="charts__content bg-danger mb-4"></div>
           <div className="d-flex justify-content-between">
             <div className="charts__content--small bg-warning"></div>
             <div className="charts__content--small bg-warning"></div>
