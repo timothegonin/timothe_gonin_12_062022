@@ -1,0 +1,21 @@
+.sidebar {
+  height: calc(100% - 84px);
+  &__button {
+    height: 64px;
+    width: 64px;
+  }
+  &__nav {
+    height: 316px;
+  }
+  footer {
+    height: 316px;
+    display: flex;
+    align-items: center;
+    .copiryght {
+      transform: rotate(270deg);
+      font-size: 12px;
+      display: inline-block;
+      width: 138px;
+    }
+  }
+}
