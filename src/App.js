@@ -1,14 +1,16 @@
+import { Container } from 'react-bootstrap'
+
 import Header from './components/Header'
 import Dashboard from './components/Dashboard'
-import Sidebar from './components/Sidebar'
+// import Sidebar from './components/Sidebar'
 
 function App() {
   return (
-    <div className="App row m-0">
+    <Container fluid className="App px-0">
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Dashboard />
-    </div>
+    </Container>
   )
 }
 
