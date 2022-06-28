@@ -2,7 +2,7 @@ import React from 'react'
 
 function Dashboard() {
   return (
-    <main>
+    <main className="col-11 p-0">
       <section className="my-5">
         <h1>
           Bonjour <span className="text-primary">Thomas</span>

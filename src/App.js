@@ -1,13 +1,13 @@
 import Header from './components/Header'
-// import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard'
 import Sidebar from './components/Sidebar'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App row m-0">
       <Header />
       <Sidebar />
-      {/* <Dashboard /> */}
+      <Dashboard />
     </div>
   )
 }

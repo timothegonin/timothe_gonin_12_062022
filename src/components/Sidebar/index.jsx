@@ -9,7 +9,7 @@ import Dumbbell from '../../assets/icons/dumbbell.svg'
 
 function Sidebar() {
   return (
-    <aside className="sidebar col-1 bg-secondary d-flex flex-column align-items-center justify-content-end">
+    <aside className="sidebar col-1 bg-secondary d-flex flex-column align-items-center justify-content-end p-0">
       <nav className="sidebar__nav d-flex">
         <ListGroup className="justify-content-between">
           <ListGroup.Item className="p-0 rounded">
