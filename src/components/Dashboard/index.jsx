@@ -1,14 +1,19 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap'
 
 function Dashboard() {
   return (
-    <main className="col-11 p-0">
-      <section className="my-5">
-        <h1>
-          Bonjour <span className="text-primary">Thomas</span>
-        </h1>
-        <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
-      </section>
+    <main>
+      <Row className="w-100">
+        <Col>
+          <section className="my-5">
+            <h1>
+              Bonjour <span className="text-primary">Thomas</span>
+            </h1>
+            <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
+          </section>
+        </Col>
+      </Row>
 
       <div className="charts d-flex justify-content-between">
         {/* Charts Block */}
