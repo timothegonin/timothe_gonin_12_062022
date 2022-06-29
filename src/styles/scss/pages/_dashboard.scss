@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  section,
+  .charts {
+    max-width: 1126px;
+    width: 100%;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
