@@ -2,10 +2,10 @@ import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 
-import YogaIcon from '../../assets/icons/yoga.svg'
-import SwimIcon from '../../assets/icons/swim.svg'
-import BikeIcon from '../../assets/icons/bike.svg'
-import Dumbbell from '../../assets/icons/dumbbell.svg'
+import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
+import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
+import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
+import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
 
 function Sidebar() {
   return (

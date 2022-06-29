@@ -11,6 +11,23 @@
     &__content {
       height: 124px;
       width: 258px;
+      background: #fbfbfb;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+      border-radius: 5px;
+    }
+    &__icon {
+      height: 60px;
+      width: 60px;
+      margin: 32px;
+      margin-right: 24px;
+    }
+    &__data {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    &__name {
+      font-size: 14px;
+      font-weight: 500;
     }
   }
 }

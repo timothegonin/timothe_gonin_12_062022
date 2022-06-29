@@ -1,6 +1,15 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
+import Weight from '../Weight'
+import Goals from '../Goals'
+import Radar from '../Radar'
+import KPI from '../KPI'
+import Calories from '../Calories'
+import Proteines from '../Proteines'
+import Glucides from '../Glucides'
+import Lipides from '../Lipides'
+
 function Dashboard() {
   return (
     <main>
@@ -14,25 +23,14 @@ function Dashboard() {
           </section>
         </Col>
       </Row>
-
-      <div className="charts d-flex justify-content-between">
-        {/* Charts Block */}
-        <div className="charts__containers">
-          <div className="charts__content bg-danger mb-4"></div>
-          <div className="d-flex justify-content-between">
-            <div className="charts__content--small bg-warning"></div>
-            <div className="charts__content--small bg-warning"></div>
-            <div className="charts__content--small bg-warning"></div>
-          </div>
-        </div>
-        {/* Charts Info */}
-        <div className="charts-info__container d-flex flex-column justify-content-between">
-          <div className="charts-info__content bg-success"></div>
-          <div className="charts-info__content bg-success"></div>
-          <div className="charts-info__content bg-success"></div>
-          <div className="charts-info__content bg-success"></div>
-        </div>
-      </div>
+      <Weight />
+      <Goals />
+      <Radar />
+      <KPI />
+      <Calories />
+      <Proteines />
+      <Glucides />
+      <Lipides />
     </main>
   )
 }
