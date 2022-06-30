@@ -7,6 +7,10 @@
       width: 258px;
     }
   }
+  &__title {
+    font-weight: 500;
+    font-size: 15px;
+  }
   &-info {
     &__content {
       height: 124px;
@@ -39,5 +43,39 @@
     border-radius: 5px;
     height: 263px;
     width: 258px;
+  }
+}
+.score {
+  &__container {
+    height: 160px;
+    width: 160px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    p {
+      text-align: center;
+      font-weight: 500;
+      font-size: 16px;
+      color: #74798c;
+    }
+    p.score__percent {
+      color: black;
+      font-weight: 700;
+      font-size: 26px;
+    }
   }
 }
