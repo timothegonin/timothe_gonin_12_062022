@@ -90,3 +90,12 @@
     width: 258px;
   }
 }
+
+.custom-tooltip {
+  background: white;
+  .label {
+    padding: 7px;
+    font-weight: 500;
+    font-size: 8px;
+  }
+}

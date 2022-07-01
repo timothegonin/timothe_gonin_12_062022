@@ -46,6 +46,18 @@ const data = [
   },
 ]
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value}`}</p>
+      </div>
+    )
+  }
+
+  return null
+}
+
 export default function SessionDuration() {
   return (
     <div className="sessionDuration__container">
@@ -67,12 +79,22 @@ export default function SessionDuration() {
             axisLine={false}
             tickLine={false}
           />
-          <Tooltip />
+          {/* <Tooltip
+            cursor={{ stroke: 'black', strokeWidth: 1, opacity: 0.2 }}
+            content={'hello'}
+          /> */}
+          <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
             dataKey="pv"
             stroke="#fff"
-            activeDot={{ r: 8 }}
+            strokeWidth={2}
+            dot={false}
+            activeDot={{
+              stroke: 'rgba(255, 255, 255, 0.3)',
+              strokeWidth: 12,
+              r: 5,
+            }}
           />
         </LineChart>
       </ResponsiveContainer>
