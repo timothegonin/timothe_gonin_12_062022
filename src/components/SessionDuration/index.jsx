@@ -2,7 +2,7 @@ import React from 'react'
 
 import Obj from '../../assets/Objectifs.png'
 
-function Goals() {
+function SessionDuration() {
   return (
     <div className="charts__content--small bg-warning">
       <img src={Obj} alt="Objectifs" />
@@ -10,4 +10,4 @@ function Goals() {
   )
 }
 
-export default Goals
+export default SessionDuration
