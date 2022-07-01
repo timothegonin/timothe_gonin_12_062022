@@ -12,9 +12,9 @@ const data = [
 
 export default function Score() {
   return (
-    <div className="bg-light charts__content--small">
-      <h3 className="charts__title">Score</h3>
-      <div className="score__container bg-success">
+    <div className="bg-light charts__content--small d-flex flex-column align-items-center">
+      <h3 className="charts__title w-100 px-5 mt-4 mb-1">Score</h3>
+      <div className="score__container">
         <div className="score__info">
           <p className="score__percent mb-1">12%</p>
           <p>de votre objectif</p>
