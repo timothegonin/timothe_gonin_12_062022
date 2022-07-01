@@ -1,5 +1,12 @@
 import React from 'react'
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts'
 
 const data = [
   {
@@ -61,28 +68,27 @@ const CustomTooltip = ({ active, payload }) => {
 export default function SessionDuration() {
   return (
     <div className="sessionDuration__container">
-      <ResponsiveContainer width="100%" height="100%">
+      <div className="sessionDuration__info">
+        <p>Durée moyenne des sessions</p>
+      </div>
+      <ResponsiveContainer width="100%" height="60%">
         <LineChart
-          width={500}
-          height={300}
           data={data}
           margin={{
-            top: 5,
-            right: 30,
+            top: 0,
+            right: 20,
             left: 20,
-            bottom: 5,
+            bottom: -5,
           }}
         >
           <XAxis
             dataKey="name"
-            stroke="white"
+            stroke="rgba(255, 255, 255, 0.5)"
+            fontSize={12}
             axisLine={false}
             tickLine={false}
           />
-          {/* <Tooltip
-            cursor={{ stroke: 'black', strokeWidth: 1, opacity: 0.2 }}
-            content={'hello'}
-          /> */}
+          <YAxis axisLine={false} mirror={true} tickCount={false} />
           <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
