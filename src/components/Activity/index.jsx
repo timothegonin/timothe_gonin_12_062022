@@ -81,17 +81,34 @@ export default function Activity() {
           height={300}
           data={data}
           margin={{
-            top: 5,
+            top: 30,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 40,
           }}
           barSize={7}
           barGap={8}
         >
           <CartesianGrid vertical={false} strokeDasharray="2" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis
+            dataKey="name"
+            axisLine={false}
+            fontSize={14}
+            fontWeight="bold"
+            stroke="#9B9EAC"
+            tickLine={false}
+            tickMargin={20}
+          />
+          <YAxis
+            axisLine={false}
+            fontSize={14}
+            fontWeight="bold"
+            orientation="right"
+            stroke="#9B9EAC"
+            tickCount={3}
+            tickLine={false}
+            tickMargin={20}
+          />
           <Tooltip />
           <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} />
           <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} />
