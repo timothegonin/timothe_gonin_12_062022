@@ -75,7 +75,7 @@ export default function SessionDuration() {
         <LineChart
           data={data}
           margin={{
-            top: 0,
+            top: 15,
             right: 20,
             left: 20,
             bottom: -5,
