@@ -46,7 +46,7 @@ const data = [
   },
 ]
 
-export default function Activities() {
+export default function ActivityTye() {
   return (
     <div className="charts__content--small">
       <ResponsiveContainer width="100%" height="100%">

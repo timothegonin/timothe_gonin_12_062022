@@ -65,7 +65,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
-export default function SessionDuration() {
+export default function SessionsDuration() {
   return (
     <div className="sessionDuration__container">
       <div className="sessionDuration__info">

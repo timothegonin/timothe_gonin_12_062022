@@ -1,10 +1,13 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
-import Activity from '../Activity'
-import SessionDuration from '../SessionDuration'
-import Activities from '../Radar'
-import Score from '../Score'
+// Charts components
+import Activity from '../Charts_collection/Activity'
+import SessionsDuration from '../Charts_collection/SessionsDuration'
+import ActivityType from '../Charts_collection/ActivityType'
+import Score from '../Charts_collection/Score'
+
+//Indicators
 import Calories from '../Calories'
 import Proteines from '../Proteines'
 import Glucides from '../Glucides'
@@ -24,8 +27,8 @@ function Dashboard() {
         </Col>
       </Row>
       <Activity />
-      <SessionDuration />
-      <Activities />
+      <SessionsDuration />
+      <ActivityType />
       <Score />
       <Calories />
       <Proteines />
