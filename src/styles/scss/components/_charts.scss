@@ -1,4 +1,9 @@
 .charts {
+  &-collection {
+    &__wrapper {
+      max-width: 835px;
+    }
+  }
   &__content {
     height: 320px;
     width: 835px;

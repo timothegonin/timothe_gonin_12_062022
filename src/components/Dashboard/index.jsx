@@ -26,29 +26,40 @@ function Dashboard() {
           </section>
         </Col>
       </Row>
-      <Container fluid className="charts-collection__wrapper">
-        <Row>
-          {/* <Col> */}
-          <Activity />
-          {/* </Col> */}
-        </Row>
-        <Row fluid>
-          <Col className="d-flex justify-content-center px-0">
-            <SessionsDuration />
-          </Col>
-          <Col className="d-flex justify-content-center px-0">
-            <ActivityType />
-          </Col>
-          <Col className="d-flex justify-content-center px-0">
-            <Score />
-          </Col>
-        </Row>
+      <Container
+        fluid
+        className="d-flex flex-column align-items-center flex-xl-row justify-content-xl-between"
+      >
+        <Col className="charts-collection__wrapper">
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <Activity />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center px-0">
+              <SessionsDuration />
+            </Col>
+            <Col className="d-flex justify-content-center px-0">
+              <ActivityType />
+            </Col>
+            <Col className="d-flex justify-content-center px-0">
+              <Score />
+            </Col>
+          </Row>
+        </Col>
+        <Col className="d-flex justify-content-evenly flex-wrap">
+          <Calories />
+          <Proteines />
+          <Glucides />
+          <Lipides />
+        </Col>
       </Container>
 
-      <Calories />
+      {/* <Calories />
       <Proteines />
       <Glucides />
-      <Lipides />
+      <Lipides /> */}
     </main>
   )
 }
