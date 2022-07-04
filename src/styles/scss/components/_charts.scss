@@ -36,6 +36,51 @@
   }
 }
 
+.activity {
+  &__container {
+    border-radius: 5px;
+    background: #fbfbfb;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .point {
+      height: 8px;
+      width: 8px;
+      display: inline-block;
+      border-radius: 50%;
+      &--black {
+        background-color: #282d30;
+      }
+      &--red {
+        background-color: #e60000;
+      }
+    }
+  }
+  &__title {
+    p {
+      color: #20253a;
+      font-weight: 700;
+      font-size: 15px;
+    }
+  }
+  &__legend {
+    display: flex;
+    justify-content: space-between;
+    p {
+      color: #74798c;
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+}
 .radar {
   &__container {
     background: #282d30;

@@ -88,45 +88,62 @@ const CustomTooltip = ({ active, payload }) => {
 export default function Activity() {
   return (
     <div className="charts__content">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 30,
-            right: 30,
-            left: 20,
-            bottom: 40,
-          }}
-          barSize={7}
-          barGap={8}
-        >
-          <CartesianGrid vertical={false} strokeDasharray="2" />
-          <XAxis
-            dataKey="name"
-            axisLine={false}
-            fontSize={14}
-            fontWeight="bold"
-            stroke="#9B9EAC"
-            tickLine={false}
-            tickMargin={20}
-          />
-          <YAxis
-            axisLine={false}
-            fontSize={14}
-            fontWeight="bold"
-            orientation="right"
-            stroke="#9B9EAC"
-            tickCount={3}
-            tickLine={false}
-            tickMargin={20}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} />
-          <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className="activity__container">
+        <div className="activity__info">
+          <div className="activity__title ms-4">
+            <p className="m-0">Activité quotidienne</p>
+          </div>
+          <div class="activity__legend">
+            <div className="d-flex align-items-center me-4">
+              <span className="point point--black me-2"></span>
+              <p className="m-0">Poids(kg)</p>
+            </div>
+            <div className="d-flex align-items-center me-4">
+              <span className="point point--red me-2"></span>
+              <p className="m-0">Calories brûlées (kCal)</p>
+            </div>
+          </div>
+        </div>
+        <ResponsiveContainer width="100%" height="70%">
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 30,
+              right: 30,
+              left: 20,
+              bottom: 40,
+            }}
+            barSize={7}
+            barGap={8}
+          >
+            <CartesianGrid vertical={false} strokeDasharray="2" />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              fontSize={14}
+              fontWeight="bold"
+              stroke="#9B9EAC"
+              tickLine={false}
+              tickMargin={20}
+            />
+            <YAxis
+              axisLine={false}
+              fontSize={14}
+              fontWeight="bold"
+              orientation="right"
+              stroke="#9B9EAC"
+              tickCount={3}
+              tickLine={false}
+              tickMargin={20}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} />
+            <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   )
 }
