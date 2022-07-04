@@ -72,6 +72,19 @@ const data = [
   },
 ]
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip--activity">
+        <p className="label">{`${payload[0].value}`}</p>
+        <p className="label">{`${payload[1].value}`}</p>
+      </div>
+    )
+  }
+
+  return null
+}
+
 export default function Activity() {
   return (
     <div className="charts__content">
@@ -109,7 +122,7 @@ export default function Activity() {
             tickLine={false}
             tickMargin={20}
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} />
           <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} />
         </BarChart>
