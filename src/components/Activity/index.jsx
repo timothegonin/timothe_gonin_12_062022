@@ -104,16 +104,16 @@ export default function Activity() {
             </div>
           </div>
         </div>
-        <ResponsiveContainer width="100%" height="70%">
+        <ResponsiveContainer width="100%" height="80%">
           <BarChart
             width={500}
             height={300}
             data={data}
             margin={{
-              top: 30,
+              top: 50,
               right: 30,
               left: 20,
-              bottom: 40,
+              bottom: 20,
             }}
             barSize={7}
             barGap={8}
