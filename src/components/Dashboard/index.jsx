@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
-import Weight from '../Weight'
+import Activity from '../Activity'
 import SessionDuration from '../SessionDuration'
 import Activities from '../Radar'
 import Score from '../Score'
@@ -23,7 +23,7 @@ function Dashboard() {
           </section>
         </Col>
       </Row>
-      <Weight />
+      <Activity />
       <SessionDuration />
       <Activities />
       <Score />
