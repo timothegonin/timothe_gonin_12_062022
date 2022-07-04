@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 // Charts components
 import Activity from '../Charts_collection/Activity'
@@ -26,10 +26,25 @@ function Dashboard() {
           </section>
         </Col>
       </Row>
-      <Activity />
-      <SessionsDuration />
-      <ActivityType />
-      <Score />
+      <Container fluid className="charts-collection__wrapper">
+        <Row>
+          {/* <Col> */}
+          <Activity />
+          {/* </Col> */}
+        </Row>
+        <Row fluid>
+          <Col className="d-flex justify-content-center px-0">
+            <SessionsDuration />
+          </Col>
+          <Col className="d-flex justify-content-center px-0">
+            <ActivityType />
+          </Col>
+          <Col className="d-flex justify-content-center px-0">
+            <Score />
+          </Col>
+        </Row>
+      </Container>
+
       <Calories />
       <Proteines />
       <Glucides />
