@@ -8,10 +8,10 @@ import ActivityType from '../Charts_collection/ActivityType'
 import Score from '../Charts_collection/Score'
 
 //Indicators
-import Calories from '../Calories'
-import Proteines from '../Proteines'
-import Glucides from '../Glucides'
-import Lipides from '../Lipides'
+import Calories from '../Counters_collection/Calories'
+import Proteines from '../Counters_collection/Proteines'
+import Glucides from '../Counters_collection/Glucides'
+import Lipides from '../Counters_collection/Lipides'
 
 function Dashboard() {
   return (

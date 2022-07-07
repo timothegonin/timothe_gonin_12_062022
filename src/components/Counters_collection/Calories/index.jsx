@@ -1,5 +1,5 @@
 import React from 'react'
-import Cal from '../../assets/icons/right-counters/calories-icon.svg'
+import Cal from '../../../assets/icons/right-counters/calories-icon.svg'
 
 function Calories() {
   return (
