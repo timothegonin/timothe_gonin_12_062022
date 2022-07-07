@@ -15,7 +15,7 @@ import Lipides from '../Lipides'
 
 function Dashboard() {
   return (
-    <main>
+    <main className="container">
       <Row className="w-100">
         <Col>
           <section className="my-5">
@@ -28,7 +28,7 @@ function Dashboard() {
       </Row>
       <Container
         fluid
-        className="d-flex flex-column align-items-center flex-xl-row justify-content-xl-between"
+        className="d-flex flex-column align-items-center flex-xl-row justify-content-xl-center"
       >
         <Col className="charts-collection__wrapper">
           <Row>
@@ -48,18 +48,17 @@ function Dashboard() {
             </Col>
           </Row>
         </Col>
-        <Col className="d-flex justify-content-evenly flex-wrap">
-          <Calories />
-          <Proteines />
-          <Glucides />
-          <Lipides />
-        </Col>
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-evenly flex-wrap">
+              <Calories />
+              <Proteines />
+              <Glucides />
+              <Lipides />
+            </Col>
+          </Row>
+        </Container>
       </Container>
-
-      {/* <Calories />
-      <Proteines />
-      <Glucides />
-      <Lipides /> */}
     </main>
   )
 }
