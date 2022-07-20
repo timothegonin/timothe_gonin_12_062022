@@ -1,5 +1,5 @@
 import React from 'react'
-import Glu from '../../assets/icons/right-counters/glucides-icon.svg'
+import Glu from '../../../assets/icons/right-counters/glucides-icon.svg'
 
 function Glucides() {
   return (

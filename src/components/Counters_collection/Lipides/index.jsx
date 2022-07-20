@@ -1,5 +1,5 @@
 import React from 'react'
-import Lip from '../../assets/icons/right-counters/lipides-icon.svg'
+import Lip from '../../../assets/icons/right-counters/lipides-icon.svg'
 
 function Lipides() {
   return (

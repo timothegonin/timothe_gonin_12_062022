@@ -1,5 +1,5 @@
 import React from 'react'
-import Prot from '../../assets/icons/right-counters/proteines-icon.svg'
+import Prot from '../../../assets/icons/right-counters/proteines-icon.svg'
 
 function Proteines() {
   return (

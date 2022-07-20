@@ -1,18 +1,21 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
-import Weight from '../Weight'
-import Goals from '../Goals'
-import Radar from '../Radar'
-import KPI from '../KPI'
-import Calories from '../Calories'
-import Proteines from '../Proteines'
-import Glucides from '../Glucides'
-import Lipides from '../Lipides'
+// Charts components
+import Activity from '../Charts_collection/Activity'
+import SessionsDuration from '../Charts_collection/SessionsDuration'
+import ActivityType from '../Charts_collection/ActivityType'
+import Score from '../Charts_collection/Score'
+
+//Indicators
+import Calories from '../Counters_collection/Calories'
+import Proteines from '../Counters_collection/Proteines'
+import Glucides from '../Counters_collection/Glucides'
+import Lipides from '../Counters_collection/Lipides'
 
 function Dashboard() {
   return (
-    <main>
+    <main className="container">
       <Row className="w-100">
         <Col>
           <section className="my-5">
@@ -23,14 +26,39 @@ function Dashboard() {
           </section>
         </Col>
       </Row>
-      <Weight />
-      <Goals />
-      <Radar />
-      <KPI />
-      <Calories />
-      <Proteines />
-      <Glucides />
-      <Lipides />
+      <Container
+        fluid
+        className="d-flex flex-column align-items-center flex-xl-row justify-content-xl-center"
+      >
+        <Col className="charts-collection__wrapper">
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <Activity />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center px-0">
+              <SessionsDuration />
+            </Col>
+            <Col className="d-flex justify-content-center px-0">
+              <ActivityType />
+            </Col>
+            <Col className="d-flex justify-content-center px-0">
+              <Score />
+            </Col>
+          </Row>
+        </Col>
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-evenly flex-wrap">
+              <Calories />
+              <Proteines />
+              <Glucides />
+              <Lipides />
+            </Col>
+          </Row>
+        </Container>
+      </Container>
     </main>
   )
 }
