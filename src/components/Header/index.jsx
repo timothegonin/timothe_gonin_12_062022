@@ -52,10 +52,12 @@ const LogoWrapper = styled(Navbar.Brand)`
     margin-left: 8px;
     font-weight: 400;
     font-size: 24px;
+    letter-spacing: 1px;
   }
 `
 
 const NavLink = styled(Nav.Link)`
+  letter-spacing: 1px;
   font-weight: 400;
   font-size: 24px;
   color: white !important;

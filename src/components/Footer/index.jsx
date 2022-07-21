@@ -22,5 +22,6 @@ const FooterWrapper = styled.footer`
     writing-mode: vertical-rl;
     text-orientation: sideways-right;
     font-size: 12px;
+    letter-spacing: 1px;
   }
 `
