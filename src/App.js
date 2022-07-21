@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 
 import Header from './components/Header'
-// import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard'
 import Sidebar from './components/Sidebar'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <Container fluid className="App px-0">
       <Header />
       <Sidebar />
-      {/* <Dashboard /> */}
+      <Dashboard />
     </Container>
   )
 }

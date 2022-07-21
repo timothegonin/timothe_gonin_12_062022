@@ -1,4 +1,4 @@
-import React from 'react'
+import styled from 'styled-components'
 import {
   LineChart,
   Line,
@@ -65,12 +65,17 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 export default function SessionsDuration() {
   return (
-    <div className="sessionDuration__container">
-      <div className="sessionDuration__info">
+    <SessionsDurationWrapper>
+      <SessionDurationInfo className="sessionDuration__info">
         <p>Durée moyenne des sessions</p>
-      </div>
+      </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
           data={data}
@@ -104,6 +109,26 @@ export default function SessionsDuration() {
           />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </SessionsDurationWrapper>
   )
 }
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const SessionsDurationWrapper = styled.div`
+  background: red;
+  border-radius: 5px;
+  height: 263px;
+  width: 258px;
+`
+const SessionDurationInfo = styled.div`
+  max-width: 150px;
+  padding-top: 29px;
+  padding-left: 34px;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(255, 255, 0255, 0.5);
+`

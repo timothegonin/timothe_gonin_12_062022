@@ -132,23 +132,6 @@
   }
 }
 
-.sessionDuration {
-  &__container {
-    background: $primary;
-    border-radius: 5px;
-    height: 263px;
-    width: 258px;
-  }
-  &__info {
-    max-width: 150px;
-    padding-top: 29px;
-    padding-left: 34px;
-    font-weight: 500;
-    font-size: 15px;
-    color: rgba(255, 255, 0255, 0.5);
-  }
-}
-
 .custom-tooltip {
   background: white;
   .label {
