@@ -1,55 +1,39 @@
-import React from 'react'
 import styled from 'styled-components'
 import ListGroup from 'react-bootstrap/ListGroup'
-// import Button from 'react-bootstrap/Button'
-import SquareButton from '../SquareButton'
-import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
-import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
-import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
-import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
+import Button from 'react-bootstrap/Button'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-
-function Sidebar() {
+function SquareButton(props) {
   return (
-    <SideBarWrapper className="bg-secondary">
-      <nav>
-        <ListGroup className="justify-content-between">
-          <SquareButton icon={YogaIcon} alt="Yoga icon" />
-          <SquareButton icon={SwimIcon} alt="Swin icon" />
-          <SquareButton icon={BikeIcon} alt="Bike icon" />
-          <SquareButton icon={Dumbbell} alt="Dumbbel icon" />
-        </ListGroup>
-      </nav>
-      {/* <footer>
-        <p className="copiryght text-light mb-0">Copiryght, SportSee 2020</p>
-      </footer> */}
-    </SideBarWrapper>
+    <ButtonWrapper>
+      <Button variant="light">
+        <img src={props.icon} alt={props.alt} />
+      </Button>{' '}
+    </ButtonWrapper>
   )
 }
 
-export default Sidebar
+export default SquareButton
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const SideBarWrapper = styled.aside`
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-  padding-top: 84px;
-  width: 117px;
-
-  nav {
-    height: 316px;
+const ButtonWrapper = styled(ListGroup.Item)`
+  height: 64px;
+  width: 64px;
+  border-radius: 6px;
+  &:hover {
+    cursor: pointer;
+  }
+  button {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
   }
