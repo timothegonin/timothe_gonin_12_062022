@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 
@@ -7,10 +8,16 @@ import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
 import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
 import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
 function Sidebar() {
   return (
-    <aside className="sidebar col-1 bg-secondary d-flex flex-column align-items-center justify-content-end p-0">
-      <nav className="sidebar__nav d-flex">
+    <SideBarWrapper className="bg-secondary">
+      <nav>
         <ListGroup className="justify-content-between">
           <ListGroup.Item className="p-0 rounded">
             <Button className="sidebar__button rounded" variant="light">
@@ -34,11 +41,32 @@ function Sidebar() {
           </ListGroup.Item>
         </ListGroup>
       </nav>
-      <footer>
+      {/* <footer>
         <p className="copiryght text-light mb-0">Copiryght, SportSee 2020</p>
-      </footer>
-    </aside>
+      </footer> */}
+    </SideBarWrapper>
   )
 }
 
 export default Sidebar
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const SideBarWrapper = styled.aside`
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  padding-top: 84px;
+  width: 117px;
+
+  nav {
+    height: 316px;
+    display: flex;
+    justify-content: center;
+  }
+`

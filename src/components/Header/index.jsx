@@ -1,10 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Logo from '../../assets/logo.svg'
 
 function Header() {
   return (
-    <Navbar
+    <HeaderWrapper
       bg="secondary"
       className="d-flex justify-content-between px-0"
       expand="md"
@@ -36,8 +37,12 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </HeaderWrapper>
   )
 }
 
 export default Header
+
+const HeaderWrapper = styled(Navbar)`
+  z-index: 999;
+`
