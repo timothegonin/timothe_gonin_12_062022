@@ -47,10 +47,14 @@ const SideBarWrapper = styled.aside`
   z-index: 998;
   padding-top: 84px;
   width: 117px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   nav {
     height: 316px;
     display: flex;
     justify-content: center;
+    margin-bottom: 164px;
   }
 `
