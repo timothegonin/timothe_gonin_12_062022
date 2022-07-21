@@ -8,6 +8,8 @@ import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
 import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
 import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
 
+import Footer from '../Footer'
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
@@ -25,9 +27,7 @@ function Sidebar() {
           <SquareButton icon={Dumbbell} alt="Dumbbel icon" />
         </ListGroup>
       </nav>
-      {/* <footer>
-        <p className="copiryght text-light mb-0">Copiryght, SportSee 2020</p>
-      </footer> */}
+      <Footer />
     </SideBarWrapper>
   )
 }
