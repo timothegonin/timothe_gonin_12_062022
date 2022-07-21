@@ -1,39 +1,29 @@
-import React from 'react'
 import styled from 'styled-components'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Logo from '../../assets/logo.svg'
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 function Header() {
   return (
-    <HeaderWrapper
-      bg="secondary"
-      className="d-flex justify-content-between px-0"
-      expand="md"
-      variant="dark"
-    >
+    <HeaderWrapper bg="secondary" expand="md" variant="dark">
       <Container className="m-0 px-4" fluid>
-        <Navbar.Brand href="/" className="m-0 d-flex align-items-center">
-          <img alt="" src={Logo} />{' '}
-          <span className="text-primary ms-2">SportSee</span>
-        </Navbar.Brand>
+        <LogoWrapper href="/">
+          <img alt="" src={Logo} /> <span>SportSee</span>
+        </LogoWrapper>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           id="basic-navbar-nav"
           className="justify-content-center"
         >
           <Nav className="w-100 d-flex justify-content-around text-primary">
-            <Nav.Link href="/" className="nav-bar__link text-light">
-              Accueil
-            </Nav.Link>
-            <Nav.Link href="/" className="nav-bar__link text-light ">
-              Profil
-            </Nav.Link>
-            <Nav.Link href="/" className="nav-bar__link text-light ">
-              Réglage
-            </Nav.Link>
-            <Nav.Link href="/" className="nav-bar__link text-light ">
-              Communauté
-            </Nav.Link>
+            <NavLink href="/">Accueil</NavLink>
+            <NavLink href="/">Profil</NavLink>
+            <NavLink href="/">Réglage</NavLink>
+            <NavLink href="/">Communauté</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -43,6 +33,30 @@ function Header() {
 
 export default Header
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const HeaderWrapper = styled(Navbar)`
+  display: flex;
+  justify-content: space-between;
   z-index: 999;
+`
+const LogoWrapper = styled(Navbar.Brand)`
+  margin: 0;
+  display: flex;
+  align-items: center;
+  span {
+    color: #ff0000;
+    margin-left: 8px;
+    font-weight: 400;
+    font-size: 24px;
+  }
+`
+
+const NavLink = styled(Nav.Link)`
+  font-weight: 400;
+  font-size: 24px;
+  color: white !important;
 `
