@@ -1,4 +1,4 @@
-import React from 'react'
+import styled from 'styled-components'
 import {
   Radar,
   RadarChart,
@@ -46,17 +46,16 @@ const data = [
   },
 ]
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 export default function ActivityTye() {
   return (
-    <div className="charts__content--small">
+    <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart
-          outerRadius={90}
-          width={200}
-          height={200}
-          data={data}
-          className="radar__container"
-        >
+        <RadarChart outerRadius={90} width={200} height={200} data={data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="subject"
@@ -77,6 +76,20 @@ export default function ActivityTye() {
           />
         </RadarChart>
       </ResponsiveContainer>
-    </div>
+    </ActivityTypeWrapper>
   )
 }
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
+const ActivityTypeWrapper = styled.div`
+  border-radius: 5px;
+  height: 263px;
+  width: 258px;
+  background: #282d30;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+`
