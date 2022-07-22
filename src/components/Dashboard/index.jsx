@@ -7,11 +7,8 @@ import SessionsDuration from '../Charts_collection/SessionsDuration'
 import ActivityType from '../Charts_collection/ActivityType'
 import Score from '../Charts_collection/Score'
 
-//Indicators
-import Calories from '../Counters_collection/Calories'
-import Proteines from '../Counters_collection/Proteines'
-import Glucides from '../Counters_collection/Glucides'
-import Lipides from '../Counters_collection/Lipides'
+//Counters
+import Counters from '../Counters'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -46,12 +43,9 @@ function Dashboard() {
             <Score />
           </ChartsGroup>
         </Container>
-        <CounterCards>
-          <Calories />
-          <Proteines />
-          <Glucides />
-          <Lipides />
-        </CounterCards>
+        <CountersWrapper>
+          <Counters />
+        </CountersWrapper>
       </section>
     </MainWrapper>
   )
@@ -77,7 +71,7 @@ const ChartsGroup = styled(Row)`
   display: flex;
   justify-content: space-between;
 `
-const CounterCards = styled(Container)`
+const CountersWrapper = styled(Container)`
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
