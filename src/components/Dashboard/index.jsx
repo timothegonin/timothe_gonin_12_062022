@@ -119,4 +119,10 @@ const CounterWrapper = styled(Col)`
   flex-wrap: wrap;
   min-height: 280px;
   max-width: 835px;
+  @media screen and (min-width: 1395px) {
+    max-width: 258px;
+    justify-content: flex-end;
+    align-content: space-between;
+    margin: 0;
+  }
 `
