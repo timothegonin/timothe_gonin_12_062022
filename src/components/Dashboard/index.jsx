@@ -31,7 +31,7 @@ function Dashboard() {
         </Container>
       </section>
       <section>
-        <Container fluid className="bg-success mx-0">
+        <ContentWrapper fluid className="bg-success mx-0">
           <Row className="d-flex justify-content-center">
             <ChartsWrapper>
               <Row>
@@ -45,7 +45,7 @@ function Dashboard() {
               <Counters />
             </CounterWrapper>
           </Row>
-        </Container>
+        </ContentWrapper>
         {/* <Container fluid>
           <Row>
             <Col>
@@ -78,8 +78,13 @@ const MainWrapper = styled.main`
   padding: 0 90px;
   @media screen and (max-width: 1155px) {
     padding: 0 16px;
+    max-width: 1126px;
   }
 `
+const ContentWrapper = styled(Container)`
+  max-width: 1126px;
+`
+
 // const ChartsGroup = styled(Row)`
 //   max-width: 835px;
 //   margin: 10px 0;
