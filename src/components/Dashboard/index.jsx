@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
-// // Charts components
-// import Activity from '../Charts_collection/Activity'
-// import SessionsDuration from '../Charts_collection/SessionsDuration'
-// import ActivityType from '../Charts_collection/ActivityType'
-// import Score from '../Charts_collection/Score'
+// Charts components
+import Activity from '../Charts_collection/Activity'
+import SessionsDuration from '../Charts_collection/SessionsDuration'
+import ActivityType from '../Charts_collection/ActivityType'
+import Score from '../Charts_collection/Score'
 
-// //Counters
+//Counters
 import Counters from '../Counters'
 
 /* 
@@ -35,10 +35,16 @@ function Dashboard() {
           <Row className="d-flex justify-content-center">
             <ChartsWrapper>
               <Row>
-                <ChartFullSize className="bg-danger"></ChartFullSize>
+                <ChartFullSize className="bg-danger">
+                  <Activity />
+                </ChartFullSize>
               </Row>
               <Row>
-                <ChartsGroup className="bg-info"></ChartsGroup>
+                <ChartsGroup className="bg-info">
+                  <SessionsDuration />
+                  <ActivityType />
+                  <Score />
+                </ChartsGroup>
               </Row>
             </ChartsWrapper>
             <CounterWrapper className="bg-warning">
@@ -85,12 +91,14 @@ const ContentWrapper = styled(Container)`
   max-width: 1126px;
 `
 
-// const ChartsGroup = styled(Row)`
-//   max-width: 835px;
-//   margin: 10px 0;
-//   display: flex;
-//   justify-content: space-between;
-// `
+const ChartsGroup = styled(Col)`
+  max-width: 835px;
+  height: 265px;
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+`
 // const CountersWrapper = styled(Container)`
 //   margin: 10px 0;
 //   display: flex;
@@ -107,13 +115,15 @@ const ChartsWrapper = styled(Container)`
   justify-content: space-between;
 `
 const ChartFullSize = styled(Col)`
-  height: 320px;
+  margin: 0;
+  padding: 0;
+  /* height: 320px; */
   /* width: 835px; */
 `
-const ChartsGroup = styled(Col)`
-  height: 265px;
-  /* width: 835px; */
-`
+// const ChartsGroup = styled(Col)`
+//   height: 265px;
+//   /* width: 835px; */
+// `
 const CounterWrapper = styled(Col)`
   /* margin-left: 30px; */
   padding: 0;
@@ -121,6 +131,7 @@ const CounterWrapper = styled(Col)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: space-between;
   flex-wrap: wrap;
   min-height: 280px;
   max-width: 835px;
