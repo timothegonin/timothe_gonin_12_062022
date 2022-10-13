@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import {
   BarChart,
   Bar,
@@ -85,15 +87,20 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 export default function Activity() {
   return (
-    <div className="charts__content">
-      <div className="activity__container">
-        <div className="activity__info">
-          <div className="activity__title ms-4">
+    <ActivityWrapper>
+      <ActivityContainer>
+        <ActivityInfo>
+          <ActivityTitle className="ms-4">
             <p className="m-0">Activité quotidienne</p>
-          </div>
-          <div class="activity__legend">
+          </ActivityTitle>
+          <ActivityLegend>
             <div className="d-flex align-items-center me-4">
               <span className="point point--black me-2"></span>
               <p className="m-0">Poids(kg)</p>
@@ -102,8 +109,8 @@ export default function Activity() {
               <span className="point point--red me-2"></span>
               <p className="m-0">Calories brûlées (kCal)</p>
             </div>
-          </div>
-        </div>
+          </ActivityLegend>
+        </ActivityInfo>
         <ResponsiveContainer width="100%" height="80%">
           <BarChart
             width={500}
@@ -143,7 +150,63 @@ export default function Activity() {
             <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
-      </div>
-    </div>
+      </ActivityContainer>
+    </ActivityWrapper>
   )
 }
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const ActivityWrapper = styled.div`
+  height: 320px;
+  max-width: 835px;
+`
+
+const ActivityContainer = styled.div`
+  border-radius: 5px;
+  background: #fbfbfb;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const ActivityInfo = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
+
+const ActivityTitle = styled.div`
+  p {
+    color: #20253a;
+    font-weight: 700;
+    font-size: 15px;
+  }
+`
+const ActivityLegend = styled.div`
+  display: flex;
+  justify-content: space-between;
+  p {
+    color: #74798c;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .point {
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    &--black {
+      background-color: #282d30;
+    }
+    &--red {
+      background-color: #e60000;
+    }
+  }
+`
