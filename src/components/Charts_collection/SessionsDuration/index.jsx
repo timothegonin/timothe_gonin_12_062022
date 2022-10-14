@@ -56,9 +56,9 @@ const data = [
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
+      <SessionDurationTooltip className="custom-tooltip">
         <p className="label">{`${payload[0].value}`}</p>
-      </div>
+      </SessionDurationTooltip>
     )
   }
 
@@ -131,4 +131,12 @@ const SessionDurationInfo = styled.div`
   font-weight: 500;
   font-size: 15px;
   color: rgba(255, 255, 0255, 0.5);
+`
+const SessionDurationTooltip = styled.div`
+  background: white;
+  .label {
+    padding: 7px;
+    font-weight: 500;
+    font-size: 8px;
+  }
 `

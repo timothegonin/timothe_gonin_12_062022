@@ -77,10 +77,10 @@ const data = [
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip--activity">
+      <ActivityTooltip>
         <p className="label">{`${payload[0].value}`}</p>
         <p className="label">{`${payload[1].value}`}</p>
-      </div>
+      </ActivityTooltip>
     )
   }
 
@@ -208,5 +208,14 @@ const ActivityLegend = styled.div`
     &--red {
       background-color: #e60000;
     }
+  }
+`
+const ActivityTooltip = styled.div`
+  background-color: #e60000;
+  .label {
+    color: white;
+    font-weight: 500;
+    font-size: 7px;
+    padding: 7px 10px;
   }
 `
