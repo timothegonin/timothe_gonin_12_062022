@@ -14,7 +14,7 @@ import Lip from '../../assets/icons/right-counters/lipides-icon.svg'
 function Counters() {
   return (
     <React.Fragment>
-      <CounterCard className="d-flex align-items-center border">
+      <CounterCard className="d-flex align-items-center ">
         <figure className="d-flex justify-content-center align-items-center">
           <img src={Cal} alt="Calories" />
         </figure>
@@ -23,7 +23,7 @@ function Counters() {
           <p className="m-0">Calories</p>
         </div>
       </CounterCard>
-      <CounterCard className="d-flex align-items-center border">
+      <CounterCard className="d-flex align-items-center ">
         <figure className="d-flex justify-content-center align-items-center">
           <img src={Prot} alt="Proteines" />
         </figure>
@@ -32,7 +32,7 @@ function Counters() {
           <p className="m-0">Proteines</p>
         </div>
       </CounterCard>
-      <CounterCard className="d-flex align-items-center border">
+      <CounterCard className="d-flex align-items-center ">
         <figure className="d-flex justify-content-center align-items-center">
           <img src={Glu} alt="Glucides" />
         </figure>
@@ -41,7 +41,7 @@ function Counters() {
           <p className="m-0">Glucides</p>
         </div>
       </CounterCard>
-      <CounterCard className="d-flex align-items-center border">
+      <CounterCard className="d-flex align-items-center ">
         <figure className="d-flex justify-content-center align-items-center">
           <img src={Lip} alt="Lipides" />
         </figure>

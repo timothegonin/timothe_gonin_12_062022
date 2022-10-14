@@ -55,8 +55,18 @@ export default function ActivityTye() {
   return (
     <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart outerRadius={90} width={200} height={200} data={data}>
-          <PolarGrid radialLines={false} />
+        <RadarChart
+          outerRadius={90}
+          width={200}
+          height={200}
+          data={data}
+          strokeWidth="1.2px"
+        >
+          <PolarGrid
+            radialLines={false}
+            polarRadius={[70, 50, 25, 12]}
+            strokeWidth="1.2px"
+          />
           <PolarAngleAxis
             dataKey="subject"
             dy={4}
