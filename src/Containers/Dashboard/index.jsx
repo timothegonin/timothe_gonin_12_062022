@@ -2,13 +2,13 @@ import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
 // Charts components
-import Activity from '../Charts_collection/Activity'
-import SessionsDuration from '../Charts_collection/SessionsDuration'
-import ActivityType from '../Charts_collection/ActivityType'
-import Score from '../Charts_collection/Score'
+import Activity from '../../components/Charts_collection/Activity'
+import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
+import ActivityType from '../../components/Charts_collection/ActivityType'
+import Score from '../../components/Charts_collection/Score'
 
 //Counters
-import Counters from '../Counters'
+import Counters from '../../components/Counters'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
