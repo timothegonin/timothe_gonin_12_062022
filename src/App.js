@@ -1,5 +1,7 @@
 import { Container } from 'react-bootstrap'
 
+import UserContextProvider from './Context/UserContext'
+
 import Header from './Containers/Header'
 import Dashboard from './Containers/Dashboard'
 import Sidebar from './Containers/Sidebar'
@@ -7,9 +9,11 @@ import Sidebar from './Containers/Sidebar'
 function App() {
   return (
     <Container fluid className="App px-0">
-      <Header />
-      <Sidebar />
-      <Dashboard />
+      <UserContextProvider>
+        <Header />
+        <Sidebar />
+        <Dashboard />
+      </UserContextProvider>
     </Container>
   )
 }

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Col } from 'react-bootstrap'
+import { UserContext } from '../../Context/UserContext'
 
 const HelloUser = () => {
+  const { user } = useContext(UserContext)
+
   return (
     <Col>
       <h1>
-        Bonjour <span className="text-primary">Thomas</span>
+        Bonjour <span className="text-primary">{user}</span>
       </h1>
       <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
     </Col>
