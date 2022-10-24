@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap'
 
-import UserContextProvider from './Context/UserContext'
+import UserContextProvider from './utils/context/UserContext'
 
 import Header from './Containers/Header'
 import Dashboard from './Containers/Dashboard'

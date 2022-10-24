@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Col } from 'react-bootstrap'
-import { UserContext } from '../../Context/UserContext'
+import { UserContext } from '../../utils/context/UserContext'
 
 const HelloUser = () => {
   const { user } = useContext(UserContext)
