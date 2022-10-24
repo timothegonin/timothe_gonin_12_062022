@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import Cal from '../../assets/icons/right-counters/calories-icon.svg'
@@ -6,12 +6,20 @@ import Prot from '../../assets/icons/right-counters/proteines-icon.svg'
 import Glu from '../../assets/icons/right-counters/glucides-icon.svg'
 import Lip from '../../assets/icons/right-counters/lipides-icon.svg'
 
+import { UserContext } from '../../utils/context/UserContext'
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Counters() {
+  const { users } = useContext(UserContext)
+  const userCaloriesCount = users.calorieCount
+  const userProteinCount = users.proteinCount
+  const userCarbohydrateCount = users.carbohydrateCount
+  const userLipidCount = users.lipidCount
+
   return (
     <React.Fragment>
       <CounterCard className="d-flex align-items-center ">
@@ -19,7 +27,7 @@ function Counters() {
           <img src={Cal} alt="Calories" />
         </figure>
         <div>
-          <span>1.930kCal</span>
+          <span>{`${userCaloriesCount}kCal`}</span>
           <p className="m-0">Calories</p>
         </div>
       </CounterCard>
@@ -28,7 +36,7 @@ function Counters() {
           <img src={Prot} alt="Proteines" />
         </figure>
         <div>
-          <span>155g</span>
+          <span>{`${userProteinCount}g`}</span>
           <p className="m-0">Proteines</p>
         </div>
       </CounterCard>
@@ -37,7 +45,7 @@ function Counters() {
           <img src={Glu} alt="Glucides" />
         </figure>
         <div>
-          <span>290g</span>
+          <span>{`${userCarbohydrateCount}g`}</span>
           <p className="m-0">Glucides</p>
         </div>
       </CounterCard>
@@ -46,7 +54,7 @@ function Counters() {
           <img src={Lip} alt="Lipides" />
         </figure>
         <div>
-          <span>50g</span>
+          <span>{`${userLipidCount}g`}</span>
           <p className="m-0">Lipides</p>
         </div>
       </CounterCard>

@@ -17,16 +17,16 @@ export class User {
   get todayScore() {
     return this._todayScore
   }
-  get caloriesCount() {
-    return this._keyData.caloriesCount
+  get calorieCount() {
+    return this._keyData.calorieCount
   }
   get proteinCount() {
     return this._keyData.proteinCount
   }
-  get carbonhydrateCount() {
-    return this._keyData.carbonhydrateCount
+  get carbohydrateCount() {
+    return this._keyData.carbohydrateCount
   }
-  get lipidcount() {
+  get lipidCount() {
     return this._keyData.lipidCount
   }
 }
