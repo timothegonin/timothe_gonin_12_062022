@@ -3,12 +3,12 @@ import { Col } from 'react-bootstrap'
 import { UserContext } from '../../utils/context/UserContext'
 
 const HelloUser = () => {
-  const { user } = useContext(UserContext)
+  const { users } = useContext(UserContext)
 
   return (
     <Col>
       <h1>
-        Bonjour <span className="text-primary">{user}</span>
+        Bonjour <span className="text-primary">{users.firstName}</span>
       </h1>
       <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
     </Col>

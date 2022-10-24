@@ -1,6 +1,6 @@
 import { USER_MAIN_DATA } from '../data-MOCKED'
 
-class User {
+export class User {
   constructor(data) {
     this._id = data.id
     this._userInfos = data.userInfos
