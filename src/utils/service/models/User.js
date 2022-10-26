@@ -1,4 +1,4 @@
-import { USER_MAIN_DATA } from '../data-MOCKED'
+// import { USER_MAIN_DATA } from '../data-MOCKED'
 
 export class User {
   constructor(data) {
