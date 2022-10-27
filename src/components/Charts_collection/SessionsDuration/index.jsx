@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
 import {
   LineChart,
@@ -7,70 +8,64 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-
-const data = [
-  {
-    name: 'L',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'M',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'M',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'J',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'V',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'S',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'D',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-]
-
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <SessionDurationTooltip className="custom-tooltip">
-        <p className="label">{`${payload[0].value}`}</p>
-      </SessionDurationTooltip>
-    )
-  }
-
-  return null
-}
+import { UserContext } from '../../../utils/context/UserContext'
 
 /* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ JSX                                                                     │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
+┌─────────────────────────────────────────────────────────────────────────┐
+│ JSX                                                                     │
+└─────────────────────────────────────────────────────────────────────────┘
+*/
 export default function SessionsDuration() {
+  const { users } = useContext(UserContext)
+  const { averageSessions } = useContext(UserContext)
+
+  //TOOLTIP
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <SessionDurationTooltip className="custom-tooltip">
+          <p className="label">{`${payload[0].value}`}</p>
+        </SessionDurationTooltip>
+      )
+    }
+
+    return null
+  }
+
+  //LINE CHART DATA
+  // const data = [
+  //   {
+  //     dayFirstLetter: 'L',
+  //     daySessionLength: 2400,
+  //   },
+  //   {
+  //     dayFirstLetter: 'M',
+  //     daySessionLength: 1398,
+  //   },
+  //   {
+  //     dayFirstLetter: 'M',
+  //     daySessionLength: 9800,
+  //   },
+  //   {
+  //     dayFirstLetter: 'J',
+  //     daySessionLength: 3908,
+  //   },
+  //   {
+  //     dayFirstLetter: 'V',
+  //     daySessionLength: 4800,
+  //   },
+  //   {
+  //     dayFirstLetter: 'S',
+  //     daySessionLength: 3800,
+  //   },
+  //   {
+  //     dayFirstLetter: 'D',
+  //     daySessionLength: 4300,
+  //   },
+  // ]
+
+  const dataLoop = averageSessions._userSessions
+
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">
@@ -78,7 +73,7 @@ export default function SessionsDuration() {
       </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
-          data={data}
+          data={dataLoop}
           margin={{
             top: 15,
             right: 20,
@@ -87,7 +82,7 @@ export default function SessionsDuration() {
           }}
         >
           <XAxis
-            dataKey="name"
+            dataKey="day"
             stroke="rgba(255, 255, 255, 0.5)"
             fontSize={12}
             axisLine={false}
@@ -97,7 +92,7 @@ export default function SessionsDuration() {
           <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
-            dataKey="pv"
+            dataKey="sessionLength"
             stroke="#fff"
             strokeWidth={2}
             dot={false}
