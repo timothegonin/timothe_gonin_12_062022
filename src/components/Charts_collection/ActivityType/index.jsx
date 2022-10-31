@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
 import {
   Radar,
@@ -6,45 +7,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts'
-
-const data = [
-  {
-    subject: 'Intensité',
-    A: 120,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    subject: 'Vitesse',
-    A: 98,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Force',
-    A: 86,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Endurance',
-    A: 99,
-    B: 100,
-    fullMark: 150,
-  },
-  {
-    subject: 'Energie',
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    subject: 'Cardio',
-    A: 65,
-    B: 85,
-    fullMark: 150,
-  },
-]
+import { UserContext } from '../../../utils/context/UserContext'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -52,6 +15,8 @@ const data = [
   └─────────────────────────────────────────────────────────────────────────┘
  */
 export default function ActivityTye() {
+  const { activityType } = useContext(UserContext)
+
   return (
     <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
@@ -59,7 +24,7 @@ export default function ActivityTye() {
           outerRadius={90}
           width={200}
           height={200}
-          data={data}
+          data={activityType.userActivityType}
           strokeWidth="1.2px"
         >
           <PolarGrid
@@ -68,7 +33,7 @@ export default function ActivityTye() {
             strokeWidth="1.2px"
           />
           <PolarAngleAxis
-            dataKey="subject"
+            dataKey="kind"
             dy={4}
             stroke="white"
             style={{
@@ -78,8 +43,7 @@ export default function ActivityTye() {
             tickLine={false}
           />
           <Radar
-            name="Mike"
-            dataKey="A"
+            dataKey="value"
             stroke="#FF0101"
             fill="#FF0101"
             fillOpacity={0.6}
