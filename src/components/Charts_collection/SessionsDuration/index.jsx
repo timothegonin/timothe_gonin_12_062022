@@ -16,7 +16,7 @@ import { UserContext } from '../../../utils/context/UserContext'
 └─────────────────────────────────────────────────────────────────────────┘
 */
 export default function SessionsDuration() {
-  const { users } = useContext(UserContext)
+  // const { users } = useContext(UserContext)
   const { averageSessions } = useContext(UserContext)
 
   //TOOLTIP
@@ -32,40 +32,6 @@ export default function SessionsDuration() {
     return null
   }
 
-  //LINE CHART DATA
-  // const data = [
-  //   {
-  //     dayFirstLetter: 'L',
-  //     daySessionLength: 2400,
-  //   },
-  //   {
-  //     dayFirstLetter: 'M',
-  //     daySessionLength: 1398,
-  //   },
-  //   {
-  //     dayFirstLetter: 'M',
-  //     daySessionLength: 9800,
-  //   },
-  //   {
-  //     dayFirstLetter: 'J',
-  //     daySessionLength: 3908,
-  //   },
-  //   {
-  //     dayFirstLetter: 'V',
-  //     daySessionLength: 4800,
-  //   },
-  //   {
-  //     dayFirstLetter: 'S',
-  //     daySessionLength: 3800,
-  //   },
-  //   {
-  //     dayFirstLetter: 'D',
-  //     daySessionLength: 4300,
-  //   },
-  // ]
-
-  const dataLoop = averageSessions._userSessions
-
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">
@@ -73,7 +39,7 @@ export default function SessionsDuration() {
       </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
-          data={dataLoop}
+          data={averageSessions.userSessions}
           margin={{
             top: 15,
             right: 20,

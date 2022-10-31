@@ -1,4 +1,4 @@
-// import { USER_MAIN_DATA } from '../data-MOCKED'
+// import { USER_AVERAGE_SESSIONS } from '../data-MOCKED'
 
 export class UserAverageSessions {
   constructor(data) {
@@ -9,10 +9,17 @@ export class UserAverageSessions {
   get id() {
     return this._id
   }
-  get userSessionDay() {
-    return this._userSessions.day
-  }
-  get userSessionLength() {
-    return this._userSessions.sessionLength
+  get userSessions() {
+    const userSessions = []
+    const daysFirstLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+    this._userSessions.forEach((session, index) => {
+      const sessionData = {
+        day: daysFirstLetter[index],
+        sessionLength: session.sessionLength,
+      }
+      userSessions.push(sessionData)
+    })
+    return userSessions
   }
 }
