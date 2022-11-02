@@ -1,11 +1,16 @@
 import styled from 'styled-components'
-import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts'
+import {
+  RadialBarChart,
+  RadialBar,
+  ResponsiveContainer,
+  PolarAngleAxis,
+} from 'recharts'
 
 const data = [
   {
     name: '18-24',
-    uv: 31.47,
-    pv: 90,
+    uv: 90,
+    // pv: 21,
     fill: '#FF0000',
   },
 ]
@@ -28,13 +33,13 @@ export default function Score() {
           <RadialBarChart
             width={160}
             height={160}
-            startAngle={180}
-            endAngle={500}
             innerRadius={90}
             outerRadius={75}
             barSize={10}
             data={data}
+            transform="rotate(-90 0 0)"
           >
+            <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
             <RadialBar cornerRadius={50} dataKey="uv" />
           </RadialBarChart>
         </ResponsiveContainer>
