@@ -5,6 +5,7 @@ export class User {
     this._id = data.id
     this._userInfos = data.userInfos
     this._todayScore = data.todayScore
+    this._score = data.score
     this._keyData = data.keyData
   }
 
@@ -15,7 +16,7 @@ export class User {
     return this._userInfos.firstName
   }
   get todayScore() {
-    return this._todayScore
+    return this._todayScore ? this._todayScore : this._score
   }
   get calorieCount() {
     return this._keyData.calorieCount
