@@ -9,7 +9,16 @@ export class UserActivity {
   get id() {
     return this._id
   }
-  get sessions() {
-    return this._sessions
+  get userActivity() {
+    const userActivity = []
+    this._sessions.forEach((session, index) => {
+      const sessionData = {
+        day: index + 1,
+        kilogram: session.kilogram,
+        calories: session.calories,
+      }
+      userActivity.push(sessionData)
+    })
+    return userActivity
   }
 }

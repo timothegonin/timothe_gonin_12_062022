@@ -18,7 +18,6 @@ const UserContextProvider = (props) => {
   const averageSessions = new UserAverageSessions(USER_AVERAGE_SESSIONS[0])
   const activityType = new UserActivityType(USER_PERFORMANCE[0])
   const activity = new UserActivity(USER_ACTIVITY[1])
-  console.log(activity.sessions)
 
   return (
     <UserContext.Provider

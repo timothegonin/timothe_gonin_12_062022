@@ -55,7 +55,7 @@ export default function Activity() {
           <BarChart
             width={500}
             height={300}
-            data={activity.sessions}
+            data={activity.userActivity}
             margin={{
               top: 50,
               right: 30,
