@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
 import { UserContext } from '../../../utils/context/UserContext'
-
+import styled from 'styled-components'
 import {
   BarChart,
   Bar,

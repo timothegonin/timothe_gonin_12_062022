@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
 import {
   Radar,
@@ -7,7 +8,6 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts'
-import { UserContext } from '../../../utils/context/UserContext'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐

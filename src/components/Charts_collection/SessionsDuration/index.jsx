@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
 import {
   LineChart,
@@ -8,7 +9,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { UserContext } from '../../../utils/context/UserContext'
 
 /* 
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -16,7 +16,6 @@ import { UserContext } from '../../../utils/context/UserContext'
 └─────────────────────────────────────────────────────────────────────────┘
 */
 export default function SessionsDuration() {
-  // const { users } = useContext(UserContext)
   const { averageSessions } = useContext(UserContext)
 
   //TOOLTIP
