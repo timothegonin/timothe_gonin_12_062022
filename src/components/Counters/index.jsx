@@ -15,10 +15,10 @@ import { UserContext } from '../../utils/context/UserContext'
  */
 function Counters() {
   const { users } = useContext(UserContext)
-  const userCaloriesCount = users.calorieCount
-  const userProteinCount = users.proteinCount
-  const userCarbohydrateCount = users.carbohydrateCount
-  const userLipidCount = users.lipidCount
+  const userCaloriesCount = users.countersValues.userCaloriesCount
+  const userProteinCount = users.countersValues.userProteinCount
+  const userCarbohydrateCount = users.countersValues.userCarbohydrateCount
+  const userLipidCount = users.countersValues.userLipidCount
 
   return (
     <React.Fragment>

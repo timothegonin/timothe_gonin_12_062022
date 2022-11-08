@@ -17,7 +17,7 @@ const UserContextProvider = (props) => {
   const users = new User(USER_MAIN_DATA[0])
   const averageSessions = new UserAverageSessions(USER_AVERAGE_SESSIONS[0])
   const activityType = new UserActivityType(USER_PERFORMANCE[0])
-  const activity = new UserActivity(USER_ACTIVITY[1])
+  const activity = new UserActivity(USER_ACTIVITY[0])
 
   return (
     <UserContext.Provider
