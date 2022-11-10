@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './styles/scss/styles.scss'
-import GlobalStyles from './styles/GlobalStyles'
+import './utils/styles/scss/styles.scss'
+import GlobalStyles from './utils/styles/GlobalStyles'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 

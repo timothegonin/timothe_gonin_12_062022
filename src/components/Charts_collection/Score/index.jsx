@@ -1,14 +1,12 @@
+import { useContext } from 'react'
+import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
-import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts'
-
-const data = [
-  {
-    name: '18-24',
-    uv: 31.47,
-    pv: 90,
-    fill: '#FF0000',
-  },
-]
+import {
+  RadialBarChart,
+  RadialBar,
+  ResponsiveContainer,
+  PolarAngleAxis,
+} from 'recharts'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -16,26 +14,35 @@ const data = [
   └─────────────────────────────────────────────────────────────────────────┘
  */
 export default function Score() {
+  const { users } = useContext(UserContext)
+  const userPercentScore = users.todayScore * 100
+  const userPercentScoreChart = [{ value: userPercentScore }]
+
   return (
     <ScoreWrapper>
       <h3>Score</h3>
       <ScoreChartContent>
         <ScoreChartInfo>
-          <p className="score__percent">12%</p>
+          <p className="score__percent">{userPercentScore}%</p>
           <p>de votre objectif</p>
         </ScoreChartInfo>
         <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             width={160}
             height={160}
-            startAngle={180}
-            endAngle={500}
             innerRadius={90}
             outerRadius={75}
             barSize={10}
-            data={data}
+            data={userPercentScoreChart}
+            transform="rotate(-90 0 0)"
           >
-            <RadialBar cornerRadius={50} dataKey="uv" />
+            <PolarAngleAxis
+              type="number"
+              domain={[0, 100]}
+              tick={false}
+              fill="red"
+            />
+            <RadialBar cornerRadius={50} dataKey="value" fill="#FF0000" />
           </RadialBarChart>
         </ResponsiveContainer>
       </ScoreChartContent>

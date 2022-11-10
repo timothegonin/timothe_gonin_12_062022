@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
+// User's name
+import HelloUser from '../../components/HelloUser'
+
 // Charts components
 import Activity from '../../components/Charts_collection/Activity'
 import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
@@ -21,12 +24,7 @@ function Dashboard() {
       <section>
         <Container fluid>
           <Row className="my-5">
-            <Col>
-              <h1>
-                Bonjour <span className="text-primary">Thomas</span>
-              </h1>
-              <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
-            </Col>
+            <HelloUser />
           </Row>
         </Container>
       </section>
