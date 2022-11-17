@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import Cal from '../../assets/icons/right-counters/calories-icon.svg'
-import Prot from '../../assets/icons/right-counters/proteines-icon.svg'
-import Glu from '../../assets/icons/right-counters/glucides-icon.svg'
-import Lip from '../../assets/icons/right-counters/lipides-icon.svg'
+import CaloriesIcon from '../../assets/icons/right-counters/calories-icon.svg'
+import ProteinesIcon from '../../assets/icons/right-counters/proteines-icon.svg'
+import GlucidesIcon from '../../assets/icons/right-counters/glucides-icon.svg'
+import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
 
 import { UserContext } from '../../utils/context/UserContext'
 
@@ -15,49 +15,28 @@ import { UserContext } from '../../utils/context/UserContext'
  */
 function Counters() {
   const { users } = useContext(UserContext)
-  const userCaloriesCount = users.countersValues.userCaloriesCount
-  const userProteinCount = users.countersValues.userProteinCount
-  const userCarbohydrateCount = users.countersValues.userCarbohydrateCount
-  const userLipidCount = users.countersValues.userLipidCount
+  const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
+  const counterUnit = ['kCal', 'g', 'g', 'g']
+  const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
     <React.Fragment>
-      <CounterCard className="d-flex align-items-center ">
-        <figure className="d-flex justify-content-center align-items-center">
-          <img src={Cal} alt="Calories" />
-        </figure>
-        <div>
-          <span>{`${userCaloriesCount}kCal`}</span>
-          <p className="m-0">Calories</p>
-        </div>
-      </CounterCard>
-      <CounterCard className="d-flex align-items-center ">
-        <figure className="d-flex justify-content-center align-items-center">
-          <img src={Prot} alt="Proteines" />
-        </figure>
-        <div>
-          <span>{`${userProteinCount}g`}</span>
-          <p className="m-0">Proteines</p>
-        </div>
-      </CounterCard>
-      <CounterCard className="d-flex align-items-center ">
-        <figure className="d-flex justify-content-center align-items-center">
-          <img src={Glu} alt="Glucides" />
-        </figure>
-        <div>
-          <span>{`${userCarbohydrateCount}g`}</span>
-          <p className="m-0">Glucides</p>
-        </div>
-      </CounterCard>
-      <CounterCard className="d-flex align-items-center ">
-        <figure className="d-flex justify-content-center align-items-center">
-          <img src={Lip} alt="Lipides" />
-        </figure>
-        <div>
-          <span>{`${userLipidCount}g`}</span>
-          <p className="m-0">Lipides</p>
-        </div>
-      </CounterCard>
+      {Object.values(users.countersValues).map((value, index) => {
+        return (
+          <CounterCard
+            key={`counter-${index}`}
+            className="d-flex align-items-center "
+          >
+            <figure className="d-flex justify-content-center align-items-center">
+              <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
+            </figure>
+            <div>
+              <span>{`${value}${counterUnit[index]}`}</span>
+              <p className="m-0">{`${counterLabel[index]}`}</p>
+            </div>
+          </CounterCard>
+        )
+      })}
     </React.Fragment>
   )
 }
