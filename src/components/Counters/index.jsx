@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { Col } from 'react-bootstrap'
 
 import CaloriesIcon from '../../assets/icons/right-counters/calories-icon.svg'
 import ProteinesIcon from '../../assets/icons/right-counters/proteines-icon.svg'
@@ -20,7 +21,7 @@ function Counters() {
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <React.Fragment>
+    <CounterWrapper>
       {Object.values(users.countersValues).map((value, index) => {
         return (
           <CounterCard
@@ -37,7 +38,7 @@ function Counters() {
           </CounterCard>
         )
       })}
-    </React.Fragment>
+    </CounterWrapper>
   )
 }
 
@@ -48,6 +49,24 @@ export default Counters
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const CounterWrapper = styled(Col)`
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+  min-height: 280px;
+  max-width: 835px;
+  @media screen and (min-width: 1395px) {
+    max-width: 258px;
+    justify-content: flex-end;
+    align-content: space-between;
+    margin: 0;
+  }
+`
+
 const CounterCard = styled.div`
   height: 124px;
   width: 258px;

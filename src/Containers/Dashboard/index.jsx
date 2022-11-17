@@ -45,9 +45,7 @@ function Dashboard() {
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <CounterWrapper>
-              <Counters />
-            </CounterWrapper>
+            <Counters />
           </Row>
         </ContentWrapper>
       </section>
@@ -100,20 +98,20 @@ const ChartsGroup = styled(Col)`
   }
 `
 
-const CounterWrapper = styled(Col)`
-  padding: 0;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  min-height: 280px;
-  max-width: 835px;
-  @media screen and (min-width: 1395px) {
-    max-width: 258px;
-    justify-content: flex-end;
-    align-content: space-between;
-    margin: 0;
-  }
-`
+// const CounterWrapper = styled(Col)`
+//   padding: 0;
+//   margin: 10px 0;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   align-content: space-between;
+//   flex-wrap: wrap;
+//   min-height: 280px;
+//   max-width: 835px;
+//   @media screen and (min-width: 1395px) {
+//     max-width: 258px;
+//     justify-content: flex-end;
+//     align-content: space-between;
+//     margin: 0;
+//   }
+// `
