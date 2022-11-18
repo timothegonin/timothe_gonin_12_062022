@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // User's name
 import HelloUser from '../../components/HelloUser'
 // Charts and Counters Group
-import Analytics from '../Analytics'
+import Analytics from '../../Containers/Analytics'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
