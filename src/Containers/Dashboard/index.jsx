@@ -22,11 +22,7 @@ function Dashboard() {
   return (
     <MainWrapper>
       <section>
-        <Container fluid>
-          <Row className="my-5">
-            <HelloUser />
-          </Row>
-        </Container>
+        <HelloUser />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
