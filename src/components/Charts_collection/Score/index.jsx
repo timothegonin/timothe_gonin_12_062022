@@ -15,7 +15,7 @@ import {
  */
 export default function Score() {
   const { users } = useContext(UserContext)
-  const userPercentScore = users.todayScore * 100
+  const userPercentScore = users.userTodayScore
   const userPercentScoreChart = [{ value: userPercentScore }]
 
   return (

@@ -10,7 +10,7 @@ const HelloUser = () => {
       <Row className="my-5">
         <Col>
           <h1>
-            Bonjour <span className="text-primary">{users.firstName}</span>
+            Bonjour <span className="text-primary">{users.userFirstName}</span>
           </h1>
           <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
         </Col>

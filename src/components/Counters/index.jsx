@@ -22,7 +22,7 @@ function Counters() {
 
   return (
     <CounterWrapper>
-      {Object.values(users.countersValues).map((value, index) => {
+      {Object.values(users.userCounterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}
