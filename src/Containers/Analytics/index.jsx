@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 import Activity from '../../components/Charts_collection/Activity'
 
+//User banner
+import HelloUser from '../../components/HelloUser'
 // Charts components
 import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
 import ActivityType from '../../components/Charts_collection/ActivityType'
@@ -17,25 +19,32 @@ import Counters from '../../components/Counters'
  */
 const Analytics = () => {
   return (
-    <ContentWrapper fluid className="mx-0">
-      <Row className="d-flex justify-content-center">
-        <ChartsWrapper>
-          <Row>
-            <ChartFullSize>
-              <Activity />
-            </ChartFullSize>
+    <React.Fragment>
+      <section>
+        <HelloUser />
+      </section>
+      <section>
+        <ContentWrapper fluid className="mx-0">
+          <Row className="d-flex justify-content-center">
+            <ChartsWrapper>
+              <Row>
+                <ChartFullSize>
+                  <Activity />
+                </ChartFullSize>
+              </Row>
+              <Row>
+                <ChartsGroup>
+                  <SessionsDuration />
+                  <ActivityType />
+                  <Score />
+                </ChartsGroup>
+              </Row>
+            </ChartsWrapper>
+            <Counters />
           </Row>
-          <Row>
-            <ChartsGroup>
-              <SessionsDuration />
-              <ActivityType />
-              <Score />
-            </ChartsGroup>
-          </Row>
-        </ChartsWrapper>
-        <Counters />
-      </Row>
-    </ContentWrapper>
+        </ContentWrapper>
+      </section>
+    </React.Fragment>
   )
 }
 
