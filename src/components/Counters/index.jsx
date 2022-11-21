@@ -15,14 +15,14 @@ import { UserContext } from '../../utils/context/UserContext'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Counters() {
-  const { users } = useContext(UserContext)
+  const { user } = useContext(UserContext)
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
     <CounterWrapper>
-      {Object.values(users.userCounterValues).map((value, index) => {
+      {Object.values(user.userCounterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}

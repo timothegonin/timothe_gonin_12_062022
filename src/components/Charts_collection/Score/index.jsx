@@ -14,8 +14,8 @@ import {
   └─────────────────────────────────────────────────────────────────────────┘
  */
 export default function Score() {
-  const { users } = useContext(UserContext)
-  const userPercentScore = users.userTodayScore
+  const { user } = useContext(UserContext)
+  const userPercentScore = user.userTodayScore
   const userPercentScoreChart = [{ value: userPercentScore }]
 
   return (

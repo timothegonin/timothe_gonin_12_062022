@@ -1,4 +1,5 @@
-import React from 'react'
+import { Fragment, useContext } from 'react'
+import { UserContext } from '../../utils/context/UserContext'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 import Activity from '../../components/Charts_collection/Activity'
@@ -18,10 +19,12 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = () => {
+  const { user } = useContext(UserContext)
+
   return (
-    <React.Fragment>
+    <Fragment>
       <section>
-        <HelloUser />
+        <HelloUser firstName={user.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -44,7 +47,7 @@ const Analytics = () => {
           </Row>
         </ContentWrapper>
       </section>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
