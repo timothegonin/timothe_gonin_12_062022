@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   RadialBarChart,
@@ -13,17 +12,15 @@ import {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function Score() {
-  const { user } = useContext(UserContext)
-  const userPercentScore = user.userTodayScore
-  const userPercentScoreChart = [{ value: userPercentScore }]
+const Score = ({ score }) => {
+  const userScoreChart = [{ value: score }]
 
   return (
     <ScoreWrapper>
       <h3>Score</h3>
       <ScoreChartContent>
         <ScoreChartInfo>
-          <p className="score__percent">{userPercentScore}%</p>
+          <p className="score__percent">{score}%</p>
           <p>de votre objectif</p>
         </ScoreChartInfo>
         <ResponsiveContainer width="100%" height="100%">
@@ -33,7 +30,7 @@ export default function Score() {
             innerRadius={90}
             outerRadius={75}
             barSize={10}
-            data={userPercentScoreChart}
+            data={userScoreChart}
             transform="rotate(-90 0 0)"
           >
             <PolarAngleAxis
@@ -48,6 +45,17 @@ export default function Score() {
       </ScoreChartContent>
     </ScoreWrapper>
   )
+}
+
+export default Score
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+Score.propTypes = {
+  score: PropTypes.number,
 }
 
 /* 

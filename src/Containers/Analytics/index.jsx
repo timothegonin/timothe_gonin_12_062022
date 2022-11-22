@@ -39,7 +39,7 @@ const Analytics = () => {
                 <ChartsGroup>
                   <SessionsDuration />
                   <ActivityType />
-                  <Score />
+                  <Score score={user.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
