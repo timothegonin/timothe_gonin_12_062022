@@ -21,6 +21,8 @@ const HelloUser = ({ firstName }) => {
   )
 }
 
+export default HelloUser
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ PROPTYPES                                                               │
@@ -29,5 +31,3 @@ const HelloUser = ({ firstName }) => {
 HelloUser.propTypes = {
   firstName: PropTypes.string,
 }
-
-export default HelloUser

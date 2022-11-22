@@ -20,6 +20,7 @@ import Counters from '../../components/Counters'
  */
 const Analytics = () => {
   const { user } = useContext(UserContext)
+  // console.log(user.userCounterValues)
 
   return (
     <Fragment>
@@ -43,7 +44,7 @@ const Analytics = () => {
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <Counters />
+            <Counters counterValues={user.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>

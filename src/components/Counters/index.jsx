@@ -1,28 +1,26 @@
-import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
 
+//ICONS
 import CaloriesIcon from '../../assets/icons/right-counters/calories-icon.svg'
 import ProteinesIcon from '../../assets/icons/right-counters/proteines-icon.svg'
 import GlucidesIcon from '../../assets/icons/right-counters/glucides-icon.svg'
 import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
-
-import { UserContext } from '../../utils/context/UserContext'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-function Counters() {
-  const { user } = useContext(UserContext)
+const Counters = ({ counterValues }) => {
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
     <CounterWrapper>
-      {Object.values(user.userCounterValues).map((value, index) => {
+      {Object.values(counterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}
@@ -43,6 +41,15 @@ function Counters() {
 }
 
 export default Counters
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+Counters.propTypes = {
+  counterValues: PropTypes.object,
+}
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
