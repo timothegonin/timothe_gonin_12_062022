@@ -13,14 +13,12 @@ import {
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Score = ({ score }) => {
-  const userScoreChart = [{ value: score }]
-
   return (
     <ScoreWrapper>
       <h3>Score</h3>
       <ScoreChartContent>
         <ScoreChartInfo>
-          <p className="score__percent">{score}%</p>
+          <p className="score__percent">{score.value}%</p>
           <p>de votre objectif</p>
         </ScoreChartInfo>
         <ResponsiveContainer width="100%" height="100%">
@@ -30,7 +28,7 @@ const Score = ({ score }) => {
             innerRadius={90}
             outerRadius={75}
             barSize={10}
-            data={userScoreChart}
+            data={[score]}
             transform="rotate(-90 0 0)"
           >
             <PolarAngleAxis
@@ -55,7 +53,7 @@ export default Score
   └─────────────────────────────────────────────────────────────────────────┘
  */
 Score.propTypes = {
-  score: PropTypes.number,
+  score: PropTypes.object,
 }
 
 /* 

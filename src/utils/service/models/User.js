@@ -9,7 +9,7 @@ export class User {
     return this._user.userInfos.firstName
   }
   get userTodayScore() {
-    return this._user.todayScore * 100
+    return { value: this._user.todayScore * 100 }
   }
   get userCounterValues() {
     const userCouterValues = {
