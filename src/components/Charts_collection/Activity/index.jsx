@@ -1,5 +1,3 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
 import {
   BarChart,
@@ -29,9 +27,7 @@ const CustomTooltip = ({ active, payload }) => {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function Activity() {
-  const { activity } = useContext(UserContext)
-
+export default function Activity({ activity }) {
   return (
     <ActivityWrapper>
       <ActivityContainer>
@@ -54,7 +50,7 @@ export default function Activity() {
           <BarChart
             width={500}
             height={300}
-            data={activity.userActivity}
+            data={activity}
             margin={{
               top: 50,
               right: 30,

@@ -29,7 +29,7 @@ export class User {
 }
 
 // TEST START
-const test = new User(12)
-console.log(test.userActivity)
-console.log('CLASS : ', typeof test.userActivity)
+// const test = new User(12)
+// console.log(test.userActivity)
+// console.log('CLASS : ', typeof test.userActivity)
 // TEST END
