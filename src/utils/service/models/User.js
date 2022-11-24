@@ -1,8 +1,11 @@
-import { USER_MAIN_DATA } from '../data-MOCKED'
+import { USER_MAIN_DATA, USER_ACTIVITY } from '../data-MOCKED'
 
 export class User {
   constructor(idFromURL) {
     this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
+    this._userActivity = USER_ACTIVITY.find(
+      (userData) => userData.userId === idFromURL
+    )
   }
 
   get userFirstName() {
@@ -20,4 +23,13 @@ export class User {
     }
     return userCouterValues
   }
+  get userActivity() {
+    return this._userActivity.sessions
+  }
 }
+
+// TEST START
+const test = new User(12)
+console.log(test.userActivity)
+console.log('CLASS : ', typeof test.userActivity)
+// TEST END
