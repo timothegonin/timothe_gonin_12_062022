@@ -24,7 +24,16 @@ export class User {
     return userCouterValues
   }
   get userActivity() {
-    return this._userActivity.sessions
+    const userActivity = []
+    this._userActivity.sessions.forEach((session, index) => {
+      const sessionData = {
+        day: index + 1,
+        kilogram: session.kilogram,
+        calories: session.calories,
+      }
+      userActivity.push(sessionData)
+    })
+    return userActivity
   }
 }
 
