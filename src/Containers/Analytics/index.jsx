@@ -20,7 +20,7 @@ import Counters from '../../components/Counters'
  */
 const Analytics = () => {
   const { user } = useContext(UserContext)
-  // console.log(user.userActivity)
+  console.log(user.userActivityType)
 
   return (
     <Fragment>
@@ -39,7 +39,7 @@ const Analytics = () => {
               <Row>
                 <ChartsGroup>
                   <SessionsDuration />
-                  <ActivityType />
+                  <ActivityType activityType={user.userActivityType} />
                   <Score score={user.userTodayScore} />
                 </ChartsGroup>
               </Row>

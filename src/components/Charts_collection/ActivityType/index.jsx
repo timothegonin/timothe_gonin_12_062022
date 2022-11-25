@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
 import {
   Radar,
@@ -14,9 +12,7 @@ import {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function ActivityTye() {
-  const { activityType } = useContext(UserContext)
-
+export default function ActivityTye({ activityType }) {
   return (
     <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
@@ -24,7 +20,7 @@ export default function ActivityTye() {
           outerRadius={90}
           width={200}
           height={200}
-          data={activityType.userActivityType}
+          data={activityType}
           strokeWidth="1.2px"
         >
           <PolarGrid
