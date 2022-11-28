@@ -1,9 +1,17 @@
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_PERFORMANCE } from '../data-MOCKED'
+import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from '../data-MOCKED'
 
 export class User {
   constructor(idFromURL) {
     this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
     this._userActivity = USER_ACTIVITY.find(
+      (userData) => userData.userId === idFromURL
+    )
+    this._userAverageSessions = USER_AVERAGE_SESSIONS.find(
       (userData) => userData.userId === idFromURL
     )
     this._userActivityType = USER_PERFORMANCE.find(
@@ -52,6 +60,26 @@ export class User {
 
   /* 
   ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_AVERAGE_SESSIONS                                                     │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
+  get userAverageSessions() {
+    const userSessions = []
+    const data = this._userAverageSessions.sessions
+    const daysFirstLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+    data.forEach((session, index) => {
+      const sessionData = {
+        day: daysFirstLetter[index],
+        sessionLength: session.sessionLength,
+      }
+      userSessions.push(sessionData)
+    })
+    return userSessions
+  }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
   │   USER_PERFORMANCE                                                          │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
@@ -73,6 +101,6 @@ export class User {
 
 // TEST START
 // const test = new User(12)
-// console.log(test.userActivityType)
-// console.log('CLASS : ', typeof test.userActivityType)
+// console.log(test.userAverageSessions)
+// console.log('CLASS : ', typeof test.userAverageSessions)
 // TEST END
