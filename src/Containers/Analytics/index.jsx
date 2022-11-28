@@ -37,7 +37,9 @@ const Analytics = () => {
               </Row>
               <Row>
                 <ChartsGroup>
-                  <SessionsDuration />
+                  <SessionsDuration
+                    sessionsDuration={user.userAverageSessions}
+                  />
                   <ActivityType activityType={user.userActivityType} />
                   <Score score={user.userTodayScore} />
                 </ChartsGroup>

@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
 import styled from 'styled-components'
 import {
   LineChart,
@@ -15,9 +13,7 @@ import {
 │ JSX                                                                     │
 └─────────────────────────────────────────────────────────────────────────┘
 */
-export default function SessionsDuration() {
-  const { averageSessions } = useContext(UserContext)
-
+export default function SessionsDuration({ sessionsDuration }) {
   //TOOLTIP
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -38,7 +34,7 @@ export default function SessionsDuration() {
       </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
-          data={averageSessions.userSessions}
+          data={sessionsDuration}
           margin={{
             top: 15,
             right: 20,
