@@ -11,6 +11,11 @@ export class User {
     )
   }
 
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_MAIN_DATA                                                            │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
   get userFirstName() {
     return this._user.userInfos.firstName
   }
@@ -26,6 +31,12 @@ export class User {
     }
     return userCouterValues
   }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_ACTIVITY                                                             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
   get userActivity() {
     const userActivity = []
     this._userActivity.sessions.forEach((session, index) => {
@@ -38,6 +49,12 @@ export class User {
     })
     return userActivity
   }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_PERFORMANCE                                                          │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
   get userActivityType() {
     const userActivityType = []
     const data = this._userActivityType.data

@@ -20,7 +20,6 @@ import Counters from '../../components/Counters'
  */
 const Analytics = () => {
   const { user } = useContext(UserContext)
-  console.log(user.userActivityType)
 
   return (
     <Fragment>
