@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   LineChart,
@@ -13,7 +14,7 @@ import {
 │ JSX                                                                     │
 └─────────────────────────────────────────────────────────────────────────┘
 */
-export default function SessionsDuration({ sessionsDuration }) {
+const SessionsDuration = ({ sessionsDuration }) => {
   //TOOLTIP
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -67,6 +68,17 @@ export default function SessionsDuration({ sessionsDuration }) {
       </ResponsiveContainer>
     </SessionsDurationWrapper>
   )
+}
+
+export default SessionsDuration
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+SessionsDuration.propTypes = {
+  sessionsDuration: PropTypes.arrayOf(PropTypes.object),
 }
 
 /* 
