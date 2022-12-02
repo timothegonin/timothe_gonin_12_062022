@@ -97,8 +97,9 @@ export default Activity
   │ PROPTYPES                                                               │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+
 Activity.propTypes = {
-  activity: PropTypes.arrayOf(PropTypes.object),
+  activity: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)),
 }
 
 /* 
