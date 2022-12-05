@@ -10,24 +10,28 @@ import {
 } from 'recharts'
 
 /* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ TOOLTIP                                                                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <SessionDurationTooltip className="custom-tooltip">
+        <p className="label">{`${payload[0].value}`}</p>
+      </SessionDurationTooltip>
+    )
+  }
+
+  return null
+}
+
+/* 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ JSX                                                                     │
 └─────────────────────────────────────────────────────────────────────────┘
 */
 const SessionsDuration = ({ sessionsDuration }) => {
-  //TOOLTIP
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <SessionDurationTooltip className="custom-tooltip">
-          <p className="label">{`${payload[0].value}`}</p>
-        </SessionDurationTooltip>
-      )
-    }
-
-    return null
-  }
-
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">

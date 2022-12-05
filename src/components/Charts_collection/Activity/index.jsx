@@ -10,6 +10,11 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ TOOLTIP                                                                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
