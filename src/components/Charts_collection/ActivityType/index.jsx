@@ -58,7 +58,12 @@ export default ActivityType
   └─────────────────────────────────────────────────────────────────────────┘
  */
 ActivityType.propTypes = {
-  activityType: PropTypes.arrayOf(PropTypes.object),
+  activityType: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
 }
 
 /* 
