@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   Radar,
@@ -12,7 +13,7 @@ import {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function ActivityTye({ activityType }) {
+const ActivityType = ({ activityType }) => {
   return (
     <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
@@ -48,6 +49,21 @@ export default function ActivityTye({ activityType }) {
       </ResponsiveContainer>
     </ActivityTypeWrapper>
   )
+}
+export default ActivityType
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+ActivityType.propTypes = {
+  activityType: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
 }
 
 /* 

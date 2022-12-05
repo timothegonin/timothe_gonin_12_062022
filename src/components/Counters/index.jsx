@@ -48,7 +48,7 @@ export default Counters
   └─────────────────────────────────────────────────────────────────────────┘
  */
 Counters.propTypes = {
-  counterValues: PropTypes.object,
+  counterValues: PropTypes.objectOf(PropTypes.number),
 }
 
 /* 

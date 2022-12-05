@@ -53,7 +53,7 @@ export default Score
   └─────────────────────────────────────────────────────────────────────────┘
  */
 Score.propTypes = {
-  score: PropTypes.object,
+  score: PropTypes.objectOf(PropTypes.number),
 }
 
 /* 

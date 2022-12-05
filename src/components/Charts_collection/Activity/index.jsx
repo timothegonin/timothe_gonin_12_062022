@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   BarChart,
@@ -27,7 +28,7 @@ const CustomTooltip = ({ active, payload }) => {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function Activity({ activity }) {
+const Activity = ({ activity }) => {
   return (
     <ActivityWrapper>
       <ActivityContainer>
@@ -88,6 +89,17 @@ export default function Activity({ activity }) {
       </ActivityContainer>
     </ActivityWrapper>
   )
+}
+export default Activity
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
+Activity.propTypes = {
+  activity: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)),
 }
 
 /* 
