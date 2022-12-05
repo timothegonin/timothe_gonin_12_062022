@@ -78,7 +78,12 @@ export default SessionsDuration
   └─────────────────────────────────────────────────────────────────────────┘
  */
 SessionsDuration.propTypes = {
-  sessionsDuration: PropTypes.arrayOf(PropTypes.object),
+  sessionsDuration: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      sessionLength: PropTypes.number,
+    })
+  ),
 }
 
 /* 
