@@ -16,15 +16,12 @@ import {
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const CustomTooltip = ({ active, payload }) => {
+  const content = payload.map((current, index) => (
+    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
+  ))
   if (active && payload && payload.length) {
-    return (
-      <ActivityTooltip>
-        <p className="label">{`${payload[0].value}`}</p>
-        <p className="label">{`${payload[1].value}`}</p>
-      </ActivityTooltip>
-    )
+    return <ActivityTooltip>{content}</ActivityTooltip>
   }
-
   return null
 }
 
