@@ -10,23 +10,6 @@ import {
 } from 'recharts'
 
 /* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ TOOLTIP                                                                 │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <SessionDurationTooltip className="custom-tooltip">
-        <p className="label">{`${payload[0].value}`}</p>
-      </SessionDurationTooltip>
-    )
-  }
-
-  return null
-}
-
-/* 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ JSX                                                                     │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -78,6 +61,24 @@ export default SessionsDuration
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
+  │ TOOLTIP                                                                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const CustomTooltip = ({ active, payload }) => {
+  const content = payload.map((current, index) => (
+    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
+  ))
+  if (active && payload && payload.length) {
+    return (
+      <SessionDurationCustomTooltip>{content}</SessionDurationCustomTooltip>
+    )
+  }
+
+  return null
+}
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
   │ PROPTYPES                                                               │
   └─────────────────────────────────────────────────────────────────────────┘
  */
@@ -109,7 +110,7 @@ const SessionDurationInfo = styled.div`
   font-size: 15px;
   color: rgba(255, 255, 0255, 0.5);
 `
-const SessionDurationTooltip = styled.div`
+const SessionDurationCustomTooltip = styled.div`
   background: white;
   .label {
     padding: 7px;

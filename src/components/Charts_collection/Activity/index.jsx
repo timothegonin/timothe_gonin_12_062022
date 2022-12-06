@@ -12,21 +12,6 @@ import {
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ TOOLTIP                                                                 │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const CustomTooltip = ({ active, payload }) => {
-  const content = payload.map((current, index) => (
-    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
-  ))
-  if (active && payload && payload.length) {
-    return <ActivityTooltip>{content}</ActivityTooltip>
-  }
-  return null
-}
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
@@ -96,6 +81,22 @@ export default Activity
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
+  │ TOOLTIP                                                                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const CustomTooltip = ({ active, payload }) => {
+  const content = payload.map((current, index) => (
+    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
+  ))
+
+  if (active && payload && payload.length) {
+    return <ActivityCustomTooltip>{content}</ActivityCustomTooltip>
+  }
+  return null
+}
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
   │ PROPTYPES                                                               │
   └─────────────────────────────────────────────────────────────────────────┘
  */
@@ -159,7 +160,7 @@ const ActivityLegend = styled.div`
     }
   }
 `
-const ActivityTooltip = styled.div`
+const ActivityCustomTooltip = styled.div`
   background-color: #e60000;
   .label {
     color: white;
