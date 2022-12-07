@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import CustomTooltip from '../../CustomTootip'
 
 /* 
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -38,7 +39,7 @@ const SessionsDuration = ({ sessionsDuration }) => {
             tickLine={false}
           />
           <YAxis axisLine={false} mirror={true} tickCount={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip styles="session" />} />
           <Line
             type="monotone"
             dataKey="sessionLength"
@@ -64,18 +65,18 @@ export default SessionsDuration
   │ TOOLTIP                                                                 │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CustomTooltip = ({ active, payload }) => {
-  const content = payload.map((current, index) => (
-    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
-  ))
-  if (active && payload && payload.length) {
-    return (
-      <SessionDurationCustomTooltip>{content}</SessionDurationCustomTooltip>
-    )
-  }
+// const CustomTooltip = ({ active, payload }) => {
+//   const content = payload.map((current, index) => (
+//     <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
+//   ))
+//   if (active && payload && payload.length) {
+//     return (
+//       <SessionDurationCustomTooltip>{content}</SessionDurationCustomTooltip>
+//     )
+//   }
 
-  return null
-}
+//   return null
+// }
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -110,11 +111,11 @@ const SessionDurationInfo = styled.div`
   font-size: 15px;
   color: rgba(255, 255, 0255, 0.5);
 `
-const SessionDurationCustomTooltip = styled.div`
-  background: white;
-  .label {
-    padding: 7px;
-    font-weight: 500;
-    font-size: 8px;
-  }
-`
+// const SessionDurationCustomTooltip = styled.div`
+//   background: white;
+//   .label {
+//     padding: 7px;
+//     font-weight: 500;
+//     font-size: 8px;
+//   }
+// `
