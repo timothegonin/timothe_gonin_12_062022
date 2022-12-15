@@ -82,22 +82,6 @@ export default Activity
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ TOOLTIP                                                                 │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-// const CustomTooltip = ({ active, payload }) => {
-//   const content = payload.map((current, index) => (
-//     <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
-//   ))
-
-//   if (active && payload && payload.length) {
-//     return <ActivityCustomTooltip>{content}</ActivityCustomTooltip>
-//   }
-//   return null
-// }
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
   │ PROPTYPES                                                               │
   └─────────────────────────────────────────────────────────────────────────┘
  */
@@ -161,13 +145,3 @@ const ActivityLegend = styled.div`
     }
   }
 `
-// const ActivityCustomTooltip = styled(CustomTooltip)`
-//   display: none;
-//   background-color: #e60000;
-//   .label {
-//     color: white;
-//     font-weight: 500;
-//     font-size: 7px;
-//     padding: 7px 10px;
-//   }
-// `
