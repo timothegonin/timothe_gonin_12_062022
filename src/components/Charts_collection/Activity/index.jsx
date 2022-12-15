@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   BarChart,
@@ -10,28 +9,15 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <ActivityTooltip>
-        <p className="label">{`${payload[0].value}`}</p>
-        <p className="label">{`${payload[1].value}`}</p>
-      </ActivityTooltip>
-    )
-  }
-
-  return null
-}
+import CustomTooltip from '../../CustomTootip'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function Activity() {
-  const { activity } = useContext(UserContext)
-
+const Activity = ({ activity }) => {
+  const activityTooltipUnits = ['kg', 'Kcal']
   return (
     <ActivityWrapper>
       <ActivityContainer>
@@ -54,7 +40,7 @@ export default function Activity() {
           <BarChart
             width={500}
             height={300}
-            data={activity.userActivity}
+            data={activity}
             margin={{
               top: 50,
               right: 30,
@@ -84,7 +70,11 @@ export default function Activity() {
               tickLine={false}
               tickMargin={20}
             />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip
+              content={
+                <CustomTooltip styles="activity" units={activityTooltipUnits} />
+              }
+            />
             <Bar dataKey="calories" fill="#282D30" radius={[3, 3, 0, 0]} />
             <Bar dataKey="kilogram" fill="#E60000" radius={[3, 3, 0, 0]} />
           </BarChart>
@@ -92,6 +82,17 @@ export default function Activity() {
       </ActivityContainer>
     </ActivityWrapper>
   )
+}
+export default Activity
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
+Activity.propTypes = {
+  activity: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number)),
 }
 
 /* 
@@ -147,14 +148,5 @@ const ActivityLegend = styled.div`
     &--red {
       background-color: #e60000;
     }
-  }
-`
-const ActivityTooltip = styled.div`
-  background-color: #e60000;
-  .label {
-    color: white;
-    font-weight: 500;
-    font-size: 7px;
-    padding: 7px 10px;
   }
 `

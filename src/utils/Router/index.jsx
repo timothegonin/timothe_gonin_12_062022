@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Dashboard from '../../Containers/Dashboard'
-import Error from '../Error'
+import Dashboard from '../../Pages/Dashboard'
+import Error from '../../Pages/Error'
 
 const Router = () => {
   return (

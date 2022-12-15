@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   LineChart,
@@ -9,28 +8,15 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import CustomTooltip from '../../CustomTootip'
 
 /* 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ JSX                                                                     │
 └─────────────────────────────────────────────────────────────────────────┘
 */
-export default function SessionsDuration() {
-  const { averageSessions } = useContext(UserContext)
-
-  //TOOLTIP
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <SessionDurationTooltip className="custom-tooltip">
-          <p className="label">{`${payload[0].value}`}</p>
-        </SessionDurationTooltip>
-      )
-    }
-
-    return null
-  }
-
+const SessionsDuration = ({ sessionsDuration }) => {
+  const sessionsDurationTooltipUnits = ['min']
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">
@@ -38,7 +24,7 @@ export default function SessionsDuration() {
       </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
-          data={averageSessions.userSessions}
+          data={sessionsDuration}
           margin={{
             top: 15,
             right: 20,
@@ -54,7 +40,14 @@ export default function SessionsDuration() {
             tickLine={false}
           />
           <YAxis axisLine={false} mirror={true} tickCount={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip
+            content={
+              <CustomTooltip
+                styles="session"
+                units={sessionsDurationTooltipUnits}
+              />
+            }
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
@@ -71,6 +64,22 @@ export default function SessionsDuration() {
       </ResponsiveContainer>
     </SessionsDurationWrapper>
   )
+}
+
+export default SessionsDuration
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+SessionsDuration.propTypes = {
+  sessionsDuration: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      sessionLength: PropTypes.number,
+    })
+  ),
 }
 
 /* 
@@ -91,12 +100,4 @@ const SessionDurationInfo = styled.div`
   font-weight: 500;
   font-size: 15px;
   color: rgba(255, 255, 0255, 0.5);
-`
-const SessionDurationTooltip = styled.div`
-  background: white;
-  .label {
-    padding: 7px;
-    font-weight: 500;
-    font-size: 8px;
-  }
 `

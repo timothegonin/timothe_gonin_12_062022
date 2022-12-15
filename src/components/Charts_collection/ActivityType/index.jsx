@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { UserContext } from '../../../utils/context/UserContext'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   Radar,
@@ -14,9 +13,7 @@ import {
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-export default function ActivityTye() {
-  const { activityType } = useContext(UserContext)
-
+const ActivityType = ({ activityType }) => {
   return (
     <ActivityTypeWrapper>
       <ResponsiveContainer width="100%" height="100%">
@@ -24,7 +21,7 @@ export default function ActivityTye() {
           outerRadius={90}
           width={200}
           height={200}
-          data={activityType.userActivityType}
+          data={activityType}
           strokeWidth="1.2px"
         >
           <PolarGrid
@@ -52,6 +49,21 @@ export default function ActivityTye() {
       </ResponsiveContainer>
     </ActivityTypeWrapper>
   )
+}
+export default ActivityType
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+ActivityType.propTypes = {
+  activityType: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
 }
 
 /* 
