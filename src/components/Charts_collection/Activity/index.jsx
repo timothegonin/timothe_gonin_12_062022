@@ -17,6 +17,7 @@ import CustomTooltip from '../../CustomTootip'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Activity = ({ activity }) => {
+  const activityTooltipUnits = ['kg', 'Kcal']
   return (
     <ActivityWrapper>
       <ActivityContainer>
@@ -69,7 +70,11 @@ const Activity = ({ activity }) => {
               tickLine={false}
               tickMargin={20}
             />
-            <Tooltip content={<CustomTooltip styles="activity" />} />
+            <Tooltip
+              content={
+                <CustomTooltip styles="activity" units={activityTooltipUnits} />
+              }
+            />
             <Bar dataKey="calories" fill="#282D30" radius={[3, 3, 0, 0]} />
             <Bar dataKey="kilogram" fill="#E60000" radius={[3, 3, 0, 0]} />
           </BarChart>

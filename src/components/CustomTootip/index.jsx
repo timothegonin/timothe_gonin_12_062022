@@ -5,9 +5,12 @@ import styled from 'styled-components'
   │ TOOLTIP                                                                 │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CustomTooltip = ({ active, payload, styles }) => {
+const CustomTooltip = ({ active, payload, styles, units }) => {
   const content = payload.map((current, index) => (
-    <p key={`${current}-${index}`} className="label">{`${current.value}`}</p>
+    <p
+      key={`${current}-${index}`}
+      className="label"
+    >{`${current.value} ${units[index]}`}</p>
   ))
 
   if (active && payload && payload.length) {
