@@ -1,7 +1,11 @@
 import React from 'react'
-
+import UserCard from '../../components/UserCard'
 const UserCards = () => {
-  return <div>UserCards</div>
+  return (
+    <div>
+      <UserCard />
+    </div>
+  )
 }
 
 export default UserCards
