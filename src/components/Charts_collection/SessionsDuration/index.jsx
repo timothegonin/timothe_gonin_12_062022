@@ -16,6 +16,7 @@ import CustomTooltip from '../../CustomTootip'
 └─────────────────────────────────────────────────────────────────────────┘
 */
 const SessionsDuration = ({ sessionsDuration }) => {
+  const sessionsDurationTooltipUnits = ['min']
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">
@@ -39,7 +40,14 @@ const SessionsDuration = ({ sessionsDuration }) => {
             tickLine={false}
           />
           <YAxis axisLine={false} mirror={true} tickCount={false} />
-          <Tooltip content={<CustomTooltip styles="session" />} />
+          <Tooltip
+            content={
+              <CustomTooltip
+                styles="session"
+                units={sessionsDurationTooltipUnits}
+              />
+            }
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
