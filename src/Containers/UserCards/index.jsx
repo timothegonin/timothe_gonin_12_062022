@@ -3,7 +3,8 @@ import UserCard from '../../components/UserCard'
 const UserCards = () => {
   return (
     <div>
-      <UserCard />
+      <UserCard url={'/user/12'} />
+      <UserCard url={'/user/18'} />
     </div>
   )
 }
