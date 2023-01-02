@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react'
-import { UserContext } from '../../utils/context/UserContext'
+import { UserContext } from '../../utils/context'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 import Activity from '../../components/Charts_collection/Activity'

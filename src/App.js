@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import UserContextProvider from './utils/context/UserContext'
+import UserContextProvider from './utils/context'
 
 import Header from './Containers/Header'
 import Sidebar from './Containers/Sidebar'
