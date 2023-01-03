@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 import Analytics from '../../Containers/Analytics'
 
@@ -8,6 +9,9 @@ import Analytics from '../../Containers/Analytics'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Dashboard() {
+  const { id } = useParams()
+  console.log(id)
+
   return <Analytics />
 }
 
