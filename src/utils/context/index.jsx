@@ -5,11 +5,10 @@ import { User } from '../service/models/User'
 export const UserContext = createContext()
 
 const UserContextProvider = (props) => {
-  // const user = new User(12)
   const [userID, setUserID] = useState(0)
-  const user = new User(userID)
 
   const [state, dispatch] = useReducer(userReducer, initialState)
+  const user = new User(state.id)
 
   function updateUser(id) {
     setUserID(id)

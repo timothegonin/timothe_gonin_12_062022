@@ -6,8 +6,7 @@ import { UserContext } from '../../utils/context'
 import { initialState } from '../../utils/reducer'
 
 const UserCard = ({ id }) => {
-  // const userID = id
-  const { updateUser, dispatch } = useContext(UserContext)
+  const { dispatch } = useContext(UserContext)
   const setUser = (entry) => {
     console.log(entry)
     console.log(initialState)
@@ -23,13 +22,10 @@ const UserCard = ({ id }) => {
     <article>
       <h3 className="text-primary">Nom Prenom</h3>
       <Link to={`/user/${id}`}>
-        <Button className="text-white" onClick={() => updateUser(id)}>
+        <Button className="text-white" onClick={() => setUser(id)}>
           Accéder au profile
         </Button>
       </Link>
-      <Button className="text-black" onClick={() => setUser(id)}>
-        REDUCER TEST
-      </Button>
     </article>
   )
 }
