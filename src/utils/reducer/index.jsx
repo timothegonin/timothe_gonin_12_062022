@@ -9,12 +9,18 @@ export const userReducer = (state, action) => {
     case 'SET_NEW_USER':
       console.log('SET_NEW_USER', payload)
       console.log('PREVSTATE', state)
-
       return {
         ...state.id,
         id: payload.id,
       }
+    case 'RESET_USER':
+      console.log('SET_NEW_USER', payload)
+      console.log('PREVSTATE', state)
+      return {
+        ...state.id,
+        id: initialState.id,
+      }
     default:
-      break
+      return state
   }
 }
