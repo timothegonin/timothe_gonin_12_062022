@@ -8,8 +8,7 @@ import { initialState } from '../../utils/reducer'
 const UserCard = ({ id }) => {
   const { dispatch } = useContext(UserContext)
   const setUser = (entry) => {
-    console.log(entry)
-    console.log(initialState)
+    console.log('<UserCard/> ' + entry, initialState)
     dispatch({
       type: 'SET_NEW_USER',
       payload: {

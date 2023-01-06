@@ -10,7 +10,7 @@ import Analytics from '../../Containers/Analytics'
  */
 function Dashboard() {
   const { id } = useParams()
-  console.log(id)
+  console.log('<DashBoard/> USEPARAMS : ' + id)
 
   return <Analytics />
 }
