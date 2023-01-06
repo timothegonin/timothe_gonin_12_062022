@@ -1,5 +1,6 @@
-import styled from 'styled-components'
+import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, Container } from 'react-bootstrap'
+import styled from 'styled-components'
 import Logo from '../../assets/logo.svg'
 
 /* 
@@ -11,19 +12,29 @@ function Header() {
   return (
     <HeaderWrapper bg="secondary" expand="md" variant="dark">
       <Container className="m-0 px-4" fluid>
-        <LogoWrapper href="/">
-          <img alt="" src={Logo} /> <span>SportSee</span>
-        </LogoWrapper>
+        <LinkContainer to="/">
+          <LogoWrapper>
+            <img alt="SportSee's Logo" src={Logo} /> <span>SportSee</span>
+          </LogoWrapper>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           id="basic-navbar-nav"
           className="justify-content-center"
         >
           <Nav className="w-100 d-flex justify-content-around text-primary">
-            <NavLink href="/">Accueil</NavLink>
-            <NavLink href="/">Profil</NavLink>
-            <NavLink href="/">Réglage</NavLink>
-            <NavLink href="/">Communauté</NavLink>
+            <LinkContainer to="/">
+              <NavLink>Accueil</NavLink>
+            </LinkContainer>
+            <LinkContainer to="/">
+              <NavLink>Profil</NavLink>
+            </LinkContainer>
+            <LinkContainer to="/">
+              <NavLink>Réglage</NavLink>
+            </LinkContainer>
+            <LinkContainer to="/">
+              <NavLink>Communauté</NavLink>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
