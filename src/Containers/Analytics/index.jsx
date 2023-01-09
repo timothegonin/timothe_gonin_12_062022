@@ -1,16 +1,16 @@
+import { Fragment, useContext } from 'react'
+import { UserContext } from '../../utils/context'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
-
-// User's name
-import HelloUser from '../../components/HelloUser'
-
-// Charts components
 import Activity from '../../components/Charts_collection/Activity'
+
+//User banner
+import HelloUser from '../../components/HelloUser'
+// Charts components
 import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
 import ActivityType from '../../components/Charts_collection/ActivityType'
 import Score from '../../components/Charts_collection/Score'
-
-//Counters
+// Counters
 import Counters from '../../components/Counters'
 
 /* 
@@ -18,15 +18,13 @@ import Counters from '../../components/Counters'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-function Dashboard() {
+const Analytics = () => {
+  const { user } = useContext(UserContext)
+
   return (
-    <MainWrapper>
+    <Fragment>
       <section>
-        <Container fluid>
-          <Row className="my-5">
-            <HelloUser />
-          </Row>
-        </Container>
+        <HelloUser firstName={user.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -34,43 +32,34 @@ function Dashboard() {
             <ChartsWrapper>
               <Row>
                 <ChartFullSize>
-                  <Activity />
+                  <Activity activity={user.userActivity} />
                 </ChartFullSize>
               </Row>
               <Row>
                 <ChartsGroup>
-                  <SessionsDuration />
-                  <ActivityType />
-                  <Score />
+                  <SessionsDuration
+                    sessionsDuration={user.userAverageSessions}
+                  />
+                  <ActivityType activityType={user.userActivityType} />
+                  <Score score={user.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <CounterWrapper>
-              <Counters />
-            </CounterWrapper>
+            <Counters counterValues={user.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>
-    </MainWrapper>
+    </Fragment>
   )
 }
 
-export default Dashboard
+export default Analytics
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const MainWrapper = styled.main`
-  margin-left: 117px;
-  padding: 0 90px;
-  @media screen and (max-width: 1155px) {
-    padding: 0 16px;
-    max-width: 1126px;
-  }
-`
-
 const ContentWrapper = styled(Container)`
   max-width: 1126px;
 `
@@ -97,23 +86,5 @@ const ChartsGroup = styled(Col)`
   justify-content: space-between;
   @media screen and (min-width: 1406px) {
     margin-bottom: 0;
-  }
-`
-
-const CounterWrapper = styled(Col)`
-  padding: 0;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  min-height: 280px;
-  max-width: 835px;
-  @media screen and (min-width: 1395px) {
-    max-width: 258px;
-    justify-content: flex-end;
-    align-content: space-between;
-    margin: 0;
   }
 `

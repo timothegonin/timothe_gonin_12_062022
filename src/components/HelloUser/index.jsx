@@ -1,18 +1,33 @@
-import React, { useContext } from 'react'
-import { Col } from 'react-bootstrap'
-import { UserContext } from '../../utils/context/UserContext'
+import PropTypes from 'prop-types'
+import { Col, Container, Row } from 'react-bootstrap'
 
-const HelloUser = () => {
-  const { users } = useContext(UserContext)
-
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const HelloUser = ({ firstName }) => {
   return (
-    <Col>
-      <h1>
-        Bonjour <span className="text-primary">{users.firstName}</span>
-      </h1>
-      <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
-    </Col>
+    <Container className="mx-2">
+      <Row className="my-5">
+        <Col>
+          <h1>
+            Bonjour <span className="text-primary">{firstName}</span>
+          </h1>
+          <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
 export default HelloUser
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ PROPTYPES                                                               │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+HelloUser.propTypes = {
+  firstName: PropTypes.string,
+}
