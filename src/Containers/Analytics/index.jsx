@@ -1,9 +1,7 @@
-import { Fragment, useContext } from 'react'
-import { UserContext } from '../../utils/context'
-import styled from 'styled-components'
-import { Col, Container, Row } from 'react-bootstrap'
-import Activity from '../../components/Charts_collection/Activity'
+import { Fragment } from 'react'
+import { User } from '../../utils/service/models/User'
 
+import Activity from '../../components/Charts_collection/Activity'
 //User banner
 import HelloUser from '../../components/HelloUser'
 // Charts components
@@ -13,13 +11,15 @@ import Score from '../../components/Charts_collection/Score'
 // Counters
 import Counters from '../../components/Counters'
 
+import { Col, Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Analytics = () => {
-  const { user } = useContext(UserContext)
+const Analytics = ({ id }) => {
+  const user = new User(id)
 
   return (
     <Fragment>

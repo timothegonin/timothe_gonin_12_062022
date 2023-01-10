@@ -1,6 +1,5 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-
+import { useContext } from 'react'
+import { UserContext } from '../../utils/context'
 import Analytics from '../../Containers/Analytics'
 
 /* 
@@ -9,10 +8,9 @@ import Analytics from '../../Containers/Analytics'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Dashboard() {
-  const { id } = useParams()
-  console.log('<DashBoard/> USEPARAMS : ' + id)
+  const { userID } = useContext(UserContext)
 
-  return <Analytics />
+  return <Analytics id={userID} />
 }
 
 export default Dashboard
