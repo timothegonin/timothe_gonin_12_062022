@@ -13,6 +13,13 @@ import Counters from '../../components/Counters'
 
 import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
+
+//CONTEXT TEST IMPORT START
+import { useContext } from 'react'
+import { UserContext } from '../../utils/context'
+import { initialState } from '../../utils/reducer'
+import { useEffect } from 'react'
+//CONTEXT TEST IMPORT END
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
@@ -27,6 +34,24 @@ const Analytics = ({ id }) => {
   const activityType = user.userActivityType
   const score = user.userTodayScore
   const counterValues = user.userCounterValues
+
+  //TEST CONTEXT START
+  const { dispatch } = useContext(UserContext)
+  useEffect(() => {
+    const setUser = (entry) => {
+      console.log('<ANALYTICS/> ' + entry, initialState)
+      dispatch({
+        type: 'SET_NEW_USER',
+        payload: {
+          ...id,
+          id: entry,
+        },
+      })
+    }
+    setUser(id)
+  }, [])
+
+  //TEST CONTEXT END
 
   return (
     <Fragment>
