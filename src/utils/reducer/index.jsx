@@ -14,8 +14,7 @@ export const userReducer = (state, action) => {
         id: payload.id,
       }
     case 'RESET_USER':
-      console.log('SET_NEW_USER', payload)
-      console.log('PREVSTATE', state)
+      console.log('RESET USER', 'PrevState', state)
       return {
         ...state.id,
         id: initialState.id,

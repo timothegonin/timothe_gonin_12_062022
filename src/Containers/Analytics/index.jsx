@@ -39,7 +39,6 @@ const Analytics = ({ id }) => {
   const { dispatch } = useContext(UserContext)
   useEffect(() => {
     const setUser = (entry) => {
-      console.log('<ANALYTICS/> ' + entry, initialState)
       dispatch({
         type: 'SET_NEW_USER',
         payload: {
