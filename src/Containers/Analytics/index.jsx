@@ -1,5 +1,8 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
+import { UserContext } from '../../utils/context'
 import { User } from '../../utils/service/models/User'
+import styled from 'styled-components'
+import { Col, Container, Row } from 'react-bootstrap'
 
 //User banner
 import HelloUser from '../../components/HelloUser'
@@ -11,15 +14,6 @@ import Score from '../../components/Charts_collection/Score'
 // Counters
 import Counters from '../../components/Counters'
 
-import { Col, Container, Row } from 'react-bootstrap'
-import styled from 'styled-components'
-
-//CONTEXT TEST IMPORT START
-import { useContext } from 'react'
-import { UserContext } from '../../utils/context'
-// import { initialState } from '../../utils/reducer'
-// import { useEffect } from 'react'
-//CONTEXT TEST IMPORT END
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
