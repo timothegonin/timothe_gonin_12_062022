@@ -17,45 +17,32 @@ import styled from 'styled-components'
 //CONTEXT TEST IMPORT START
 import { useContext } from 'react'
 import { UserContext } from '../../utils/context'
-import { initialState } from '../../utils/reducer'
-import { useEffect } from 'react'
+// import { initialState } from '../../utils/reducer'
+// import { useEffect } from 'react'
 //CONTEXT TEST IMPORT END
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Analytics = ({ id }) => {
-  const user = new User(id)
+const Analytics = () => {
+  const { userID } = useContext(UserContext)
+  const user = new User(Number(userID))
+  console.log(userID, 'in analitycs')
 
-  const firstName = user.userFirstName
-  const activity = user.userActivity
-  const sessionsDuration = user.userAverageSessions
-  const activityType = user.userActivityType
-  const score = user.userTodayScore
-  const counterValues = user.userCounterValues
+  // const firstName = user.userFirstName
+  // const activity = user.userActivity
+  // const sessionsDuration = user.userAverageSessions
+  // const activityType = user.userActivityType
+  // const score = user.userTodayScore
+  // const counterValues = user.userCounterValues
 
-  //TEST CONTEXT START
-  const { dispatch } = useContext(UserContext)
-  useEffect(() => {
-    const setUser = (entry) => {
-      dispatch({
-        type: 'SET_NEW_USER',
-        payload: {
-          ...id,
-          id: entry,
-        },
-      })
-    }
-    setUser(id)
-  }, [])
-
-  //TEST CONTEXT END
-
-  return (
+  return userID === null ? (
+    <p>Chargement</p>
+  ) : (
     <Fragment>
       <section>
-        <HelloUser firstName={firstName} />
+        <HelloUser firstName={user.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -63,18 +50,20 @@ const Analytics = ({ id }) => {
             <ChartsWrapper>
               <Row>
                 <ChartFullSize>
-                  <Activity activity={activity} />
+                  <Activity activity={user.userActivity} />
                 </ChartFullSize>
               </Row>
               <Row>
                 <ChartsGroup>
-                  <SessionsDuration sessionsDuration={sessionsDuration} />
-                  <ActivityType activityType={activityType} />
-                  <Score score={score} />
+                  <SessionsDuration
+                    sessionsDuration={user.userAverageSessions}
+                  />
+                  <ActivityType activityType={user.userActivityType} />
+                  <Score score={user.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <Counters counterValues={counterValues} />
+            <Counters counterValues={user.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>
