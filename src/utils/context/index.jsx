@@ -17,7 +17,7 @@ const UserContextProvider = (props) => {
       setUser(new User(Number(items)))
       localStorage.setItem('userDATA', JSON.stringify(user))
     }
-  }, [userID, user])
+  }, [userID])
 
   return (
     <UserContext.Provider value={{ userID, dispatch }}>

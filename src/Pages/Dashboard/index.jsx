@@ -17,7 +17,6 @@ function Dashboard() {
       dispatch({
         type: 'SET_NEW_USER',
         payload: {
-          ...id,
           id: entry,
         },
       })
