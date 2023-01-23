@@ -1,6 +1,5 @@
 import { Fragment, useContext } from 'react'
 import { UserContext } from '../../utils/context'
-// import { User } from '../../utils/service/models/User'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -21,15 +20,6 @@ import Counters from '../../components/Counters'
  */
 const Analytics = () => {
   const { userID, userDATA } = useContext(UserContext)
-  // const user = new User(Number(userID))
-  // console.log(userID, 'in analitycs')
-
-  // const firstName = user.userFirstName
-  // const activity = user.userActivity
-  // const sessionsDuration = user.userAverageSessions
-  // const activityType = user.userActivityType
-  // const score = user.userTodayScore
-  // const counterValues = user.userCounterValues
 
   return userID === null ? (
     <p>Chargement</p>
