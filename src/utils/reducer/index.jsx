@@ -8,19 +8,21 @@ export const userReducer = (state, action) => {
 
   switch (type) {
     case 'SET_NEW_USER':
-      console.log('SET_NEW_USER', payload)
-      console.log('PREVSTATE', state)
+      console.log('SET_NEW_USER', payload.id, payload.user)
+      console.log('PREVSTATE', state.id, state.user)
       return {
         ...state.id,
-        id: payload.id,
-      }
-    case 'SET_NEW_USER_DATA':
-      console.log('SET_NEW_USER_DATA', payload)
-      console.log('PREVSTATE', state)
-      return {
         ...state.user,
+        id: payload.id,
         user: payload.user,
       }
+    // case 'SET_NEW_USER_DATA':
+    //   console.log('SET_NEW_USER_DATA', payload.user)
+    //   console.log('PREVSTATE', state.user)
+    //   return {
+    //     ...state.user,
+    //     user: payload.user,
+    //   }
     case 'RESET_USER':
       console.log('RESET USER', 'PrevState', state)
       return {

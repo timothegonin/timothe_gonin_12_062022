@@ -1,6 +1,6 @@
 import { Fragment, useContext } from 'react'
 import { UserContext } from '../../utils/context'
-import { User } from '../../utils/service/models/User'
+// import { User } from '../../utils/service/models/User'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -20,9 +20,9 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = () => {
-  const { userID } = useContext(UserContext)
-  const user = new User(Number(userID))
-  console.log(userID, 'in analitycs')
+  const { userID, userDATA } = useContext(UserContext)
+  // const user = new User(Number(userID))
+  // console.log(userID, 'in analitycs')
 
   // const firstName = user.userFirstName
   // const activity = user.userActivity
@@ -36,7 +36,7 @@ const Analytics = () => {
   ) : (
     <Fragment>
       <section>
-        <HelloUser firstName={user.userFirstName} />
+        <HelloUser firstName={userDATA.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -44,20 +44,20 @@ const Analytics = () => {
             <ChartsWrapper>
               <Row>
                 <ChartFullSize>
-                  <Activity activity={user.userActivity} />
+                  <Activity activity={userDATA.userActivity} />
                 </ChartFullSize>
               </Row>
               <Row>
                 <ChartsGroup>
                   <SessionsDuration
-                    sessionsDuration={user.userAverageSessions}
+                    sessionsDuration={userDATA.userAverageSessions}
                   />
-                  <ActivityType activityType={user.userActivityType} />
-                  <Score score={user.userTodayScore} />
+                  <ActivityType activityType={userDATA.userActivityType} />
+                  <Score score={userDATA.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <Counters counterValues={user.userCounterValues} />
+            <Counters counterValues={userDATA.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>
