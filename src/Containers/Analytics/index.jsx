@@ -19,14 +19,14 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = () => {
-  const { userID, userDATA } = useContext(UserContext)
+  const { activeUser } = useContext(UserContext)
 
-  return userID === null ? (
+  return activeUser === null ? (
     <p>Chargement</p>
   ) : (
     <Fragment>
       <section>
-        <HelloUser firstName={userDATA.userFirstName} />
+        <HelloUser firstName={activeUser.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -34,20 +34,20 @@ const Analytics = () => {
             <ChartsWrapper>
               <Row>
                 <ChartFullSize>
-                  <Activity activity={userDATA.userActivity} />
+                  <Activity activity={activeUser.userActivity} />
                 </ChartFullSize>
               </Row>
               <Row>
                 <ChartsGroup>
                   <SessionsDuration
-                    sessionsDuration={userDATA.userAverageSessions}
+                    sessionsDuration={activeUser.userAverageSessions}
                   />
-                  <ActivityType activityType={userDATA.userActivityType} />
-                  <Score score={userDATA.userTodayScore} />
+                  <ActivityType activityType={activeUser.userActivityType} />
+                  <Score score={activeUser.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <Counters counterValues={userDATA.userCounterValues} />
+            <Counters counterValues={activeUser.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>

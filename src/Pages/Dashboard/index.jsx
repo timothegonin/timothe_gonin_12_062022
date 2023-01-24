@@ -10,7 +10,7 @@ import { User } from '../../utils/service/models/User'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Dashboard() {
-  const { id } = useParams()
+  const idFromURL = useParams().id
   const { dispatch } = useContext(UserContext)
 
   useEffect(() => {
@@ -18,13 +18,12 @@ function Dashboard() {
       dispatch({
         type: 'SET_NEW_USER',
         payload: {
-          id: entry,
           user: new User(Number(entry)),
         },
       })
     }
-    setUser(id)
-  }, [id])
+    setUser(idFromURL)
+  }, [idFromURL])
 
   return <Analytics />
 }

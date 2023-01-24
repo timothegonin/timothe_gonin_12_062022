@@ -5,16 +5,14 @@ export const UserContext = createContext()
 
 const UserContextProvider = (props) => {
   const [state, dispatch] = useReducer(userReducer, initialState)
-  const userID = state.id
-  const userDATA = state.user
+  const activeUser = state.user
 
   useEffect(() => {
-    localStorage.setItem('userID', JSON.stringify(userID))
-    localStorage.setItem('userDATA', JSON.stringify(userDATA))
-  }, [userID, userDATA])
+    localStorage.setItem('activeUser', JSON.stringify(activeUser))
+  }, [activeUser])
 
   return (
-    <UserContext.Provider value={{ userID, userDATA, dispatch }}>
+    <UserContext.Provider value={{ activeUser, dispatch }}>
       {props.children}
     </UserContext.Provider>
   )
