@@ -21,7 +21,9 @@ export const userReducer = (state, action) => {
       console.log('RESET USER', 'PrevState', state)
       return {
         ...state.id,
+        ...state.user,
         id: initialState.id,
+        user: initialState.user,
       }
     default:
       return state
