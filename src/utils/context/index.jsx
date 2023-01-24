@@ -10,11 +10,7 @@ const UserContextProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem('userID', JSON.stringify(userID))
-    const items = JSON.parse(localStorage.getItem('userID'))
-    if (items) {
-      console.log(items, 'LOCAL')
-      localStorage.setItem('userDATA', JSON.stringify(userDATA))
-    }
+    localStorage.setItem('userDATA', JSON.stringify(userDATA))
   }, [userID, userDATA])
 
   return (
