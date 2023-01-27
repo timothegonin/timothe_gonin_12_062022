@@ -14,6 +14,7 @@ function Dashboard() {
   const { dispatch } = useContext(UserContext)
   const [userDataFromFetch, setUserDataFromFetch] = useState([])
   const [isDataLoading, setDataLoading] = useState(false)
+  const [error, setError] = useState(false)
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
     `http://localhost:3000/user/${idFromURL}/activity`,
@@ -23,31 +24,18 @@ function Dashboard() {
 
   useEffect(() => {
     async function fetchUserData() {
-      // setDataLoading(true)
-      // try {
-      //   const response = await fetch(
-      //     `http://localhost:3000/user/${idFromURL}/activity`
-      //   )
-      //   const { data } = await response.json()
-      //   setUserDataFromFetch(data)
-      // } catch (err) {
-      //   console.log(err)
-      //   // setError(true)
-      // } finally {
-      //   setDataLoading(false)
-      // }
-      const arrayOfResponses = await Promise.all(
-        urls.map((url) =>
-          fetch(url)
-            .then((res) => res.json())
-            .then(({ data }) =>
-              setUserDataFromFetch((userDataFromFetch) => [
-                ...userDataFromFetch,
-                data,
-              ])
-            )
+      setDataLoading(true)
+      try {
+        const arrayOfResponses = await Promise.all(
+          urls.map((url) => fetch(url).then((res) => res.json()))
         )
-      )
+        setUserDataFromFetch(arrayOfResponses)
+      } catch (err) {
+        console.log(err)
+        setError(true)
+      } finally {
+        setDataLoading(false)
+      }
     }
     fetchUserData()
 
@@ -62,6 +50,10 @@ function Dashboard() {
     setUser(idFromURL)
   }, [idFromURL])
   console.log(userDataFromFetch)
+
+  if (error) {
+    return <span>Fetch Problem</span>
+  }
 
   return isDataLoading ? <p>Chargement</p> : <Analytics />
 }
