@@ -12,7 +12,7 @@ import { User } from '../../utils/service/models/User'
 function Dashboard() {
   const idFromURL = useParams().id
   const { dispatch } = useContext(UserContext)
-  const [userDataFromFetch, setUserDataFromFetch] = useState({})
+  const [userDataFromFetch, setUserDataFromFetch] = useState([])
   const [isDataLoading, setDataLoading] = useState(false)
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
@@ -40,7 +40,12 @@ function Dashboard() {
         urls.map((url) =>
           fetch(url)
             .then((res) => res.json())
-            .then(({ data }) => console.log(data))
+            .then(({ data }) =>
+              setUserDataFromFetch((userDataFromFetch) => [
+                ...userDataFromFetch,
+                data,
+              ])
+            )
         )
       )
     }
