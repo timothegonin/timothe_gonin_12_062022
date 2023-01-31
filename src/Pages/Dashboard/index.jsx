@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import Analytics from '../../Containers/Analytics'
 import { User } from '../../utils/service/models/User'
 import { UserAPI } from '../../utils/service/models/UserAPI'
+import { useFetch } from '../../utils/hooks'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -22,6 +23,10 @@ function Dashboard() {
   //   `http://localhost:3000/user/${idFromURL}/average-sessions`,
   //   `http://localhost:3000/user/${idFromURL}/performance`,
   // ]
+  const { data, isLoading, error } = useFetch(
+    `http://localhost:3000/user/${idFromURL}`
+  )
+  console.log(data)
 
   useEffect(() => {
     // async function fetchUserData() {
@@ -45,7 +50,7 @@ function Dashboard() {
         type: 'SET_NEW_USER',
         payload: {
           user: new User(Number(entry)),
-          userAPI: new UserAPI(Number(entry)),
+          // userAPI: new UserAPI(Number(entry)),
         },
       })
     }
