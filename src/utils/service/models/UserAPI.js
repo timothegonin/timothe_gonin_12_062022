@@ -6,26 +6,10 @@
 // } from '../data-MOCKED'
 
 export class UserAPI {
-  constructor(idFromURL) {
-    // console.log(idFromURL)
-    const urls = [
-      `http://localhost:3000/user/${idFromURL}`,
-      `http://localhost:3000/user/${idFromURL}/activity`,
-      `http://localhost:3000/user/${idFromURL}/average-sessions`,
-      `http://localhost:3000/user/${idFromURL}/performance`,
-    ]
-    async function fetchUserData() {
-      try {
-        const arrayOfResponses = await Promise.all(
-          urls.map((url) => fetch(url).then((res) => res.json()))
-        )
-        return arrayOfResponses
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    const data = fetchUserData()
+  constructor(idFromURL, data) {
+    console.log(idFromURL)
     console.log(data)
+
     // this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
     // this._userActivity = USER_ACTIVITY.find(
     //   (userData) => userData.userId === idFromURL

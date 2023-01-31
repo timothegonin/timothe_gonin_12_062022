@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react'
 
-export function useFetch(url) {
-  const [data, setData] = useState({})
+export function useFetch(urls) {
+  const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    if (!url) return
+    if (!urls) return
     setLoading(true)
     async function fetchData() {
       try {
-        const response = await fetch(url)
-        const data = await response.json()
-        setData(data)
+        const arrayOfResponses = await Promise.all(
+          urls.map((url) => fetch(url).then((res) => res.json()))
+        )
+        setData(arrayOfResponses)
       } catch (err) {
         console.log(err)
         setError(true)
@@ -21,6 +22,6 @@ export function useFetch(url) {
       }
     }
     fetchData()
-  }, [url])
+  }, [])
   return { isLoading, data, error }
 }
