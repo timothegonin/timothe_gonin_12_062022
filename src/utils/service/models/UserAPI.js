@@ -90,9 +90,3 @@ export class UserAPI {
     return userActivityType
   }
 }
-
-// TEST START
-// const test = new User(12)
-// console.log(test.userAverageSessions)
-// console.log('CLASS : ', typeof test.userAverageSessions)
-// TEST END
