@@ -1,25 +1,9 @@
-// import {
-//   USER_MAIN_DATA,
-//   USER_ACTIVITY,
-//   USER_AVERAGE_SESSIONS,
-//   USER_PERFORMANCE,
-// } from '../data-MOCKED'
-
 export class UserAPI {
-  constructor(idFromURL, data) {
-    console.log(idFromURL)
-    console.log(data)
-
-    // this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
-    // this._userActivity = USER_ACTIVITY.find(
-    //   (userData) => userData.userId === idFromURL
-    // )
-    // this._userAverageSessions = USER_AVERAGE_SESSIONS.find(
-    //   (userData) => userData.userId === idFromURL
-    // )
-    // this._userActivityType = USER_PERFORMANCE.find(
-    //   (userData) => userData.userId === idFromURL
-    // )
+  constructor(data) {
+    this._user = data[0].data
+    this._userActivity = data[1].data
+    this._userAverageSessions = data[2].data
+    this._userActivityType = data[3].data
   }
 
   /* 
