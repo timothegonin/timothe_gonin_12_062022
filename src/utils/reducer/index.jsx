@@ -20,3 +20,19 @@ export const userReducer = (state, action) => {
       return state
   }
 }
+
+//dispatch to component
+//START
+// const { activeUser } = useContext(UserContext)
+// useEffect(() => {
+//   const setUser = (entry) => {
+//     dispatch({
+//       type: 'SET_NEW_USER',
+//       payload: {
+//         user: new User(Number(entry)),
+//       },
+//     })
+//   }
+//   setUser(idFromURL)
+// }, [idFromURL])
+//END

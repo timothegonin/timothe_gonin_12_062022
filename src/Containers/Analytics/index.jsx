@@ -29,19 +29,6 @@ const Analytics = ({ data, id }) => {
   const activeUser = new User(Number(id))
   console.log(activeUser)
 
-  // const { activeUser } = useContext(UserContext)
-  // useEffect(() => {
-  //   const setUser = (entry) => {
-  //     dispatch({
-  //       type: 'SET_NEW_USER',
-  //       payload: {
-  //         user: new User(Number(entry)),
-  //       },
-  //     })
-  //   }
-  //   setUser(idFromURL)
-  // }, [idFromURL])
-
   return (
     <Fragment>
       <section>
