@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react'
-import { UserContext } from '../../utils/context'
+// import { useContext, useEffect } from 'react'
+// import { UserContext } from '../../utils/context'
 import { useParams } from 'react-router-dom'
 import Analytics from '../../Containers/Analytics'
-import { User } from '../../utils/service/models/User'
-import { UserAPI } from '../../utils/service/models/UserAPI'
+// import { User } from '../../utils/service/models/User'
+// import { UserAPI } from '../../utils/service/models/UserAPI'
 import { useFetch } from '../../utils/hooks'
 
 /* 
@@ -13,7 +13,7 @@ import { useFetch } from '../../utils/hooks'
  */
 function Dashboard() {
   const idFromURL = useParams().id
-  const { dispatch } = useContext(UserContext)
+  // const { dispatch } = useContext(UserContext)
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
     `http://localhost:3000/user/${idFromURL}/activity`,
@@ -22,26 +22,17 @@ function Dashboard() {
   ]
 
   const { data, isLoading, error } = useFetch(urls)
-  console.log(data[0])
-
-  useEffect(() => {
-    const setUser = (entry) => {
-      dispatch({
-        type: 'SET_NEW_USER',
-        payload: {
-          user: new User(Number(entry)),
-          // userAPI: new UserAPI(Number(entry)),
-        },
-      })
-    }
-    setUser(idFromURL)
-  }, [idFromURL])
+  // console.log(data[0])
 
   if (error) {
     return <span>Fetch Problem</span>
   }
 
-  return isLoading ? <p>Chargement</p> : <Analytics />
+  return isLoading ? (
+    <p>Chargement</p>
+  ) : (
+    <Analytics data={data} id={idFromURL} />
+  )
 }
 
 export default Dashboard

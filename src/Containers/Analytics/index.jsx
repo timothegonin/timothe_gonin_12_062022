@@ -1,5 +1,6 @@
 import { Fragment, useContext } from 'react'
 import { UserContext } from '../../utils/context'
+import { User } from '../../utils/service/models/User'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -18,12 +19,30 @@ import Counters from '../../components/Counters'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Analytics = () => {
-  const { activeUser } = useContext(UserContext)
+const Analytics = ({ data, id }) => {
+  console.log(id)
+  console.log(data)
+  // console.log(data[0].data) //main data
+  // console.log(data[1].data) //activity
+  // console.log(data[2].data) //session duration
+  // console.log(data[3].data) //activity type
+  const activeUser = new User(Number(id))
+  console.log(activeUser)
 
-  return activeUser === null ? (
-    <p>Chargement</p>
-  ) : (
+  // const { activeUser } = useContext(UserContext)
+  // useEffect(() => {
+  //   const setUser = (entry) => {
+  //     dispatch({
+  //       type: 'SET_NEW_USER',
+  //       payload: {
+  //         user: new User(Number(entry)),
+  //       },
+  //     })
+  //   }
+  //   setUser(idFromURL)
+  // }, [idFromURL])
+
+  return (
     <Fragment>
       <section>
         <HelloUser firstName={activeUser.userFirstName} />
