@@ -10,10 +10,17 @@ export function useFetch(urls) {
     setLoading(true)
     async function fetchData() {
       try {
-        const arrayOfResponses = await Promise.all(
-          urls.map((url) => fetch(url).then((res) => res.json()))
-        )
-        setData(arrayOfResponses)
+        if (typeof urls === 'string') {
+          const response = await fetch(urls)
+          const data = await response.json()
+          setData(data)
+          console.log(data)
+        } else {
+          const arrayOfResponses = await Promise.all(
+            urls.map((url) => fetch(url).then((res) => res.json()))
+          )
+          setData(arrayOfResponses)
+        }
       } catch (err) {
         console.log(err)
         setError(true)

@@ -15,7 +15,10 @@ function Dashboard() {
     `http://localhost:3000/user/${idFromURL}/average-sessions`,
     `http://localhost:3000/user/${idFromURL}/performance`,
   ]
+  // const url = `http://localhost:3000/user/${idFromURL}`
+
   const { data, isLoading, error } = useFetch(urls)
+  // const { data, isLoading, error } = useFetch(url)
 
   if (error) {
     return <span>Fetch Problem</span>
