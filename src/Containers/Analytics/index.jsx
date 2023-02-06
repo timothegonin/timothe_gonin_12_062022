@@ -24,6 +24,7 @@ import Counters from '../../components/Counters'
 const Analytics = ({ data, id }) => {
   // const activeUser = new User(Number(id))
   const activeUser = new UserAPI(data)
+  console.log(process.env.REACT_APP_DATA_MODE)
 
   return (
     <Fragment>
