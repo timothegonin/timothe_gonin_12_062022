@@ -1,12 +1,15 @@
-import { Fragment, useContext } from 'react'
-import { UserContext } from '../../utils/context'
+import { Fragment } from 'react'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
-import Activity from '../../components/Charts_collection/Activity'
+
+//Data ClassFromat
+import { User } from '../../utils/service/models/User'
+import { UserAPI } from '../../utils/service/models/UserAPI'
 
 //User banner
 import HelloUser from '../../components/HelloUser'
 // Charts components
+import Activity from '../../components/Charts_collection/Activity'
 import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
 import ActivityType from '../../components/Charts_collection/ActivityType'
 import Score from '../../components/Charts_collection/Score'
@@ -18,13 +21,14 @@ import Counters from '../../components/Counters'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Analytics = () => {
-  const { user } = useContext(UserContext)
+const Analytics = ({ data, id }) => {
+  // const activeUser = new User(Number(id))
+  const activeUser = new UserAPI(data)
 
   return (
     <Fragment>
       <section>
-        <HelloUser firstName={user.userFirstName} />
+        <HelloUser firstName={activeUser.userFirstName} />
       </section>
       <section>
         <ContentWrapper fluid className="mx-0">
@@ -32,20 +36,20 @@ const Analytics = () => {
             <ChartsWrapper>
               <Row>
                 <ChartFullSize>
-                  <Activity activity={user.userActivity} />
+                  <Activity activity={activeUser.userActivity} />
                 </ChartFullSize>
               </Row>
               <Row>
                 <ChartsGroup>
                   <SessionsDuration
-                    sessionsDuration={user.userAverageSessions}
+                    sessionsDuration={activeUser.userAverageSessions}
                   />
-                  <ActivityType activityType={user.userActivityType} />
-                  <Score score={user.userTodayScore} />
+                  <ActivityType activityType={activeUser.userActivityType} />
+                  <Score score={activeUser.userTodayScore} />
                 </ChartsGroup>
               </Row>
             </ChartsWrapper>
-            <Counters counterValues={user.userCounterValues} />
+            <Counters counterValues={activeUser.userCounterValues} />
           </Row>
         </ContentWrapper>
       </section>

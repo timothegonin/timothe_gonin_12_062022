@@ -1,5 +1,5 @@
 export const initialState = {
-  id: null,
+  user: null,
 }
 
 export const userReducer = (state, action) => {
@@ -7,20 +7,32 @@ export const userReducer = (state, action) => {
 
   switch (type) {
     case 'SET_NEW_USER':
-      console.log('SET_NEW_USER', payload)
-      console.log('PREVSTATE', state)
       return {
-        ...state.id,
-        id: payload.id,
+        ...state.user,
+        user: payload.user,
       }
     case 'RESET_USER':
-      console.log('SET_NEW_USER', payload)
-      console.log('PREVSTATE', state)
       return {
-        ...state.id,
-        id: initialState.id,
+        ...state.user,
+        user: initialState.user,
       }
     default:
       return state
   }
 }
+
+//dispatch to component
+//START
+// const { activeUser } = useContext(UserContext)
+// useEffect(() => {
+//   const setUser = (entry) => {
+//     dispatch({
+//       type: 'SET_NEW_USER',
+//       payload: {
+//         user: new User(Number(entry)),
+//       },
+//     })
+//   }
+//   setUser(idFromURL)
+// }, [idFromURL])
+//END
