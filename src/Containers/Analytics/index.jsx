@@ -21,10 +21,10 @@ import Counters from '../../components/Counters'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Analytics = ({ data, id }) => {
+const Analytics = ({ data }) => {
   // const activeUser = new User(Number(id))
-  const activeUser = new UserAPI(data)
-  console.log(process.env.REACT_APP_DATA_MODE)
+  const activeUser = data
+  console.log(activeUser)
 
   return (
     <Fragment>
