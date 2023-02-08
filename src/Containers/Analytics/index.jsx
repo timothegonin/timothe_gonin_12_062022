@@ -2,10 +2,6 @@ import { Fragment } from 'react'
 import styled from 'styled-components'
 import { Col, Container, Row } from 'react-bootstrap'
 
-//Data ClassFromat
-import { User } from '../../utils/service/models/User'
-import { UserAPI } from '../../utils/service/models/UserAPI'
-
 //User banner
 import HelloUser from '../../components/HelloUser'
 // Charts components
@@ -22,9 +18,7 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = ({ data }) => {
-  // const activeUser = new User(Number(id))
   const activeUser = data
-  console.log(activeUser)
 
   return (
     <Fragment>

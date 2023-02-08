@@ -17,7 +17,6 @@ export class User {
     this._userActivityType = USER_PERFORMANCE.find(
       (userData) => userData.userId === idFromURL
     )
-    console.log('MOCK MODE')
   }
 
   /* 

@@ -9,12 +9,6 @@ import { useFetch } from '../../utils/hooks'
  */
 function Dashboard() {
   const idFromURL = useParams().id
-  // const urls = [
-  //   `http://localhost:3000/user/${idFromURL}`,
-  //   `http://localhost:3000/user/${idFromURL}/activity`,
-  //   `http://localhost:3000/user/${idFromURL}/average-sessions`,
-  //   `http://localhost:3000/user/${idFromURL}/performance`,
-  // ]
 
   const { data, isLoading, error } = useFetch(idFromURL)
 

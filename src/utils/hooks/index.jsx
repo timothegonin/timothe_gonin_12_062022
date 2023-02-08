@@ -14,11 +14,9 @@ export function useFetch(idFromURL) {
     `http://localhost:3000/user/${idFromURL}/performance`,
   ]
   const dataMode = process.env.REACT_APP_DATA_MODE
-  console.log(dataMode)
 
   useEffect(() => {
     if (!idFromURL) return
-    setLoading(true)
     async function fetchData() {
       try {
         const arrayOfResponses = await Promise.all(
@@ -33,11 +31,10 @@ export function useFetch(idFromURL) {
       }
     }
     function fetchMockedData() {
-      setLoading(true)
       setData(new User(Number(idFromURL)))
       setLoading(false)
     }
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
-  }, [])
+  }, [idFromURL])
   return { isLoading, data, error }
 }

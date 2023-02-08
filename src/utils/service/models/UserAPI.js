@@ -4,7 +4,6 @@ export class UserAPI {
     this._userActivity = data[1].data
     this._userAverageSessions = data[2].data
     this._userActivityType = data[3].data
-    console.log('API MODE')
   }
 
   /* 
