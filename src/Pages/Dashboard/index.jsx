@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import Analytics from '../../Containers/Analytics'
-import { useFetch } from '../../utils/hooks'
+import { useFetchUserData } from '../../utils/hooks'
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -9,6 +9,7 @@ import { useFetch } from '../../utils/hooks'
  */
 function Dashboard() {
   const idFromURL = useParams().id
+
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
     `http://localhost:3000/user/${idFromURL}/activity`,
@@ -16,17 +17,13 @@ function Dashboard() {
     `http://localhost:3000/user/${idFromURL}/performance`,
   ]
 
-  const { data, isLoading, error } = useFetch(urls)
+  const { data, isLoading, error } = useFetchUserData(idFromURL, urls)
 
   if (error) {
     return <span>Fetch Problem</span>
   }
 
-  return isLoading ? (
-    <p>Chargement</p>
-  ) : (
-    <Analytics data={data} id={idFromURL} />
-  )
+  return isLoading ? <p>Chargement</p> : <Analytics data={data} />
 }
 
 export default Dashboard
