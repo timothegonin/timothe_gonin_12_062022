@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { UserContext } from '../../utils/context'
 import styled from 'styled-components'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, Container } from 'react-bootstrap'
@@ -11,17 +9,11 @@ import Logo from '../../assets/logo.svg'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Header() {
-  const { dispatch } = useContext(UserContext)
-  const resetUser = () => {
-    dispatch({
-      type: 'RESET_USER',
-    })
-  }
   return (
     <HeaderWrapper bg="secondary" expand="md" variant="dark">
       <Container className="m-0 px-4" fluid>
         <LinkContainer to="/">
-          <LogoWrapper onClick={() => resetUser()}>
+          <LogoWrapper>
             <img alt="SportSee's Logo" src={Logo} /> <span>SportSee</span>
           </LogoWrapper>
         </LinkContainer>
@@ -32,17 +24,11 @@ function Header() {
         >
           <Nav className="w-100 d-flex justify-content-around text-primary">
             <LinkContainer to="/">
-              <NavLink onClick={() => resetUser()}>Accueil</NavLink>
+              <NavLink>Accueil</NavLink>
             </LinkContainer>
-            <LinkContainer to="/">
-              <NavLink>Profil</NavLink>
-            </LinkContainer>
-            <LinkContainer to="/">
-              <NavLink>Réglage</NavLink>
-            </LinkContainer>
-            <LinkContainer to="/">
-              <NavLink>Communauté</NavLink>
-            </LinkContainer>
+            <NavLink>Profil</NavLink>
+            <NavLink>Réglage</NavLink>
+            <NavLink>Communauté</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

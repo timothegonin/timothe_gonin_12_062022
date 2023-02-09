@@ -1,8 +1,6 @@
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import UserContextProvider from './utils/context'
-
 import Header from './Containers/Header'
 import Sidebar from './Containers/Sidebar'
 import Router from './utils/Router'
@@ -15,13 +13,11 @@ import Router from './utils/Router'
 function App() {
   return (
     <Container fluid className="App px-0">
-      <UserContextProvider>
-        <Header />
-        <Sidebar />
-        <MainWrapper>
-          <Router />
-        </MainWrapper>
-      </UserContextProvider>
+      <Header />
+      <Sidebar />
+      <MainWrapper>
+        <Router />
+      </MainWrapper>
     </Container>
   )
 }
