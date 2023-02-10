@@ -1,10 +1,11 @@
-import React from 'react'
 import UserCard from '../../components/UserCard'
 const UserCards = () => {
+  const ids = [12, 18]
   return (
     <div>
-      <UserCard id={12} />
-      <UserCard id={18} />
+      {ids.map((id, index) => (
+        <UserCard id={id} key={`userCard ${index}`} />
+      ))}
     </div>
   )
 }
