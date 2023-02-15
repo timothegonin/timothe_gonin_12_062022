@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import Analytics from '../../Containers/Analytics'
+import Loader from '../../components/Loader'
 import { useFetchUserData } from '../../utils/hooks'
 
 /* 
@@ -23,7 +24,7 @@ function Dashboard() {
     return <span>Fetch Problem</span>
   }
 
-  return isLoading ? <p>Chargement</p> : <Analytics data={data} />
+  return isLoading ? <Loader /> : <Analytics data={data} />
 }
 
 export default Dashboard
