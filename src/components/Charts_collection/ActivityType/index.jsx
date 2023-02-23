@@ -9,7 +9,7 @@ import {
 } from 'recharts'
 
 /**
- * Displing user's type of activity in Radarchart
+ * Displaying user's type of activity in Radarchart
  * @function ActivityType
  * @param {Array.<{ value: Integer, kind: String}> } ActivityType User's type of activity data
  * @return {HTMLElement }
