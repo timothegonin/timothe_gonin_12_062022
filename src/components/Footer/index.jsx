@@ -1,5 +1,16 @@
 import styled from 'styled-components'
 
+/**
+ * Displaying page's footer
+ * @function Footer
+ * @returns {HTMLElement}
+ */
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 function Footer() {
   return (
     <FooterWrapper>
@@ -10,6 +21,11 @@ function Footer() {
 
 export default Footer
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const FooterWrapper = styled.footer`
   height: calc(138px + 100px);
   display: flex;
