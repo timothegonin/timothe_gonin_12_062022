@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Footer/index.jsx</title>
+    <title>JSDoc: Source: CustomTootip/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Footer/index.jsx</h1>
+    <h1 class="page-title">Source: CustomTootip/index.jsx</h1>
 
     
 
@@ -29,8 +29,11 @@
             <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
 
 /**
- * Displaying page's footer
- * @function Footer
+ * Diplaying custom tooltip, used throught charts
+ * @function CustomTooltip
+ * @param {boolean} active Enable/Disable  with mouse over the chart
+ * @param {string} payload Used to choose between Activity or SessionDuration
+ * @param {String[]} units Activity(kg, Kcal) - SessionDuration(min)
  * @returns {HTMLElement}
  */
 
@@ -39,34 +42,50 @@
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-function Footer() {
-  return (
-    &lt;FooterWrapper>
-      &lt;p>Copyright, SportSee 2020&lt;/p>
-    &lt;/FooterWrapper>
-  )
+const CustomTooltip = ({ active, payload, styles, units }) => {
+  /**
+   * CustomToolTip Content
+   * @type {HTMLElement}
+   */
+  const content = payload.map((current, index) => (
+    &lt;p
+      key={`${current}-${index}`}
+      className="label"
+    >{`${current.value} ${units[index]}`}&lt;/p>
+  ))
+
+  if (active &amp;&amp; payload &amp;&amp; payload.length) {
+    return styles === 'activity' ? (
+      &lt;ActivityCustomTooltip>{content}&lt;/ActivityCustomTooltip>
+    ) : (
+      &lt;SessionDurationCustomTooltip>{content}&lt;/SessionDurationCustomTooltip>
+    )
+  }
+  return null
 }
 
-export default Footer
+export default CustomTooltip
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const FooterWrapper = styled.footer`
-  height: calc(138px + 100px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  p {
+const ActivityCustomTooltip = styled.div`
+  background-color: #e60000;
+  .label {
     color: white;
-    margin-bottom: 0;
-    transform: rotate(180deg);
-    writing-mode: vertical-rl;
-    text-orientation: sideways-right;
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 7px;
+    padding: 7px 10px;
+  }
+`
+const SessionDurationCustomTooltip = styled.div`
+  background: white;
+  .label {
+    padding: 7px;
+    font-weight: 500;
+    font-size: 8px;
   }
 `
 </code></pre>

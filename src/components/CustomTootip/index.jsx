@@ -1,11 +1,24 @@
 import styled from 'styled-components'
 
+/**
+ * Diplaying custom tooltip, used throught charts
+ * @function CustomTooltip
+ * @param {boolean} active Enable/Disable  with mouse over the chart
+ * @param {string} payload Used to choose between Activity or SessionDuration
+ * @param {String[]} units Activity(kg, Kcal) - SessionDuration(min)
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ TOOLTIP                                                                 │
+  │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const CustomTooltip = ({ active, payload, styles, units }) => {
+  /**
+   * CustomToolTip Content
+   * @type {HTMLElement}
+   */
   const content = payload.map((current, index) => (
     <p
       key={`${current}-${index}`}
@@ -25,6 +38,11 @@ const CustomTooltip = ({ active, payload, styles, units }) => {
 
 export default CustomTooltip
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const ActivityCustomTooltip = styled.div`
   background-color: #e60000;
   .label {
