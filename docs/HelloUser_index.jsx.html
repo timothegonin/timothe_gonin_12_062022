@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: CustomTootip/index.jsx</title>
+    <title>JSDoc: Source: HelloUser/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: CustomTootip/index.jsx</h1>
+    <h1 class="page-title">Source: HelloUser/index.jsx</h1>
 
     
 
@@ -26,15 +26,14 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+import { Col, Container, Row } from 'react-bootstrap'
 
 /**
- * Diplaying custom tooltip, used throught charts
- * @function CustomTooltip
- * @param {boolean} active Enable/Disable  with mouse over the chart
- * @param {string} payload Used to choose between Activity or SessionDuration
- * @param {String[]} units Activity(kg, Kcal) - SessionDuration(min)
- * @returns {HTMLElement}
+ * Displaying user's firstname into HelloUser component
+ * @function HelloUser
+ * @param {string} FirstName of active user
+ * @return {HTMLElement }
  */
 
 /* 
@@ -42,52 +41,31 @@
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CustomTooltip = ({ active, payload, styles, units }) => {
-  /**
-   * CustomToolTip Content
-   * @type {HTMLElement}
-   */
-  const content = payload.map((current, index) => (
-    &lt;p
-      key={`${current}-${index}`}
-      className="label"
-    >{`${current.value} ${units[index]}`}&lt;/p>
-  ))
-
-  if (active &amp;&amp; payload &amp;&amp; payload.length) {
-    return styles === 'activity' ? (
-      &lt;ActivityCustomTooltip>{content}&lt;/ActivityCustomTooltip>
-    ) : (
-      &lt;SessionDurationCustomTooltip>{content}&lt;/SessionDurationCustomTooltip>
-    )
-  }
-  return null
+const HelloUser = ({ firstName }) => {
+  return (
+    &lt;Container className="mx-2">
+      &lt;Row className="my-5">
+        &lt;Col>
+          &lt;h1>
+            Bonjour &lt;span className="text-primary">{firstName}&lt;/span>
+          &lt;/h1>
+          &lt;p>Féliciation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
+        &lt;/Col>
+      &lt;/Row>
+    &lt;/Container>
+  )
 }
 
-export default CustomTooltip
+export default HelloUser
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
+  │ PROPTYPES                                                               │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ActivityCustomTooltip = styled.div`
-  background-color: #e60000;
-  .label {
-    color: white;
-    font-weight: 500;
-    font-size: 7px;
-    padding: 7px 10px;
-  }
-`
-const SessionDurationCustomTooltip = styled.div`
-  background: white;
-  .label {
-    padding: 7px;
-    font-weight: 500;
-    font-size: 8px;
-  }
-`
+HelloUser.propTypes = {
+  firstName: PropTypes.string,
+}
 </code></pre>
         </article>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: CustomTootip/index.jsx</title>
+    <title>JSDoc: Source: SquareButton/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: CustomTootip/index.jsx</h1>
+    <h1 class="page-title">Source: SquareButton/index.jsx</h1>
 
     
 
@@ -27,13 +27,13 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 
 /**
- * Diplaying custom tooltip, used throught charts
- * @function CustomTooltip
- * @param {boolean} active Enable/Disable  with mouse over the chart
- * @param {string} payload Used to choose between Activity or SessionDuration
- * @param {String[]} units Activity(kg, Kcal) - SessionDuration(min)
+ * Design pattern of square button in the sidebar
+ * @function SquareButton
+ * @param {{icon: String, alt: String}} Icons links and alternativ texte
  * @returns {HTMLElement}
  */
 
@@ -42,50 +42,36 @@
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CustomTooltip = ({ active, payload, styles, units }) => {
-  /**
-   * CustomToolTip Content
-   * @type {HTMLElement}
-   */
-  const content = payload.map((current, index) => (
-    &lt;p
-      key={`${current}-${index}`}
-      className="label"
-    >{`${current.value} ${units[index]}`}&lt;/p>
-  ))
-
-  if (active &amp;&amp; payload &amp;&amp; payload.length) {
-    return styles === 'activity' ? (
-      &lt;ActivityCustomTooltip>{content}&lt;/ActivityCustomTooltip>
-    ) : (
-      &lt;SessionDurationCustomTooltip>{content}&lt;/SessionDurationCustomTooltip>
-    )
-  }
-  return null
+function SquareButton(props) {
+  console.log(props)
+  return (
+    &lt;ButtonWrapper>
+      &lt;Button variant="light">
+        &lt;img src={props.icon} alt={props.alt} />
+      &lt;/Button>{' '}
+    &lt;/ButtonWrapper>
+  )
 }
 
-export default CustomTooltip
+export default SquareButton
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ActivityCustomTooltip = styled.div`
-  background-color: #e60000;
-  .label {
-    color: white;
-    font-weight: 500;
-    font-size: 7px;
-    padding: 7px 10px;
+const ButtonWrapper = styled(ListGroup.Item)`
+  height: 64px;
+  width: 64px;
+  border-radius: 6px;
+  &amp;:hover {
+    cursor: pointer;
   }
-`
-const SessionDurationCustomTooltip = styled.div`
-  background: white;
-  .label {
-    padding: 7px;
-    font-weight: 500;
-    font-size: 8px;
+  button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `
 </code></pre>
