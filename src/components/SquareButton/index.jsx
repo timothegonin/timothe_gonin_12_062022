@@ -3,7 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 
 /**
- * Design pattern of square button in the sidebar
+ * Template of square button in the sidebar
  * @function SquareButton
  * @param {{icon: String, alt: String}} Icons links and alternativ texte
  * @returns {HTMLElement}
@@ -15,7 +15,6 @@ import Button from 'react-bootstrap/Button'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function SquareButton(props) {
-  console.log(props)
   return (
     <ButtonWrapper>
       <Button variant="light">
