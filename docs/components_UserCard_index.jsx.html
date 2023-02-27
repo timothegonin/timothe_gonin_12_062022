@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/UserCard/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,48 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/UserCard/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
+/**
+ * Template of usercard, user's profile selector
+ * @function UserCard
+ * @param {Integer} id Id of activ user,throught the url
+ * @returns {HTMLElement}
+ */
 
-    <h3> </h3>
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const UserCard = ({ id }) => {
+  return (
+    &lt;article
+      className="d-inline-flex flex-column align-items-center p-3 pt-2"
+      style={{ border: '1px solid black' }}
+    >
+      &lt;h3 className="text-primary fs-4">Utilisateur - {id}&lt;/h3>
+      &lt;Link to={`/user/${id}`}>
+        &lt;Button className="text-white">Accéder au profile&lt;/Button>
+      &lt;/Link>
+    &lt;/article>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default UserCard
+</code></pre>
+        </article>
+    </section>
 
 
 
