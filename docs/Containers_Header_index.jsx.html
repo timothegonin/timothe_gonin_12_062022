@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/HelloUser/index.jsx</title>
+    <title>JSDoc: Source: Containers/Header/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/HelloUser/index.jsx</h1>
+    <h1 class="page-title">Source: Containers/Header/index.jsx</h1>
 
     
 
@@ -26,14 +26,15 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
-import { Col, Container, Row } from 'react-bootstrap'
+            <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
+import { LinkContainer } from 'react-router-bootstrap'
+import { Nav, Navbar, Container } from 'react-bootstrap'
+import Logo from '../../assets/logo.svg'
 
 /**
- * Displaying user's firstname into HelloUser component
- * @function HelloUser
- * @param {string} FirstName of active user
- * @return {HTMLElement }
+ * Displaying page's Header (brand, navlinks)
+ * @function Header
+ * @returns {HTMLElement}
  */
 
 /* 
@@ -41,31 +42,65 @@ import { Col, Container, Row } from 'react-bootstrap'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const HelloUser = ({ firstName }) => {
+function Header() {
   return (
-    &lt;Container className="mx-2">
-      &lt;Row className="my-5">
-        &lt;Col>
-          &lt;h1>
-            Bonjour &lt;span className="text-primary">{firstName}&lt;/span>
-          &lt;/h1>
-          &lt;p>Féliciation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
-        &lt;/Col>
-      &lt;/Row>
-    &lt;/Container>
+    &lt;HeaderWrapper bg="secondary" expand="md" variant="dark">
+      &lt;Container className="m-0 px-4" fluid>
+        &lt;LinkContainer to="/">
+          &lt;LogoWrapper>
+            &lt;img alt="SportSee's Logo" src={Logo} /> &lt;span>SportSee&lt;/span>
+          &lt;/LogoWrapper>
+        &lt;/LinkContainer>
+        &lt;Navbar.Toggle aria-controls="basic-navbar-nav" />
+        &lt;Navbar.Collapse
+          id="basic-navbar-nav"
+          className="justify-content-center"
+        >
+          &lt;Nav className="w-100 d-flex justify-content-around text-primary">
+            &lt;LinkContainer to="/">
+              &lt;NavLink>Accueil&lt;/NavLink>
+            &lt;/LinkContainer>
+            &lt;NavLink>Profil&lt;/NavLink>
+            &lt;NavLink>Réglage&lt;/NavLink>
+            &lt;NavLink>Communauté&lt;/NavLink>
+          &lt;/Nav>
+        &lt;/Navbar.Collapse>
+      &lt;/Container>
+    &lt;/HeaderWrapper>
   )
 }
 
-export default HelloUser
+export default Header
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ PROPTYPES                                                               │
+  │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-HelloUser.propTypes = {
-  firstName: PropTypes.string,
-}
+const HeaderWrapper = styled(Navbar)`
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+`
+const LogoWrapper = styled(Navbar.Brand)`
+  margin: 0;
+  display: flex;
+  align-items: center;
+  span {
+    color: #ff0000;
+    margin-left: 8px;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+`
+
+const NavLink = styled(Nav.Link)`
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 24px;
+  color: white !important;
+`
 </code></pre>
         </article>
     </section>
