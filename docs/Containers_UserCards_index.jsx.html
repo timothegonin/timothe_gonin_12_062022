@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/CustomTootip/index.jsx</title>
+    <title>JSDoc: Source: Containers/UserCards/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/CustomTootip/index.jsx</h1>
+    <h1 class="page-title">Source: Containers/UserCards/index.jsx</h1>
 
     
 
@@ -26,14 +26,11 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
+            <pre class="prettyprint source linenums"><code>import UserCard from '../../components/UserCard'
 
 /**
- * Diplaying custom tooltip, used throught charts
- * @function CustomTooltip
- * @param {boolean} active Enable/Disable  with mouse over the chart
- * @param {string} payload Used to choose between Activity or SessionDuration
- * @param {String[]} units Activity(kg, Kcal) - SessionDuration(min)
+ * Displaying User's card container
+ * @function UserCards
  * @returns {HTMLElement}
  */
 
@@ -42,52 +39,24 @@
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CustomTooltip = ({ active, payload, styles, units }) => {
+const UserCards = () => {
   /**
-   * CustomToolTip Content
-   * @type {HTMLElement}
+   * @constant ids
+   * Ids used to generate links to user's page
+   * @type {Integer}
    */
-  const content = payload.map((current, index) => (
-    &lt;p
-      key={`${current}-${index}`}
-      className="label"
-    >{`${current.value} ${units[index]}`}&lt;/p>
-  ))
+  const ids = [12, 18]
 
-  if (active &amp;&amp; payload &amp;&amp; payload.length) {
-    return styles === 'activity' ? (
-      &lt;ActivityCustomTooltip>{content}&lt;/ActivityCustomTooltip>
-    ) : (
-      &lt;SessionDurationCustomTooltip>{content}&lt;/SessionDurationCustomTooltip>
-    )
-  }
-  return null
+  return (
+    &lt;section className="mt-5 d-flex justify-content-evenly">
+      {ids.map((id, index) => (
+        &lt;UserCard id={id} key={`userCard ${index}`} />
+      ))}
+    &lt;/section>
+  )
 }
 
-export default CustomTooltip
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const ActivityCustomTooltip = styled.div`
-  background-color: #e60000;
-  .label {
-    color: white;
-    font-weight: 500;
-    font-size: 7px;
-    padding: 7px 10px;
-  }
-`
-const SessionDurationCustomTooltip = styled.div`
-  background: white;
-  .label {
-    padding: 7px;
-    font-weight: 500;
-    font-size: 8px;
-  }
-`
+export default UserCards
 </code></pre>
         </article>
     </section>
