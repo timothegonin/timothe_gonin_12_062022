@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Containers/Sidebar/index.jsx</title>
+    <title>JSDoc: Source: Pages/Dashboard/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Containers/Sidebar/index.jsx</h1>
+    <h1 class="page-title">Source: Pages/Dashboard/index.jsx</h1>
 
     
 
@@ -26,22 +26,14 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
-
-import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
-import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
-import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
-import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
-
-//Components
-import SquareButton from '../../components/SquareButton'
-import Footer from '../../components/Footer'
+            <pre class="prettyprint source linenums"><code>import { useParams } from 'react-router-dom'
+import Analytics from '../../Containers/Analytics'
+import Loader from '../../components/Loader'
+import { useFetchUserData } from '../../utils/hooks'
 
 /**
- * Displaying page's Sidebar (square buttons)
- * @function Sidebar
+ * Displaying the dashboard page, loader, error
+ * @function DashBoard
  * @returns {HTMLElement}
  */
 
@@ -50,49 +42,26 @@ import Footer from '../../components/Footer'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const Dashboard = () => {
+  const idFromURL = useParams().id
 
-function Sidebar() {
-  return (
-    &lt;SideBarWrapper className="bg-secondary">
-      &lt;nav>
-        &lt;ListGroup className="justify-content-between">
-          &lt;SquareButton icon={YogaIcon} alt="Yoga icon" />
-          &lt;SquareButton icon={SwimIcon} alt="Swin icon" />
-          &lt;SquareButton icon={BikeIcon} alt="Bike icon" />
-          &lt;SquareButton icon={Dumbbell} alt="Dumbbel icon" />
-        &lt;/ListGroup>
-      &lt;/nav>
-      &lt;Footer />
-    &lt;/SideBarWrapper>
-  )
+  const urls = [
+    `http://localhost:3000/user/${idFromURL}`,
+    `http://localhost:3000/user/${idFromURL}/activity`,
+    `http://localhost:3000/user/${idFromURL}/average-sessions`,
+    `http://localhost:3000/user/${idFromURL}/performance`,
+  ]
+
+  const { data, isLoading, error } = useFetchUserData(idFromURL, urls)
+
+  if (error) {
+    return &lt;span>Fetch Problem&lt;/span>
+  }
+
+  return isLoading ? &lt;Loader /> : &lt;Analytics data={data} />
 }
 
-export default Sidebar
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const SideBarWrapper = styled.aside`
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-  padding-top: 84px;
-  width: 117px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  nav {
-    height: 316px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 164px;
-  }
-`
+export default Dashboard
 </code></pre>
         </article>
     </section>
