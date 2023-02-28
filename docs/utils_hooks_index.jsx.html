@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Pages/Home/index.jsx</title>
+    <title>JSDoc: Source: utils/hooks/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Pages/Home/index.jsx</h1>
+    <h1 class="page-title">Source: utils/hooks/index.jsx</h1>
 
     
 
@@ -26,25 +26,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import UserCards from '../../Containers/UserCards'
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react'
+import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
+import { User } from '../../utils/service/models/User'
 
 /**
- * Displaying the home page which contains the user cards container
- * @function Home
- * @returns {HTMLElement}
+ * Custom hook : return data, if data is loading, if error
+ * @function useFetchUserData
+ * @param {string} idFromURL Id catched in url, matches user id
+ * @param {Array.&lt;String>} urls Routes used by the api
+ * @returns {Object} user data
+ * @returns {Boolean} is data loading or not
+ * @returns {Boolean} error or not
  */
 
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ JSX                                                                     │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const Home = () => {
-  return &lt;UserCards />
+export function useFetchUserData(idFromURL, urls) {
+  // data object destination
+  const [data, setData] = useState([])
+  // is loading or not status
+  const [isLoading, setLoading] = useState(true)
+  // error catched or not
+  const [error, setError] = useState(false)
+  // constant will be used to check datamode
+  const dataMode = process.env.REACT_APP_DATA_MODE
+
+  useEffect(() => {
+    if (!urls) return
+
+    /**
+     * Fetch data with the API
+     * @function fetchData
+     * @return {Object|Boolean} user's data from API or catched error
+     */
+    async function fetchData() {
+      try {
+        const arrayOfResponses = await Promise.all(
+          urls.map((url) => fetch(url).then((res) => res.json()))
+        )
+        return setData(new User(arrayOfResponses))
+      } catch (err) {
+        console.log(err)
+        return setError(true)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    /**
+     * Fetch data with Mocked Data
+     * @function fetchMockedData
+     * @return {Object|Boolean} user's data from mocked data file or catched error
+     */
+    function fetchMockedData() {
+      try {
+        return setData(new User_MOCKED(Number(idFromURL)))
+      } catch (err) {
+        console.log(err)
+        return setError(true)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    //Datamode checking
+    dataMode === 'MOCK' ? fetchMockedData() : fetchData()
+  }, [idFromURL])
+
+  return { isLoading, data, error }
 }
-
-export default Home
 </code></pre>
         </article>
     </section>

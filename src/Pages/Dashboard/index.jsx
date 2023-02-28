@@ -17,6 +17,7 @@ import { useFetchUserData } from '../../utils/hooks'
 const Dashboard = () => {
   const idFromURL = useParams().id
 
+  //Routes used for api calls
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
     `http://localhost:3000/user/${idFromURL}/activity`,

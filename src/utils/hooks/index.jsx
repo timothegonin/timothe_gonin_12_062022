@@ -2,32 +2,65 @@ import { useState, useEffect } from 'react'
 import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
 import { User } from '../../utils/service/models/User'
 
-export function useFetchUserData(idFromURL, urls) {
-  const [data, setData] = useState([])
-  const [isLoading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+/**
+ * Custom hook : return data, if data is loading, if error
+ * @function useFetchUserData
+ * @param {string} idFromURL Id catched in url, matches user id
+ * @param {Array.<String>} urls Routes used by the api
+ * @returns {Object} user data
+ * @returns {Boolean} is data loading or not
+ * @returns {Boolean} error or not
+ */
 
+export function useFetchUserData(idFromURL, urls) {
+  // data object destination
+  const [data, setData] = useState([])
+  // is loading or not status
+  const [isLoading, setLoading] = useState(true)
+  // error catched or not
+  const [error, setError] = useState(false)
+  // constant will be used to check datamode
   const dataMode = process.env.REACT_APP_DATA_MODE
 
   useEffect(() => {
     if (!urls) return
+
+    /**
+     * Fetch data with the API
+     * @function fetchData
+     * @return {Object|Boolean} user's data from API or catched error
+     */
     async function fetchData() {
       try {
         const arrayOfResponses = await Promise.all(
           urls.map((url) => fetch(url).then((res) => res.json()))
         )
-        setData(new User(arrayOfResponses))
+        return setData(new User(arrayOfResponses))
       } catch (err) {
         console.log(err)
-        setError(true)
+        return setError(true)
       } finally {
         setLoading(false)
       }
     }
+
+    /**
+     * Fetch data with Mocked Data
+     * @function fetchMockedData
+     * @return {Object|Boolean} user's data from mocked data file or catched error
+     */
     function fetchMockedData() {
-      setData(new User_MOCKED(Number(idFromURL)))
-      setLoading(false)
+      try {
+        return setData(new User_MOCKED(Number(idFromURL)))
+      } catch (err) {
+        console.log(err)
+        return setError(true)
+      } finally {
+        setLoading(false)
+      }
     }
+
+    //Datamode checking
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
   }, [idFromURL])
 
