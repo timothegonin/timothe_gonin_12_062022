@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/SquareButton/index.jsx</title>
+    <title>JSDoc: Source: utils/Router/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/SquareButton/index.jsx</h1>
+    <h1 class="page-title">Source: utils/Router/index.jsx</h1>
 
     
 
@@ -26,14 +26,16 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button'
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from '../../Pages/Home'
+import Dashboard from '../../Pages/Dashboard'
+import Error from '../../Pages/Error'
 
 /**
- * Template of square button in the sidebar
- * @function SquareButton
- * @param {{icon: String, alt: String}} Icons links and alternativ texte
+ * Returning routes for single page application SPA
+ * @function Router
+ * @property {HTMLElement} element Page direction
  * @returns {HTMLElement}
  */
 
@@ -42,37 +44,17 @@ import Button from 'react-bootstrap/Button'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-function SquareButton(props) {
+const Router = () => {
   return (
-    &lt;ButtonWrapper>
-      &lt;Button variant="light">
-        &lt;img src={props.icon} alt={props.alt} />
-      &lt;/Button>{' '}
-    &lt;/ButtonWrapper>
+    &lt;Routes>
+      &lt;Route path="/" element={&lt;Home />} />
+      &lt;Route path="/user/:id" element={&lt;Dashboard />} />
+      &lt;Route path="*" element={&lt;Error />} />
+    &lt;/Routes>
   )
 }
 
-export default SquareButton
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const ButtonWrapper = styled(ListGroup.Item)`
-  height: 64px;
-  width: 64px;
-  border-radius: 6px;
-  &amp;:hover {
-    cursor: pointer;
-  }
-  button {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-`
+export default Router
 </code></pre>
         </article>
     </section>
