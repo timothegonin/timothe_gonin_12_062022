@@ -73,8 +73,19 @@ export class User_MOCKED {
   │   USER_ACTIVITY                                                             │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
+
+  /**
+   * Return an array of objects containing the user's activity
+   * @typedef {Array.<Object>}
+   * @property {Integer} day - Number of the day
+   * @property {Integer} kilogram - Kilograms burned during the day
+   * @property {Integer} calories - Calories burned during the day
+   * @memberof User_MOCKED
+   */
   get userActivity() {
+    //Creating an empty array. Store the formatted data from the sessionData constant
     const userActivity = []
+
     this._userActivity.sessions.forEach((session, index) => {
       const sessionData = {
         day: index + 1,
@@ -126,3 +137,9 @@ export class User_MOCKED {
     return userActivityType
   }
 }
+
+//DATA VISION start
+const testUser = new User_MOCKED(12)
+console.log(testUser.userActivity)
+console.log(typeof testUser.userActivity)
+//DATA VISION end
