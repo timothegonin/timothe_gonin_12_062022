@@ -132,7 +132,15 @@ export class User_MOCKED {
   │   USER_PERFORMANCE                                                          │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
+  /**
+   * Return an array of objects containing the user's activities type
+   * @typedef {Array.<Object>}
+   * @property {Integer} value
+   * @property {String} kind - Performance type label
+   * @memberof User_MOCKED
+   */
   get userActivityType() {
+    //Creating an empty array. Store the formatted data from the activityTypeData constant
     const userActivityType = []
     const data = this._userActivityType.data
     const kind = this._userActivityType.kind
@@ -147,9 +155,3 @@ export class User_MOCKED {
     return userActivityType
   }
 }
-
-//DATA VISION start
-const testUser = new User_MOCKED(12)
-console.log(testUser.userAverageSessions)
-console.log(typeof testUser.userAverageSessions)
-//DATA VISION end
