@@ -102,9 +102,19 @@ export class User_MOCKED {
   │   USER_AVERAGE_SESSIONS                                                     │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
+
+  /**
+   * Return an array of objects containing the user's average session
+   * @typedef {Array.<Object>}
+   * @property {String} day - First letter of the day
+   * @property {Integer} sessionLength - Session length
+   * @memberof User_MOCKED
+   */
   get userAverageSessions() {
+    //Creating an empty array. Store the formatted data from the average sessionData constant
     const userSessions = []
     const data = this._userAverageSessions.sessions
+    //Array needed for the chart layout
     const daysFirstLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
     data.forEach((session, index) => {
@@ -140,6 +150,6 @@ export class User_MOCKED {
 
 //DATA VISION start
 const testUser = new User_MOCKED(12)
-console.log(testUser.userActivity)
-console.log(typeof testUser.userActivity)
+console.log(testUser.userAverageSessions)
+console.log(typeof testUser.userAverageSessions)
 //DATA VISION end
