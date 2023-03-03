@@ -3,6 +3,12 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Logo from '../../assets/logo.svg'
 
+/**
+ * Displaying page's Header (brand, navlinks)
+ * @function Header
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

@@ -10,6 +10,13 @@ import {
 } from 'recharts'
 import CustomTooltip from '../../CustomTootip'
 
+/**
+ * Displaying user's duration of sessions in RadialBarchart
+ * @function SessionsDuration
+ * @param {Array.<{ day: String, sessionLength: Integer}> } SessionsDuration User's duration of sessions data
+ * @return {HTMLElement }
+ */
+
 /* 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ JSX                                                                     │

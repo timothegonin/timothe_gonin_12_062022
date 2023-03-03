@@ -1,13 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import ListGroup from 'react-bootstrap/ListGroup'
+
 import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
 import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
 import BikeIcon from '../../assets/icons/sidebar/bike-icon.svg'
 import Dumbbell from '../../assets/icons/sidebar/dumbbell-icon.svg'
 
+//Components
 import SquareButton from '../../components/SquareButton'
 import Footer from '../../components/Footer'
+
+/**
+ * Displaying page's Sidebar (square buttons)
+ * @function Sidebar
+ * @returns {HTMLElement}
+ */
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐

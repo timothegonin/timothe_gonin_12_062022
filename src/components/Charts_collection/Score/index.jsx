@@ -7,6 +7,13 @@ import {
   PolarAngleAxis,
 } from 'recharts'
 
+/**
+ * Displaying user's score in RadialBarchart
+ * @function Score
+ * @param {Array.<{ value: Integer}> } Score User's score data
+ * @return {HTMLElement }
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

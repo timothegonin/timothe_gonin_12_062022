@@ -3,14 +3,21 @@ import Analytics from '../../Containers/Analytics'
 import Loader from '../../components/Loader'
 import { useFetchUserData } from '../../utils/hooks'
 
+/**
+ * Displaying the dashboard page, loader, error
+ * @function DashBoard
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-function Dashboard() {
+const Dashboard = () => {
   const idFromURL = useParams().id
 
+  //Routes used for api calls
   const urls = [
     `http://localhost:3000/user/${idFromURL}`,
     `http://localhost:3000/user/${idFromURL}/activity`,

@@ -1,5 +1,13 @@
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
+/**
+ * Template of usercard, user's profile selector
+ * @function UserCard
+ * @param {Integer} id Id of activ user,throught the url
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

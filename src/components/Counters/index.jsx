@@ -8,6 +8,13 @@ import ProteinesIcon from '../../assets/icons/right-counters/proteines-icon.svg'
 import GlucidesIcon from '../../assets/icons/right-counters/glucides-icon.svg'
 import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
 
+/**
+ * Displaying user's calories, proteins, glucides and lipides counters
+ * @function Counters
+ * @param {Array.<{userCaloriesCount: Integer, userProteinsCount: Integer, userCarbohydratesCount: Integer, userLipidsCount: Integer}> } Values
+ * @return {HTMLElement }
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

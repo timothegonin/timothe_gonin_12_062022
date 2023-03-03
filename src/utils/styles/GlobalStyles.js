@@ -1,5 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
+/**
+ * Global styles properties, used for general layout and typography
+ * @constant GlobalStyle
+ */
+
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400&display=swap');
 

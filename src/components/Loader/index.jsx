@@ -1,5 +1,11 @@
 import styled, { keyframes } from 'styled-components'
 
+/**
+ * Displaying loader until the DOM is loaded
+ * @function Loader
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

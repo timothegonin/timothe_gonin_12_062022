@@ -2,6 +2,13 @@ import styled from 'styled-components'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 
+/**
+ * Template of square button in the sidebar
+ * @function SquareButton
+ * @param {{icon: String, alt: String}} Icons links and alternativ texte
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

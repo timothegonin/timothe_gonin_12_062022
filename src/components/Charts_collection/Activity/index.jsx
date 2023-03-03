@@ -11,11 +11,19 @@ import {
 } from 'recharts'
 import CustomTooltip from '../../CustomTootip'
 
+/**
+ * Displaying user's activity in Barchart
+ * @function Activity
+ * @param {Array.<{ day: Integer, kilogram: Integer, calories: Integer }> } Activity User's activity data
+ * @return {HTMLElement }
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
- */
+*/
+
 const Activity = ({ activity }) => {
   const activityTooltipUnits = ['kg', 'Kcal']
   return (

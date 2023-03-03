@@ -4,6 +4,18 @@ import Home from '../../Pages/Home'
 import Dashboard from '../../Pages/Dashboard'
 import Error from '../../Pages/Error'
 
+/**
+ * Returning routes for single page application SPA
+ * @function Router
+ * @property {HTMLElement} element Page direction
+ * @returns {HTMLElement}
+ */
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const Router = () => {
   return (
     <Routes>

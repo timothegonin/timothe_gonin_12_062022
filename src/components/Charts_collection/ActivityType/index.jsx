@@ -8,6 +8,13 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
+/**
+ * Displaying user's type of activity in Radarchart
+ * @function ActivityType
+ * @param {Array.<{ value: Integer, kind: String}> } ActivityType User's type of activity data
+ * @return {HTMLElement }
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

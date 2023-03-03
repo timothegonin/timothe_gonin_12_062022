@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types'
 import { Col, Container, Row } from 'react-bootstrap'
 
+/**
+ * Displaying user's firstname into HelloUser component
+ * @function HelloUser
+ * @param {string} FirstName of active user
+ * @return {HTMLElement }
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │

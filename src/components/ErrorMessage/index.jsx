@@ -1,5 +1,11 @@
 import React from 'react'
 
+/**
+ * Displaying page's error message
+ * @function ErrorMessage
+ * @returns {HTMLElement}
+ */
+
 const ErrorMessage = () => {
   return (
     <section>

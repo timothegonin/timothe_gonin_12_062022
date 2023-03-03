@@ -12,6 +12,19 @@ import Score from '../../components/Charts_collection/Score'
 // Counters
 import Counters from '../../components/Counters'
 
+/**
+ * Displaying Chart's container and transmits the data to the components
+ * @function Analitics
+ * @param {Object} data Derived from Dashborad's page (fetch)
+ * @param {String} activeUser.userFirstname User's firstName
+ * @param {Object} activeUser.userActivity User's activity
+ * @param {Object} activeUser.userAverageSessions User's average sessions
+ * @param {Object} activeUser.userActivityType User's activity type
+ * @param {Object} activeUser.userTodayScore User's today score
+ * @param {Object} activeUser.userCounterValues User's counters values
+ * @returns {HTMLElement}
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
