@@ -23,7 +23,7 @@ export class User {
 
   /**
    * Return user's first name
-   * @returns {String} user's first name
+   * @typedef {String} user's first name
    * @memberof User
    */
   get userFirstName() {

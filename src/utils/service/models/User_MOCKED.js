@@ -36,7 +36,7 @@ export class User_MOCKED {
 
   /**
    * Return user's first name
-   * @returns {String} user's first name
+   * @typedef {String} user's first name
    * @memberof User_MOCKED
    */
   get userFirstName() {
