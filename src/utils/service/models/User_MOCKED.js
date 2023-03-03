@@ -5,6 +5,15 @@ import {
   USER_PERFORMANCE,
 } from '../data-MOCKED'
 
+/**
+ * User_MOCKED object, generate with mocked data (file: ../data-MOCKED.js).
+ * @class User_MOCKED
+ * @param {Object} this._user - User's main data
+ * @param {Object} this._userActivity- User's activities data
+ * @param {Object} this._userAverageSessions - User's average sessions data
+ * @param {Object} this._userActivityType - User's activity types data
+ * @returns {User_MOCKED} A new instance of User_MOCKED with these methods
+ */
 export class User_MOCKED {
   constructor(idFromURL) {
     this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
