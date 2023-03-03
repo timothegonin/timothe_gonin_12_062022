@@ -1,3 +1,12 @@
+/**
+ * User object, generate with API.
+ * @class User
+ * @param {Object} this._user - User's main data
+ * @param {Object} this._userActivity- User's activities data
+ * @param {Object} this._userAverageSessions - User's average sessions data
+ * @param {Object} this._userActivityType - User's activity types data
+ * @returns {User} A new instance of User with these methods
+ */
 export class User {
   constructor(data) {
     this._user = data[0].data
@@ -11,9 +20,22 @@ export class User {
   │   USER_MAIN_DATA                                                            │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
+
+  /**
+   * Return user's first name
+   * @returns {String} user's first name
+   * @memberof User
+   */
   get userFirstName() {
     return this._user.userInfos.firstName
   }
+
+  /**
+   * Return user's today score
+   * @typedef {Object} userTodayScore
+   * @property {Integer} value - user's score value
+   * @memberof User
+   */
   get userTodayScore() {
     const userScoreValue = this._user.todayScore
       ? this._user.todayScore
@@ -22,6 +44,16 @@ export class User {
       value: userScoreValue * 100,
     }
   }
+
+  /**
+   * Return user's couters values
+   * @typedef {Object}
+   * @property {Integer} userCaloriesCount
+   * @property {Integer} userCarbohydratesCount
+   * @property {Integer} userLipidsCount
+   * @property {Integer} userProteinsCount
+   * @memberof User
+   */
   get userCounterValues() {
     const userCouterValues = {
       userCaloriesCount: this._user.keyData.calorieCount,

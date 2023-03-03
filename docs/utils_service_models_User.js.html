@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utils/service/models/User_MOCKED.js</title>
+    <title>JSDoc: Source: utils/service/models/User.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utils/service/models/User_MOCKED.js</h1>
+    <h1 class="page-title">Source: utils/service/models/User.js</h1>
 
     
 
@@ -26,34 +26,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {
-  USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-} from '../data-MOCKED'
-
-/**
- * User_MOCKED object, generate with mocked data (file: ../data-MOCKED.js).
- * @class User_MOCKED
+            <pre class="prettyprint source linenums"><code>/**
+ * User object, generate with API.
+ * @class User
  * @param {Object} this._user - User's main data
  * @param {Object} this._userActivity- User's activities data
  * @param {Object} this._userAverageSessions - User's average sessions data
  * @param {Object} this._userActivityType - User's activity types data
- * @returns {User_MOCKED} A new instance of User_MOCKED with these methods
+ * @returns {User} A new instance of User with these methods
  */
-export class User_MOCKED {
-  constructor(idFromURL) {
-    this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
-    this._userActivity = USER_ACTIVITY.find(
-      (userData) => userData.userId === idFromURL
-    )
-    this._userAverageSessions = USER_AVERAGE_SESSIONS.find(
-      (userData) => userData.userId === idFromURL
-    )
-    this._userActivityType = USER_PERFORMANCE.find(
-      (userData) => userData.userId === idFromURL
-    )
+export class User {
+  constructor(data) {
+    this._user = data[0].data
+    this._userActivity = data[1].data
+    this._userAverageSessions = data[2].data
+    this._userActivityType = data[3].data
   }
 
   /* 
@@ -65,7 +52,7 @@ export class User_MOCKED {
   /**
    * Return user's first name
    * @returns {String} user's first name
-   * @memberof User_MOCKED
+   * @memberof User
    */
   get userFirstName() {
     return this._user.userInfos.firstName
@@ -75,7 +62,7 @@ export class User_MOCKED {
    * Return user's today score
    * @typedef {Object} userTodayScore
    * @property {Integer} value - user's score value
-   * @memberof User_MOCKED
+   * @memberof User
    */
   get userTodayScore() {
     const userScoreValue = this._user.todayScore
@@ -93,7 +80,7 @@ export class User_MOCKED {
    * @property {Integer} userCarbohydratesCount
    * @property {Integer} userLipidsCount
    * @property {Integer} userProteinsCount
-   * @memberof User_MOCKED
+   * @memberof User
    */
   get userCounterValues() {
     const userCouterValues = {
@@ -110,19 +97,8 @@ export class User_MOCKED {
   │   USER_ACTIVITY                                                             │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
-
-  /**
-   * Return an array of objects containing the user's activity
-   * @typedef {Array.&lt;Object>}
-   * @property {Integer} day - Number of the day
-   * @property {Integer} kilogram - Kilograms burned during the day
-   * @property {Integer} calories - Calories burned during the day
-   * @memberof User_MOCKED
-   */
   get userActivity() {
-    //Creating an empty array. Store the formatted data from the sessionData constant
     const userActivity = []
-
     this._userActivity.sessions.forEach((session, index) => {
       const sessionData = {
         day: index + 1,
@@ -139,19 +115,9 @@ export class User_MOCKED {
   │   USER_AVERAGE_SESSIONS                                                     │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
-
-  /**
-   * Return an array of objects containing the user's average session
-   * @typedef {Array.&lt;Object>}
-   * @property {String} day - First letter of the day
-   * @property {Integer} sessionLength - Session length
-   * @memberof User_MOCKED
-   */
   get userAverageSessions() {
-    //Creating an empty array. Store the formatted data from the average sessionData constant
     const userSessions = []
     const data = this._userAverageSessions.sessions
-    //Array needed for the chart layout
     const daysFirstLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
     data.forEach((session, index) => {
@@ -169,15 +135,7 @@ export class User_MOCKED {
   │   USER_PERFORMANCE                                                          │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
-  /**
-   * Return an array of objects containing the user's activities type
-   * @typedef {Array.&lt;Object>}
-   * @property {Integer} value
-   * @property {String} kind - Performance type label
-   * @memberof User_MOCKED
-   */
   get userActivityType() {
-    //Creating an empty array. Store the formatted data from the activityTypeData constant
     const userActivityType = []
     const data = this._userActivityType.data
     const kind = this._userActivityType.kind
