@@ -141,6 +141,7 @@ export class User_MOCKED {
   │   USER_PERFORMANCE                                                          │
   └─────────────────────────────────────────────────────────────────────────────┘
  */
+
   /**
    * Return an array of objects containing the user's activities type
    * @typedef {Array.<Object>}
