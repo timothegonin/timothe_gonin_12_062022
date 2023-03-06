@@ -1,3 +1,7 @@
+# Openclassrooms - Projet 12 - SportSee
+
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![styled-components SASS](https://img.shields.io/badge/Style-styled--component/SASS_-ff69b4) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
