@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Openclassrooms - Projet 12 - SportSee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sportsee is an application dedicated to sports coaching
 
-## Available Scripts
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![styled-components SASS](https://img.shields.io/badge/Styles-styled--component/SASS_-ff69b4) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**NodeJS :** (version 16.15.0)
 
-### `npm test`
+**Npm :** (version 7.24.0) or **Yarn :** (version: 1.22.18)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend _Installation_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1 - Clone the backend repository in a new terminal and move to directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
+  cd P9-front-end-dashboard
+```
 
-### `npm run eject`
+### 2 - Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `npm install` command will allow you to install the dependencies Npm.
+- `yarn` command will allow you to install the dependencies with Yarn.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Backend _Run locally_
 
-## Learn More
+### 1 - Start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm run start` command will allow you to run server with Npm.
+- `yarn start` command will allow you to run server with with Yarn.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2 - You should see :
 
-### Code Splitting
+```bash
+  Magic happens on port 3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Frontend _Installation_
 
-### Making a Progressive Web App
+### 1 - Clone this repository in a new terminal and move to directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  git clone https://github.com/TimotheGonin/timothe_gonin_12_062022
+  cd timothe_gonin_12_062022
+```
 
-### Advanced Configuration
+### 2 - Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `npm install` command will allow you to install the dependencies Npm.
+- `yarn` command will allow you to install the dependencies with Yarn.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Frontend _Run locally_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 1 - Start the server
+
+- `npm run start` command will allow you to run server with Npm.
+- `yarn start` command will allow you to run server with with Yarn.
+
+_Wait for a moment and press "y" after seeing this question bellow_
+
+```bash
+  ? Something is already running on port 3000. Would you like to run the app on another port instead? (Y/n)
+```
+
+### 2 - Go to the application
+
+You have connected the backend and frontend.
+
+Then navigate to [https://localhost:3001](https://localhost:3001)
+
+---
+
+---
+
+## Switch between API or Mocked data
+
+Set the `REACT_APP_DATA_MODE` to `API` or `MOCK` in the environment file.
+
+- Create a .env file and place it at the root of the project.
+- Create the environment variable `REACT_APP_DATA_MODE` .env file
+- Choose to enter the value `API` or `MOCK` into the `REACT_APP_DATA_MODE` environment variable to choose the application's operating mode
+
+_Please restart your frontend server for the `REACT_APP_DATA_MODE` variable change to take effect_
