@@ -2,7 +2,11 @@
 
 Sportsee is an application dedicated to sports coaching
 
-![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![styled-components SASS](https://img.shields.io/badge/Style-styled--component/SASS_-ff69b4) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![styled-components SASS](https://img.shields.io/badge/Styles-styled--component/SASS_-ff69b4) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
+
+---
+
+---
 
 ## Prerequisites
 
@@ -10,57 +14,41 @@ Sportsee is an application dedicated to sports coaching
 
 **Npm :** (version 7.24.0) or **Yarn :** (version: 1.22.18)
 
+---
+
+---
+
 ## Installation
 
-### 1 - Clone the Backend Repository
-
-Clone the backend repository in a new terminal and move to directory
+### 1 - Clone the backend repository in a new terminal and move to directory
 
 ```bash
   git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
   cd P9-front-end-dashboard
 ```
 
-### 2 - Run Locally
+### 2 - Install dependencies
 
-Clone the project
+- `npm install` command will allow you to install the dependencies Npm.
+- `yarn` command will allow you to install the dependencies with Yarn.
 
-```bash
-  git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
-```
+---
 
-Go to the project directory
+---
 
-```bash
-  cd P9-front-end-dashboard
-```
+## Run backend locally
 
-Install dependencies
+### 1 - Start the server
 
-```bash
-  npm install
-```
+- `npm run start` command will allow you to run server with Npm.
+- `yarn start` command will allow you to run server with with Yarn.
 
-or
-
-```bash
-  yarn
-```
-
-Start the server
-
-```bash
-  npm run start
-```
-
-or
-
-```bash
-  yarn start
-```
-
-You should see :
+### 2 - You should see :
 
 ```bash
   Magic happens on port 3000
 ```
+
+---
+
+---
