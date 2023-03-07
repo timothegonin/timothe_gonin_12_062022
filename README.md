@@ -93,3 +93,13 @@ Then navigate to [https://localhost:3001](https://localhost:3001)
 ---
 
 ---
+
+## Switch between API or Mocked data
+
+Set the `REACT_APP_DATA_MODE` to `API` or `MOCK` in the environment file.
+
+- Create a .env file and place it at the root of the project.
+- Create the environment variable `REACT_APP_DATA_MODE` .env file
+- Choose to enter the value `API` or `MOCK` into the `REACT_APP_DATA_MODE` environment variable to choose the application's operating mode
+
+_Please restart your frontend server for the `REACT_APP_DATA_MODE` variable change to take effect_
