@@ -18,7 +18,7 @@ Sportsee is an application dedicated to sports coaching
 
 ---
 
-## Installation
+## Backend _Installation_
 
 ### 1 - Clone the backend repository in a new terminal and move to directory
 
@@ -36,7 +36,7 @@ Sportsee is an application dedicated to sports coaching
 
 ---
 
-## Run backend locally
+## Backend _Run locally_
 
 ### 1 - Start the server
 
@@ -48,6 +48,47 @@ Sportsee is an application dedicated to sports coaching
 ```bash
   Magic happens on port 3000
 ```
+
+---
+
+---
+
+## Frontend _Installation_
+
+### 1 - Clone this repository in a new terminal and move to directory
+
+```bash
+  git clone https://github.com/TimotheGonin/timothe_gonin_12_062022
+  cd timothe_gonin_12_062022
+```
+
+### 2 - Install dependencies
+
+- `npm install` command will allow you to install the dependencies Npm.
+- `yarn` command will allow you to install the dependencies with Yarn.
+
+---
+
+---
+
+## Frontend _Run locally_
+
+### 1 - Start the server
+
+- `npm run start` command will allow you to run server with Npm.
+- `yarn start` command will allow you to run server with with Yarn.
+
+_Wait for a moment and press "y" after seeing this question bellow_
+
+```bash
+  ? Something is already running on port 3000. Would you like to run the app on another port instead? (Y/n)
+```
+
+### 2 - Go to the application
+
+You have connected the backend and frontend.
+
+Then navigate to [https://localhost:3001](https://localhost:3001)
 
 ---
 
