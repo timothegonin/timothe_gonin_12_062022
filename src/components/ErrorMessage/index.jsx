@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 /**
  * Displaying page's error message
@@ -8,9 +10,12 @@ import React from 'react'
 
 const ErrorMessage = () => {
   return (
-    <section>
-      <h2>ErrorMessage</h2>
-    </section>
+    <Container className="d-flex justify-content-center align-items-center">
+      <section>
+        <h2>ErrorMessage</h2>
+        <Link to="/">Retour à la page de sélection utilisateur</Link>
+      </section>
+    </Container>
   )
 }
 
