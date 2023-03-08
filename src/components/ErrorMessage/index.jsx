@@ -1,6 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 
 /**
  * Displaying page's error message
@@ -8,15 +8,27 @@ import { Container } from 'react-bootstrap'
  * @returns {HTMLElement}
  */
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const ErrorMessage = () => {
   return (
-    <Container className="d-flex justify-content-center align-items-center">
-      <section>
-        <h2>ErrorMessage</h2>
-        <Link to="/">Retour à la page de sélection utilisateur</Link>
-      </section>
-    </Container>
+    <ContentWrapper className="d-flex flex-column justify-content-center align-items-center">
+      <h2>ErrorMessage</h2>
+      <Link to="/">Retour à la page de sélection utilisateur</Link>
+    </ContentWrapper>
   )
 }
 
 export default ErrorMessage
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const ContentWrapper = styled.section`
+  height: calc(100vh - 84px);
+`
