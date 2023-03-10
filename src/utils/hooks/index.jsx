@@ -55,11 +55,9 @@ export function useFetchUserData(idFromURL, urls) {
       try {
         return setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
-        // console.log(err.message)
         return navigate('/error', {
           state: { message: err.message },
         })
-        // return setError({ status: true, message: err.message })
       } finally {
         setLoading(false)
       }
