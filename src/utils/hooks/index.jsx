@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
 import { User } from '../../utils/service/models/User'
 
@@ -21,6 +22,7 @@ export function useFetchUserData(idFromURL, urls) {
   const [error, setError] = useState({ status: false, errorMessage: '' })
   // constant will be used to check datamode
   const dataMode = process.env.REACT_APP_DATA_MODE
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!urls) return
@@ -53,7 +55,11 @@ export function useFetchUserData(idFromURL, urls) {
       try {
         return setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
-        return setError({ status: true, message: err.message })
+        // console.log(err.message)
+        return navigate('/error', {
+          state: { message: err.message },
+        })
+        // return setError({ status: true, message: err.message })
       } finally {
         setLoading(false)
       }

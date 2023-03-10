@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 /**
  * Displaying page's error message
@@ -13,10 +13,15 @@ import { Link } from 'react-router-dom'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ErrorMessage = ({ message }) => {
+const ErrorMessage = () => {
+  const location = useLocation()
+  const message = location.state
+    ? location.state.message
+    : `La page demandée n'éxiste pas.`
+
   return (
     <ContentWrapper className="d-flex flex-column justify-content-center align-items-center">
-      <h2>{message ? message : `La page que vous demandez n'éxiste pas.`}</h2>
+      <h2>{message}</h2>
       <Link to="/">Retour à la page de sélection utilisateur</Link>
     </ContentWrapper>
   )

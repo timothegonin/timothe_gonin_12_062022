@@ -18,7 +18,7 @@ export class User_MOCKED {
   constructor(idFromURL) {
     this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
     if (!this._user) {
-      throw new Error('User not found')
+      throw new Error(`L'utilisateur recherché n'éxiste pas.`)
     }
     this._userActivity = USER_ACTIVITY.find(
       (userData) => userData.userId === idFromURL
