@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import Analytics from '../../Containers/Analytics'
 import Loader from '../../components/Loader'
 import { useFetchUserData } from '../../utils/hooks'
+import Error from '../Error'
 
 /**
  * Displaying the dashboard page, loader, error
@@ -27,10 +28,8 @@ const Dashboard = () => {
 
   const { data, isLoading, error } = useFetchUserData(idFromURL, urls)
 
-  if (error) {
-    console.log(error.errorStatus, '-> from dashboard')
-    console.log(error.errorMessage, '-> from dashboard')
-    return <span>Fetch Problem</span>
+  if (error.status) {
+    return <Error message={error.message} />
   }
 
   return isLoading ? <Loader /> : <Analytics data={data} />

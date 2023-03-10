@@ -12,8 +12,8 @@ import ErrorMessage from '../../components/ErrorMessage'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Error = () => {
-  return <ErrorMessage />
+const Error = ({ message }) => {
+  return <ErrorMessage message={message} />
 }
 
 export default Error

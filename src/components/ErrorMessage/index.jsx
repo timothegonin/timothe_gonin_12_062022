@@ -13,10 +13,10 @@ import { Link } from 'react-router-dom'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ErrorMessage = () => {
+const ErrorMessage = ({ message }) => {
   return (
     <ContentWrapper className="d-flex flex-column justify-content-center align-items-center">
-      <h2>La page que vous demandez n'éxiste pas.</h2>
+      <h2>{message ? message : `La page que vous demandez n'éxiste pas.`}</h2>
       <Link to="/">Retour à la page de sélection utilisateur</Link>
     </ContentWrapper>
   )
