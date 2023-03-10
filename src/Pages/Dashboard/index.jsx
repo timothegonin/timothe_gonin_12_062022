@@ -28,6 +28,8 @@ const Dashboard = () => {
   const { data, isLoading, error } = useFetchUserData(idFromURL, urls)
 
   if (error) {
+    console.log(error.errorStatus, '-> from dashboard')
+    console.log(error.errorMessage, '-> from dashboard')
     return <span>Fetch Problem</span>
   }
 

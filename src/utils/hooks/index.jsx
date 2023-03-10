@@ -18,7 +18,7 @@ export function useFetchUserData(idFromURL, urls) {
   // is loading or not status
   const [isLoading, setLoading] = useState(true)
   // error catched or not
-  const [error, setError] = useState(false)
+  const [error, setError] = useState({ errorStatus: false, errorMessage: '' })
   // constant will be used to check datamode
   const dataMode = process.env.REACT_APP_DATA_MODE
 
@@ -53,8 +53,8 @@ export function useFetchUserData(idFromURL, urls) {
       try {
         return setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
-        console.log(err)
-        return setError(true)
+        console.log(err.message) // from user MOCK error
+        return setError({ errorStatus: false, errorMessage: err.message })
       } finally {
         setLoading(false)
       }
