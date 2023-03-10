@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from '../../Pages/Home'
 import Dashboard from '../../Pages/Dashboard'
 import Error from '../../Pages/Error'
@@ -19,9 +19,10 @@ import Error from '../../Pages/Error'
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route exact path="/" element={<Home />} />
       <Route path="/user/:id" element={<Dashboard />} />
-      <Route path="*" element={<Error />} />
+      <Route path="*" element={<Navigate to="/error" />} />
+      <Route path="/error" element={<Error />} />
     </Routes>
   )
 }

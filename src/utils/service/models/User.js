@@ -10,6 +10,9 @@
 export class User {
   constructor(data) {
     this._user = data[0].data
+    if (!this._user) {
+      throw new Error(`L'utilisateur recherché n'éxiste pas.`)
+    }
     this._userActivity = data[1].data
     this._userAverageSessions = data[2].data
     this._userActivityType = data[3].data
