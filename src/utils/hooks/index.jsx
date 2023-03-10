@@ -19,14 +19,13 @@ export function useFetchUserData(idFromURL, urls) {
   // is loading or not status
   const [isLoading, setLoading] = useState(true)
   // error catched or not
-  const [error, setError] = useState({ status: false, errorMessage: '' })
+  const [error, setError] = useState(null)
   // constant will be used to check datamode
   const dataMode = process.env.REACT_APP_DATA_MODE
+  // used for redirection when an error is detected
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!urls) return
-
     /**
      * Fetch data with the API
      * @function fetchData
@@ -39,8 +38,7 @@ export function useFetchUserData(idFromURL, urls) {
         )
         return setData(new User(arrayOfResponses))
       } catch (err) {
-        console.log(err)
-        return setError(true)
+        setError(err)
       } finally {
         setLoading(false)
       }
@@ -55,7 +53,7 @@ export function useFetchUserData(idFromURL, urls) {
       try {
         return setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
-        return navigate('/error', {
+        navigate('/error', {
           state: { message: err.message },
         })
       } finally {
@@ -65,7 +63,21 @@ export function useFetchUserData(idFromURL, urls) {
 
     //Datamode checking
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
-  }, [idFromURL])
+  }, [idFromURL, urls, dataMode, navigate])
 
-  return { isLoading, data, error }
+  // A way to clean up the error state when the component unmounts.
+  useEffect(() => {
+    return () => {
+      setError(null)
+    }
+  }, [])
+  useEffect(() => {
+    if (error) {
+      navigate('/error', {
+        state: { message: error.message },
+      })
+    }
+  }, [error, navigate])
+
+  return { isLoading, data }
 }
