@@ -32,13 +32,13 @@ import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
 import { User } from '../../utils/service/models/User'
 
 /**
- * Custom hook : return data, if data is loading, if error
+ * Custom hook : return data, if data is loading.
+ * If an error is detected, there will be a redirect to the error page
  * @function useFetchUserData
  * @param {string} idFromURL Id catched in url, matches user id
  * @param {Array.&lt;String>} urls Routes used by the api
  * @returns {Object} user data
  * @returns {Boolean} is data loading or not
- * @returns {Boolean} error or not
  */
 
 export function useFetchUserData(idFromURL, urls) {
@@ -47,14 +47,13 @@ export function useFetchUserData(idFromURL, urls) {
   // is loading or not status
   const [isLoading, setLoading] = useState(true)
   // error catched or not
-  const [error, setError] = useState({ status: false, errorMessage: '' })
+  const [error, setError] = useState(null)
   // constant will be used to check datamode
   const dataMode = process.env.REACT_APP_DATA_MODE
+  // used for redirection when an error is detected
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!urls) return
-
     /**
      * Fetch data with the API
      * @function fetchData
@@ -67,8 +66,7 @@ export function useFetchUserData(idFromURL, urls) {
         )
         return setData(new User(arrayOfResponses))
       } catch (err) {
-        console.log(err)
-        return setError(true)
+        setError(err)
       } finally {
         setLoading(false)
       }
@@ -83,11 +81,9 @@ export function useFetchUserData(idFromURL, urls) {
       try {
         return setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
-        // console.log(err.message)
-        return navigate('/error', {
+        navigate('/error', {
           state: { message: err.message },
         })
-        // return setError({ status: true, message: err.message })
       } finally {
         setLoading(false)
       }
@@ -95,9 +91,26 @@ export function useFetchUserData(idFromURL, urls) {
 
     //Datamode checking
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
-  }, [idFromURL])
+  }, [idFromURL, urls, dataMode, navigate])
 
-  return { isLoading, data, error }
+  /**
+   * A way to clean up the error state when the component unmounts.
+   * @function cleanupError
+   */
+  useEffect(() => {
+    return () => {
+      setError(null)
+    }
+  }, [])
+  useEffect(() => {
+    if (error) {
+      navigate('/error', {
+        state: { message: error.message },
+      })
+    }
+  }, [error, navigate])
+
+  return { isLoading, data }
 }
 </code></pre>
         </article>
@@ -109,13 +122,13 @@ export function useFetchUserData(idFromURL, urls) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Mar 10 2023 16:20:51 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Mar 10 2023 18:00:28 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

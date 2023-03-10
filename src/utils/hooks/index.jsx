@@ -4,13 +4,13 @@ import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
 import { User } from '../../utils/service/models/User'
 
 /**
- * Custom hook : return data, if data is loading, if error
+ * Custom hook : return data, if data is loading.
+ * If an error is detected, there will be a redirect to the error page
  * @function useFetchUserData
  * @param {string} idFromURL Id catched in url, matches user id
  * @param {Array.<String>} urls Routes used by the api
  * @returns {Object} user data
  * @returns {Boolean} is data loading or not
- * @returns {Boolean} error or not
  */
 
 export function useFetchUserData(idFromURL, urls) {
@@ -65,7 +65,10 @@ export function useFetchUserData(idFromURL, urls) {
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
   }, [idFromURL, urls, dataMode, navigate])
 
-  // A way to clean up the error state when the component unmounts.
+  /**
+   * A way to clean up the error state when the component unmounts.
+   * @function cleanupError
+   */
   useEffect(() => {
     return () => {
       setError(null)
