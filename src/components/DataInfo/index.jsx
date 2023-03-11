@@ -5,6 +5,9 @@ import Toast from 'react-bootstrap/Toast'
 function DataInfo() {
   const [showA, setShowA] = useState(true)
   const toggleShowA = () => setShowA(!showA)
+  const dataMode = process.env.REACT_APP_DATA_MODE
+  const dataModeMessage =
+    dataMode === 'API' ? `API` : `mock des données de l'API`
 
   return (
     <ToastContainer
@@ -14,11 +17,12 @@ function DataInfo() {
     >
       <Toast show={showA} onClose={toggleShowA}>
         <Toast.Header closeButton={true}>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Bootstrap</strong>
-          <small>11 mins ago</small>
+          <strong className="me-auto">DATA MODE</strong>
+          <small>📌</small>
         </Toast.Header>
-        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+        <Toast.Body>
+          Les données proviennent de : {`${dataModeMessage}`} .
+        </Toast.Body>
       </Toast>
     </ToastContainer>
   )
