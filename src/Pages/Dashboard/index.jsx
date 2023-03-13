@@ -4,12 +4,11 @@ import DataInfo from '../../components/DataInfo'
 import Loader from '../../components/Loader'
 import { useFetchUserData } from '../../utils/hooks'
 import { Fragment } from 'react'
-// import Error from '../Error'
 
 /**
- * Displaying the dashboard page, loader, error
+ * Displaying the dashboard page, loader, data info Toast
  * @function DashBoard
- * @returns {HTMLElement}
+ * @returns {HTMLElement} Returns a React Fragment that contains a DataInfo component and an Analytics component with data passed in as props
  */
 
 /* 
