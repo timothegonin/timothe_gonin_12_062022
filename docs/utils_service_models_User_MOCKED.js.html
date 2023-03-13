@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/service/models/User_MOCKED.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/service/models/User_MOCKED.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from '../data-MOCKED'
+
+/**
+ * User_MOCKED object, generate with mocked data (file: ../data-MOCKED.js).
+ * @class User_MOCKED
+ * @param {Object} this._user - User's main data
+ * @throws {Error} Throws an error if the id from the url does not match any user.
+ * @param {Object} this._userActivity- User's activities data
+ * @param {Object} this._userAverageSessions - User's average sessions data
+ * @param {Object} this._userActivityType - User's activity types data
+ * @returns {User_MOCKED} A new instance of User_MOCKED with these methods
+ */
+export class User_MOCKED {
+  constructor(idFromURL) {
+    this._user = USER_MAIN_DATA.find((userData) => userData.id === idFromURL)
+    if (!this._user) {
+      throw new Error(`L'utilisateur recherché n'éxiste pas.`)
+    }
+    this._userActivity = USER_ACTIVITY.find(
+      (userData) => userData.userId === idFromURL
+    )
+    this._userAverageSessions = USER_AVERAGE_SESSIONS.find(
+      (userData) => userData.userId === idFromURL
+    )
+    this._userActivityType = USER_PERFORMANCE.find(
+      (userData) => userData.userId === idFromURL
+    )
+  }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_MAIN_DATA                                                            │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
+
+  /**
+   * Return user's first name
+   * @typedef {String} user's first name
+   * @memberof User_MOCKED
+   */
+  get userFirstName() {
+    return this._user.userInfos.firstName
+  }
+
+  /**
+   * Return user's today score
+   * @typedef {Object} userTodayScore
+   * @property {Integer} value - user's score value
+   * @memberof User_MOCKED
+   */
+  get userTodayScore() {
+    const userScoreValue = this._user.todayScore
+      ? this._user.todayScore
+      : this._user.score
+    return {
+      value: userScoreValue * 100,
+    }
+  }
+
+  /**
+   * Return user's couters values
+   * @typedef {Object}
+   * @property {Integer} userCaloriesCount
+   * @property {Integer} userCarbohydratesCount
+   * @property {Integer} userLipidsCount
+   * @property {Integer} userProteinsCount
+   * @memberof User_MOCKED
+   */
+  get userCounterValues() {
+    const userCouterValues = {
+      userCaloriesCount: this._user.keyData.calorieCount,
+      userProteinsCount: this._user.keyData.proteinCount,
+      userCarbohydratesCount: this._user.keyData.carbohydrateCount,
+      userLipidsCount: this._user.keyData.lipidCount,
+    }
+    return userCouterValues
+  }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_ACTIVITY                                                             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
+
+  /**
+   * Return an array of objects containing the user's activity
+   * @typedef {Array.&lt;Object>}
+   * @property {Integer} day - Number of the day
+   * @property {Integer} kilogram - Kilograms burned during the day
+   * @property {Integer} calories - Calories burned during the day
+   * @memberof User_MOCKED
+   */
+  get userActivity() {
+    //Creating an empty array. Store the formatted data from the sessionData constant
+    const userActivity = []
+
+    this._userActivity.sessions.forEach((session, index) => {
+      const sessionData = {
+        day: index + 1,
+        kilogram: session.kilogram,
+        calories: session.calories,
+      }
+      userActivity.push(sessionData)
+    })
+    return userActivity
+  }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_AVERAGE_SESSIONS                                                     │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
+
+  /**
+   * Return an array of objects containing the user's average session
+   * @typedef {Array.&lt;Object>}
+   * @property {String} day - First letter of the day
+   * @property {Integer} sessionLength - Session length
+   * @memberof User_MOCKED
+   */
+  get userAverageSessions() {
+    //Creating an empty array. Store the formatted data from the average sessionData constant
+    const userSessions = []
+    const data = this._userAverageSessions.sessions
+    //Array needed for the chart layout
+    const daysFirstLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+    data.forEach((session, index) => {
+      const sessionData = {
+        day: daysFirstLetter[index],
+        sessionLength: session.sessionLength,
+      }
+      userSessions.push(sessionData)
+    })
+    return userSessions
+  }
+
+  /* 
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │   USER_PERFORMANCE                                                          │
+  └─────────────────────────────────────────────────────────────────────────────┘
+ */
+
+  /**
+   * Return an array of objects containing the user's activities type
+   * @typedef {Array.&lt;Object>}
+   * @property {Integer} value
+   * @property {String} kind - Performance type label
+   * @memberof User_MOCKED
+   */
+  get userActivityType() {
+    //Creating an empty array. Store the formatted data from the activityTypeData constant
+    const userActivityType = []
+    const data = this._userActivityType.data
+    const kind = this._userActivityType.kind
+
+    data.forEach((current, index) => {
+      const activityTypeData = {
+        value: current.value,
+        kind: kind[index + 1],
+      }
+      userActivityType.push(activityTypeData)
+    })
+    return userActivityType
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Mar 13 2023 15:05:42 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
