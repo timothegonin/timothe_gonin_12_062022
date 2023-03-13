@@ -63,7 +63,7 @@ export function useFetchUserData(idFromURL, urls) {
 
     //Datamode checking
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
-  }, [idFromURL, urls, dataMode, navigate])
+  }, [idFromURL])
 
   /**
    * A way to clean up the error state when the component unmounts.
