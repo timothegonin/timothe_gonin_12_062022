@@ -1,5 +1,6 @@
 import React from 'react'
 import UserCards from '../../Containers/UserCards'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /**
  * Displaying the home page which contains the user cards container
@@ -13,7 +14,14 @@ import UserCards from '../../Containers/UserCards'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Home = () => {
-  return <UserCards />
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>SportSee - Accueil</title>
+      </Helmet>
+      <UserCards />
+    </HelmetProvider>
+  )
 }
 
 export default Home
