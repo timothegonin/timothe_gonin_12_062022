@@ -4,6 +4,7 @@ import DataInfo from '../../components/DataInfo'
 import Loader from '../../components/Loader'
 import { useFetchUserData } from '../../utils/hooks'
 import { Fragment } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /**
  * Displaying the dashboard page, loader, data info Toast
@@ -28,13 +29,20 @@ const Dashboard = () => {
   ]
   const { data, isLoading } = useFetchUserData(idFromURL, urls)
 
-  return isLoading ? (
-    <Loader />
-  ) : (
-    <Fragment>
-      <DataInfo />
-      <Analytics data={data} />
-    </Fragment>
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>SportSee - Profil</title>
+      </Helmet>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Fragment>
+          <DataInfo />
+          <Analytics data={data} />
+        </Fragment>
+      )}
+    </HelmetProvider>
   )
 }
 

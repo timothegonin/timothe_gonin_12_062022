@@ -1,5 +1,6 @@
 import React from 'react'
 import ErrorMessage from '../../components/ErrorMessage'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /**
  * Displaying the error page which contains the error message
@@ -13,7 +14,14 @@ import ErrorMessage from '../../components/ErrorMessage'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Error = () => {
-  return <ErrorMessage />
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>SportSee - Erreur</title>
+      </Helmet>
+      <ErrorMessage />
+    </HelmetProvider>
+  )
 }
 
 export default Error
