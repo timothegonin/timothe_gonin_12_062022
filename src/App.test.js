@@ -29,3 +29,14 @@ test('Should render the Header component', () => {
   expect(disabledSettingLink).toBeInTheDocument()
   expect(disabledCommunityLink).toBeInTheDocument()
 })
+test('Should render the Sidebar component', () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  )
+  const copyright = screen.getByText(/copyright, sportSee 2020/i)
+  const icons = screen.getAllByAltText(/icon/)
+  expect(copyright).toBeInTheDocument()
+  expect(icons.length).toBe(4)
+})
