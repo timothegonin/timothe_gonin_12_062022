@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
 
 import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
 import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
@@ -27,12 +26,12 @@ function Sidebar() {
   return (
     <SideBarWrapper className="bg-secondary">
       <nav>
-        <ListGroup className="justify-content-between">
+        <ul className=" flex flex-col justify-between h-full">
           <SquareButton icon={YogaIcon} alt="Yoga icon" />
           <SquareButton icon={SwimIcon} alt="Swin icon" />
           <SquareButton icon={BikeIcon} alt="Bike icon" />
           <SquareButton icon={Dumbbell} alt="Dumbbel icon" />
-        </ListGroup>
+        </ul>
       </nav>
       <Footer />
     </SideBarWrapper>

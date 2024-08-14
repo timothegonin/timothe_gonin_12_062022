@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button'
 
 /**
  * Template of square button in the sidebar
@@ -17,9 +16,9 @@ import Button from 'react-bootstrap/Button'
 function SquareButton(props) {
   return (
     <ButtonWrapper>
-      <Button variant="light">
+      <button className="bg-slate-50 flex justify-center border items-center rounded h-full w-full">
         <img src={props.icon} alt={props.alt} />
-      </Button>{' '}
+      </button>
     </ButtonWrapper>
   )
 }
@@ -31,17 +30,16 @@ export default SquareButton
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ButtonWrapper = styled(ListGroup.Item)`
+const ButtonWrapper = styled.li`
   height: 64px;
   width: 64px;
-  border-radius: 6px;
   &:hover {
     cursor: pointer;
   }
-  button {
+  /* button {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-  }
+  } */
 `
