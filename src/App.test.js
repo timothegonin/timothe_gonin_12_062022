@@ -40,3 +40,20 @@ test('Should render the Sidebar component', () => {
   expect(copyright).toBeInTheDocument()
   expect(icons.length).toBe(4)
 })
+test('Should userCards components', () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  )
+  const cardsTitle = screen.getAllByRole(
+    'heading',
+    { level: 3 },
+    { name: /utilisateur/ }
+  )
+  const cardsButtons = screen.getAllByRole('button', {
+    name: /Accéder au profile/i,
+  })
+  expect(cardsTitle.length).toBe(2)
+  expect(cardsButtons.length).toBe(2)
+})
