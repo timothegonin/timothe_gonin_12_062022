@@ -5,6 +5,7 @@ import './utils/styles/scss/styles.scss'
 import GlobalStyles from './utils/styles/GlobalStyles'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import './index.css'
 
 ReactDOM.render(
   <BrowserRouter>
