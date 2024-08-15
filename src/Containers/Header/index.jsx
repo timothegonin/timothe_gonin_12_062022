@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import { LinkContainer } from 'react-router-bootstrap'
 // import { Nav, Navbar, Container } from 'react-bootstrap'
-// import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/logo.svg'
 
 /**
@@ -24,7 +24,9 @@ function Header() {
       </div>
       <nav className="flex w-3/4 pe-14">
         <ul className="flex flex-row grow justify-between">
-          <li className="text-slate-50 font-medium text-xl">Accueil</li>
+          <Link to="/">
+            <li className="text-slate-50 font-medium text-xl">Accueil</li>
+          </Link>
           <li className="text-slate-50 font-medium text-xl">Profil</li>
           <li className="text-slate-50 font-medium text-xl">Réglage</li>
           <li className="text-slate-50 font-medium text-xl">Communauté</li>
