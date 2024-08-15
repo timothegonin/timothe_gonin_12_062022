@@ -14,7 +14,7 @@ function App() {
   return (
     <Container fluid className="App px-0">
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <MainWrapper>
         <Router />
       </MainWrapper>
