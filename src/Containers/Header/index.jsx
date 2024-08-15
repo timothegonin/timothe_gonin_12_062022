@@ -1,6 +1,3 @@
-import styled from 'styled-components'
-// import { LinkContainer } from 'react-router-bootstrap'
-// import { Nav, Navbar, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/logo.svg'
 
@@ -17,7 +14,7 @@ import Logo from '../../assets/logo.svg'
  */
 function Header() {
   return (
-    <header className="bg-secondary flex flex-row items-center justify-between py-4 px-9">
+    <header className="bg-secondary flex flex-row items-center justify-between py-4 px-9 sticky top-0 z-10">
       <div className="flex justify-center items-center">
         <img alt="SportSee's Logo" src={Logo} />{' '}
         <span className="text-red-600 font-medium ms-4 text-2xl">SportSee</span>
@@ -37,33 +34,3 @@ function Header() {
 }
 
 export default Header
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-// const HeaderWrapper = styled(Navbar)`
-//   display: flex;
-//   justify-content: space-between;
-//   z-index: 999;
-// `
-// const LogoWrapper = styled(Navbar.Brand)`
-//   margin: 0;
-//   display: flex;
-//   align-items: center;
-//   span {
-//     color: #ff0000;
-//     margin-left: 8px;
-//     font-weight: 400;
-//     font-size: 24px;
-//     letter-spacing: 1px;
-//   }
-// `
-
-// const NavLink = styled(Nav.Link)`
-//   letter-spacing: 1px;
-//   font-weight: 400;
-//   font-size: 24px;
-//   color: white !important;
-// `
