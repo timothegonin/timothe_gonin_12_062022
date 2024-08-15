@@ -24,8 +24,8 @@ import Footer from '../../components/Footer'
 function Sidebar() {
   return (
     <aside className="bg-secondary h-full fixed top-0 left-0 flex flex-col justify-end z-11 px-8">
-      <nav className="flex justify-center mb-40">
-        <ul className=" flex flex-col justify-between h-full">
+      <nav className="flex justify-center h-2/5">
+        <ul className=" flex flex-col justify-between items-center h-full grow">
           <SquareButton icon={YogaIcon} alt="Yoga icon" />
           <SquareButton icon={SwimIcon} alt="Swin icon" />
           <SquareButton icon={BikeIcon} alt="Bike icon" />
