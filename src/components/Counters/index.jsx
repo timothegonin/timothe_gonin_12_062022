@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Col } from 'react-bootstrap'
 
 //ICONS
 import CaloriesIcon from '../../assets/icons/right-counters/calories-icon.svg'
@@ -26,14 +25,11 @@ const Counters = ({ counterValues }) => {
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <CounterWrapper>
+    <aside className="gap-8 inline-flex items-center justify-between flex-col">
       {Object.values(counterValues).map((value, index) => {
         return (
-          <CounterCard
-            key={`counter-${index}`}
-            className="d-flex align-items-center "
-          >
-            <figure className="d-flex justify-content-center align-items-center">
+          <CounterCard key={`counter-${index}`} className="flex items-center">
+            <figure className="flex justify-center items-center">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
             <div>
@@ -43,7 +39,7 @@ const Counters = ({ counterValues }) => {
           </CounterCard>
         )
       })}
-    </CounterWrapper>
+    </aside>
   )
 }
 
@@ -63,23 +59,6 @@ Counters.propTypes = {
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CounterWrapper = styled(Col)`
-  padding: 0;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  min-height: 280px;
-  max-width: 835px;
-  @media screen and (min-width: 1395px) {
-    max-width: 258px;
-    justify-content: flex-end;
-    align-content: space-between;
-    margin: 0;
-  }
-`
 
 const CounterCard = styled.div`
   height: 124px;
