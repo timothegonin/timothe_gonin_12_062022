@@ -28,13 +28,16 @@ const Counters = ({ counterValues }) => {
     <aside className="gap-8 inline-flex items-center justify-between flex-col">
       {Object.values(counterValues).map((value, index) => {
         return (
-          <CounterCard key={`counter-${index}`} className="flex items-center">
-            <figure className="flex justify-center items-center">
+          <CounterCard
+            key={`counter-${index}`}
+            className="flex items-center rounded-md"
+          >
+            <figure className="flex justify-center items-center m-8 me-6">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
             <div>
-              <span>{`${value}${counterUnit[index]}`}</span>
-              <p className="m-0">{`${counterLabel[index]}`}</p>
+              <span className="text-2xl font-bold">{`${value}${counterUnit[index]}`}</span>
+              <p className="text-sm font-medium">{`${counterLabel[index]}`}</p>
             </div>
           </CounterCard>
         )
@@ -64,21 +67,9 @@ const CounterCard = styled.div`
   height: 124px;
   width: 258px;
   background: #fbfbfb;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-  border-radius: 5px;
 
   figure {
     height: 60px;
     width: 60px;
-    margin: 32px;
-    margin-right: 24px;
-  }
-  span {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  p {
-    font-size: 14px;
-    font-weight: 500;
   }
 `
