@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { Col, Container, Row } from 'react-bootstrap'
 
 /**
  * Displaying user's firstname into HelloUser component
@@ -15,16 +14,12 @@ import { Col, Container, Row } from 'react-bootstrap'
  */
 const HelloUser = ({ firstName }) => {
   return (
-    <Container className="mx-2">
-      <Row className="my-5">
-        <Col>
-          <h1>
-            Bonjour <span className="text-primary">{firstName}</span>
-          </h1>
-          <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
-        </Col>
-      </Row>
-    </Container>
+    <section className="mt-14 mb-20">
+      <h1 className="text-4xl font-medium font-sans my-5">
+        Bonjour <span className="text-primary">{firstName}</span>
+      </h1>
+      <p>Féliciation ! Vous avez explosé vos objectifs hier 👏</p>
+    </section>
   )
 }
 

@@ -38,7 +38,7 @@ const Dashboard = () => {
         <Loader />
       ) : (
         <Fragment>
-          <DataInfo />
+          {/* <DataInfo /> */}
           <Analytics data={data} />
         </Fragment>
       )}
