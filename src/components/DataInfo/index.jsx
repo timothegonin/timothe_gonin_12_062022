@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { ToastContainer } from 'react-bootstrap'
-import Toast from 'react-bootstrap/Toast'
 
 /**
  * Component that displays a Toast with information about the data source (API or mock data).
@@ -18,21 +16,37 @@ function DataInfo() {
     dataMode === 'API' ? `API` : `mock des données de l'API`
 
   return (
-    <ToastContainer
-      className="p-5 mt-5"
-      position="top-end"
-      style={{ zIndex: '999' }}
-    >
-      <Toast show={toastDisplayed} onClose={handleToast}>
-        <Toast.Header closeButton={true}>
-          <strong className="me-auto">DATA MODE</strong>
-          <small>📌</small>
-        </Toast.Header>
-        <Toast.Body>
-          Les données proviennent de : {`${dataModeMessage}`} .
-        </Toast.Body>
-      </Toast>
-    </ToastContainer>
+    toastDisplayed && (
+      <div
+        role="alert"
+        aria-live="assertive"
+        className="absolute top-28 right-5 inline-flex flex-col border border-slate-200 rounded-lg"
+      >
+        <div className="flex justify-between px-5 py-1 bg-slate-200">
+          <strong className="font-semibold">
+            <span className="animate-ping">🔴</span> DATA MODE
+          </strong>
+          <button
+            className="hover:fill-red-500 hover:stroke-red-500"
+            onClick={handleToast}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-x-l"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
+          </button>
+        </div>
+        <p className="px-5 py-2 bg-slate-50">
+          Les données proviennent de : {`${dataModeMessage}`}
+        </p>
+      </div>
+    )
   )
 }
 
