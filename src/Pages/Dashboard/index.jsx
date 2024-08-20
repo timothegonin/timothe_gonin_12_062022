@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import HelloUser from '../../components/HelloUser'
 import Analytics from '../../Containers/Analytics'
 import DataInfo from '../../components/DataInfo'
 import Loader from '../../components/Loader'
@@ -39,6 +40,7 @@ const Dashboard = () => {
       ) : (
         <Fragment>
           <DataInfo />
+          <HelloUser firstName={data.userFirstName} />
           <Analytics data={data} />
         </Fragment>
       )}
