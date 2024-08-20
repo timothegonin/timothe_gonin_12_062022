@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import styled from 'styled-components'
-import { Col, Container, Row } from 'react-bootstrap'
 
 //User banner
 import HelloUser from '../../components/HelloUser'
@@ -35,32 +34,30 @@ const Analytics = ({ data }) => {
 
   return (
     <Fragment>
-      <section>
-        <HelloUser firstName={activeUser.userFirstName} />
-      </section>
-      <section>
-        <ContentWrapper fluid className="mx-0">
-          <Row className="d-flex justify-content-center">
-            <ChartsWrapper>
-              <Row>
-                <ChartFullSize>
-                  <Activity activity={activeUser.userActivity} />
-                </ChartFullSize>
-              </Row>
-              <Row>
-                <ChartsGroup>
-                  <SessionsDuration
-                    sessionsDuration={activeUser.userAverageSessions}
-                  />
-                  <ActivityType activityType={activeUser.userActivityType} />
-                  <Score score={activeUser.userTodayScore} />
-                </ChartsGroup>
-              </Row>
-            </ChartsWrapper>
-            <Counters counterValues={activeUser.userCounterValues} />
-          </Row>
-        </ContentWrapper>
-      </section>
+      <HelloUser firstName={activeUser.userFirstName} />
+      <div className="flex">
+        <div className="w-3/4">
+          <Activity activity={activeUser.userActivity} />
+          <ChartsGroup>
+            <SessionsDuration
+              sessionsDuration={activeUser.userAverageSessions}
+            />
+            <ActivityType activityType={activeUser.userActivityType} />
+            <Score score={activeUser.userTodayScore} />
+          </ChartsGroup>
+        </div>
+        <Counters counterValues={activeUser.userCounterValues} />
+      </div>
+      {/* <HelloUser firstName={activeUser.userFirstName} />
+      <AnalyticsWrapper>
+        <Activity activity={activeUser.userActivity} />
+        <ChartsGroup>
+          <SessionsDuration sessionsDuration={activeUser.userAverageSessions} />
+          <ActivityType activityType={activeUser.userActivityType} />
+          <Score score={activeUser.userTodayScore} />
+        </ChartsGroup>
+        <Counters counterValues={activeUser.userCounterValues} />
+      </AnalyticsWrapper> */}
     </Fragment>
   )
 }
@@ -72,29 +69,20 @@ export default Analytics
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ContentWrapper = styled(Container)`
-  max-width: 1126px;
-`
 
-const ChartsWrapper = styled(Container)`
-  width: 835px;
-  height: 611px;
+const AnalyticsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
-const ChartFullSize = styled(Col)`
-  margin: 0;
-  padding: 0;
-`
-
-const ChartsGroup = styled(Col)`
+const ChartsGroup = styled.div`
   max-width: 835px;
-  height: 265px;
+  width: 75%;
+  /* height: 265px; */
   margin: 10px 0;
   padding: 0;
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   @media screen and (min-width: 1406px) {
     margin-bottom: 0;
