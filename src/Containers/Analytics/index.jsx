@@ -27,17 +27,18 @@ const Analytics = ({ data }) => {
   const activUser = data
 
   return (
-    <div className="flex gap-5">
-      <div className="flex flex-col gap-6">
+    <section className="flex gap-4 pb-10">
+      <h2 className="hidden">Analytics</h2>
+      <div className="flex flex-col gap-7">
         <Activity activity={activUser.userActivity} />
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-8">
           <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
           <ActivityType activityType={activUser.userActivityType} />
           <Score score={activUser.userTodayScore} />
         </div>
       </div>
       <Counters counterValues={activUser.userCounterValues} />
-    </div>
+    </section>
   )
 }
 
