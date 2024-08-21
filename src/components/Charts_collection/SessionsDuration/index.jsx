@@ -27,7 +27,7 @@ const SessionsDuration = ({ sessionsDuration }) => {
   return (
     <SessionsDurationWrapper>
       <SessionDurationInfo className="sessionDuration__info">
-        <p>Durée moyenne des sessions</p>
+        <h3>Durée moyenne des sessions</h3>
       </SessionDurationInfo>
       <ResponsiveContainer width="100%" height="60%">
         <LineChart
@@ -94,7 +94,7 @@ SessionsDuration.propTypes = {
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const SessionsDurationWrapper = styled.div`
+const SessionsDurationWrapper = styled.article`
   background: red;
   border-radius: 5px;
   height: 263px;
