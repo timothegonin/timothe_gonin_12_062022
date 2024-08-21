@@ -9,12 +9,12 @@ import Counters from '../../components/Counters'
  * Displaying Chart's container and transmits the data to the components
  * @function Analitics
  * @param {Object} data Derived from Dashborad's page (fetch)
- * @param {String} activeUser.userFirstname User's firstName
- * @param {Object} activeUser.userActivity User's activity
- * @param {Object} activeUser.userAverageSessions User's average sessions
- * @param {Object} activeUser.userActivityType User's activity type
- * @param {Object} activeUser.userTodayScore User's today score
- * @param {Object} activeUser.userCounterValues User's counters values
+ * @param {String} activUser.userFirstname User's firstName
+ * @param {Object} activUser.userActivity User's activity
+ * @param {Object} activUser.userAverageSessions User's average sessions
+ * @param {Object} activUser.userActivityType User's activity type
+ * @param {Object} activUser.userTodayScore User's today score
+ * @param {Object} activUser.userCounterValues User's counters values
  * @returns {HTMLElement}
  */
 
@@ -24,19 +24,19 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = ({ data }) => {
-  const activeUser = data
+  const activUser = data
 
   return (
     <div className="flex gap-5">
       <div className="flex flex-col gap-6">
-        <Activity activity={activeUser.userActivity} />
+        <Activity activity={activUser.userActivity} />
         <div className="flex justify-between">
-          <SessionsDuration sessionsDuration={activeUser.userAverageSessions} />
-          <ActivityType activityType={activeUser.userActivityType} />
-          <Score score={activeUser.userTodayScore} />
+          <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
+          <ActivityType activityType={activUser.userActivityType} />
+          <Score score={activUser.userTodayScore} />
         </div>
       </div>
-      <Counters counterValues={activeUser.userCounterValues} />
+      <Counters counterValues={activUser.userCounterValues} />
     </div>
   )
 }

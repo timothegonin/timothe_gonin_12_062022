@@ -29,6 +29,7 @@ const Dashboard = () => {
     `http://localhost:3000/user/${idFromURL}/performance`,
   ]
   const { data, isLoading } = useFetchUserData(idFromURL, urls)
+  const activUser = data
 
   return (
     <HelmetProvider>
@@ -40,7 +41,7 @@ const Dashboard = () => {
       ) : (
         <Fragment>
           <DataInfo />
-          <HelloUser firstName={data.userFirstName} />
+          <HelloUser firstName={activUser.userFirstName} />
           <Analytics data={data} />
         </Fragment>
       )}
