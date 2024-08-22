@@ -23,6 +23,7 @@ import {
 const ActivityType = ({ activityType }) => {
   return (
     <ActivityTypeWrapper>
+      <h3 className="hidden">Activity type</h3>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           outerRadius={90}
@@ -79,7 +80,7 @@ ActivityType.propTypes = {
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
-const ActivityTypeWrapper = styled.div`
+const ActivityTypeWrapper = styled.article`
   border-radius: 5px;
   height: 263px;
   width: 258px;

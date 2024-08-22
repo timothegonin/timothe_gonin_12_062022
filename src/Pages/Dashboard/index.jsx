@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import HelloUser from '../../components/HelloUser'
 import Analytics from '../../Containers/Analytics'
 import DataInfo from '../../components/DataInfo'
 import Loader from '../../components/Loader'
@@ -28,6 +29,7 @@ const Dashboard = () => {
     `http://localhost:3000/user/${idFromURL}/performance`,
   ]
   const { data, isLoading } = useFetchUserData(idFromURL, urls)
+  const activUser = data
 
   return (
     <HelmetProvider>
@@ -39,6 +41,7 @@ const Dashboard = () => {
       ) : (
         <Fragment>
           <DataInfo />
+          <HelloUser firstName={activUser.userFirstName} />
           <Analytics data={data} />
         </Fragment>
       )}

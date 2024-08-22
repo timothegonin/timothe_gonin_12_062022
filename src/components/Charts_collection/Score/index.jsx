@@ -69,7 +69,7 @@ Score.propTypes = {
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
-const ScoreWrapper = styled.div`
+const ScoreWrapper = styled.article`
   background-color: #fbfbfb;
   border-radius: 5px;
   height: 263px;

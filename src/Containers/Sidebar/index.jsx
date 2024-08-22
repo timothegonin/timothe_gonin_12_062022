@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
 
 import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
 import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
@@ -25,43 +23,18 @@ import Footer from '../../components/Footer'
 
 function Sidebar() {
   return (
-    <SideBarWrapper className="bg-secondary">
-      <nav>
-        <ListGroup className="justify-content-between">
+    <aside className="bg-secondary h-full fixed top-0 left-0 flex flex-col justify-end z-11 px-8">
+      <nav className="flex justify-center h-2/5">
+        <ul className=" flex flex-col justify-between items-center h-full grow">
           <SquareButton icon={YogaIcon} alt="Yoga icon" />
           <SquareButton icon={SwimIcon} alt="Swin icon" />
           <SquareButton icon={BikeIcon} alt="Bike icon" />
           <SquareButton icon={Dumbbell} alt="Dumbbel icon" />
-        </ListGroup>
+        </ul>
       </nav>
       <Footer />
-    </SideBarWrapper>
+    </aside>
   )
 }
 
 export default Sidebar
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const SideBarWrapper = styled.aside`
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-  padding-top: 84px;
-  width: 117px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  nav {
-    height: 316px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 164px;
-  }
-`

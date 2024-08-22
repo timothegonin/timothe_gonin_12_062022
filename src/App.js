@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap'
+import React from 'react'
 import styled from 'styled-components'
 
 import Header from './Containers/Header'
@@ -12,13 +12,13 @@ import Router from './utils/Router'
  */
 function App() {
   return (
-    <Container fluid className="App px-0">
+    <React.Fragment fluid className="App px-0">
       <Header />
       <Sidebar />
       <MainWrapper>
         <Router />
       </MainWrapper>
-    </Container>
+    </React.Fragment>
   )
 }
 

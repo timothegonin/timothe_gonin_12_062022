@@ -13,7 +13,7 @@ import styled from 'styled-components'
  */
 function Footer() {
   return (
-    <FooterWrapper>
+    <FooterWrapper className="h-1/3">
       <p>Copyright, SportSee 2020</p>
     </FooterWrapper>
   )
@@ -27,7 +27,7 @@ export default Footer
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const FooterWrapper = styled.footer`
-  height: calc(138px + 100px);
+  /* height: calc(138px + 100px); */
   display: flex;
   justify-content: center;
   align-items: center;
