@@ -17,7 +17,7 @@ function Header() {
     <header className="bg-secondary flex flex-row items-center justify-between py-4 px-9 sticky top-0 z-10">
       <div className="flex justify-center items-center">
         <img alt="SportSee's Logo" src={Logo} />{' '}
-        <span className="text-red-600 font-medium ms-4 text-2xl">SportSee</span>
+        <h1 className="text-red-500 font-medium ms-4 text-2xl">SportSee</h1>
       </div>
       <nav className="flex w-3/4 pe-14">
         <ul className="flex flex-row grow justify-between">
