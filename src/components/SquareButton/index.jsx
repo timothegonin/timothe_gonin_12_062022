@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
 
 /**
  * Template of square button in the sidebar
@@ -36,10 +35,4 @@ const ButtonWrapper = styled.li`
   &:hover {
     cursor: pointer;
   }
-  /* button {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  } */
 `
