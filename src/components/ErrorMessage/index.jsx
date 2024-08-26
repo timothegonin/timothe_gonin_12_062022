@@ -20,9 +20,14 @@ const ErrorMessage = () => {
     : `La page demandée n'éxiste pas.`
 
   return (
-    <ContentWrapper className="d-flex flex-column justify-content-center align-items-center">
-      <h2>{message}</h2>
-      <Link to="/">Retour à la page de sélection utilisateur</Link>
+    <ContentWrapper className="flex flex-col justify-center items-center gap-5">
+      <h2 className="font-bold text-2xl text-primary">{message}</h2>
+      <Link
+        to="/"
+        className="text-white bg-primary p-2 rounded hover:bg-red-700 transition duration-150 ease-in-out delay-50"
+      >
+        Retour à la page de sélection utilisateur
+      </Link>
     </ContentWrapper>
   )
 }
