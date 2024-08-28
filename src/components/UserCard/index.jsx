@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
  */
 const UserCard = ({ id }) => {
   return (
-    <article className="border border-slate-300 rounded inline-flex justify-center flex-col items-center px-3 py-6">
+    <article className="border border-slate-300 rounded inline-flex justify-center flex-col items-center p-6 sm:p-6 mx-auto sm:mx-0">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
