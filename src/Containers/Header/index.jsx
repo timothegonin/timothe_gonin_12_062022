@@ -21,9 +21,9 @@ function Header() {
         <img alt="SportSee's Logo" src={Logo} />{' '}
         <h1 className="text-red-500 font-medium ms-4 text-2xl">SportSee</h1>
       </div>
-      <nav className="relative flex justify-end w-2/6">
+      <nav className="relative flex justify-end w-2/6 sm:w-3/4 sm:px-7 md:pe-14">
         <button
-          className="text-slate-50 font-medium text-xl p-2"
+          className="text-slate-50 font-medium text-xl p-2 sm:hidden"
           onClick={() => {
             setIsOpen(!isOpen)
           }}
@@ -44,9 +44,7 @@ function Header() {
             </ul>
           </div>
         )}
-      </nav>
-      {/* <nav className="flex w-3/4 pe-14">
-        <ul className="flex flex-row grow justify-between">
+        <ul className="hidden sm:flex flex-row grow justify-between">
           <Link to="/">
             <li className="text-slate-50 font-medium text-xl">Accueil</li>
           </Link>
@@ -54,7 +52,7 @@ function Header() {
           <li className="text-slate-50 font-medium text-xl">Réglage</li>
           <li className="text-slate-50 font-medium text-xl">Communauté</li>
         </ul>
-      </nav> */}
+      </nav>
     </header>
   )
 }
