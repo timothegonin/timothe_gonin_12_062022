@@ -25,7 +25,7 @@ const Counters = ({ counterValues }) => {
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <article className="gap-8 inline-flex items-center justify-between flex-col w-1/4">
+    <article className="gap-8 inline-flex items-center justify-between flex-col flex-wrap w-1/4">
       {Object.values(counterValues).map((value, index) => {
         return (
           <CounterCard
