@@ -31,7 +31,7 @@ const Analytics = ({ data }) => {
       <h2 className="hidden">Analytics</h2>
       <div className="flex flex-col gap-7">
         <Activity activity={activUser.userActivity} />
-        <div className="flex flex-col sm:flex-row justify-between gap-8">
+        <div className="flex flex-col sm:flex-row justify-between gap-8 items-center">
           <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
           <ActivityType activityType={activUser.userActivityType} />
           <Score score={activUser.userTodayScore} />
