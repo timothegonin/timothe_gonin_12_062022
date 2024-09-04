@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-
 import Header from './Containers/Header'
 import Sidebar from './Containers/Sidebar'
 import Router from './utils/Router'
@@ -12,13 +10,13 @@ import Router from './utils/Router'
  */
 function App() {
   return (
-    <React.Fragment fluid className="App px-0">
+    <div className="App px-0">
       <Header />
       <Sidebar />
       <MainWrapper>
         <Router />
       </MainWrapper>
-    </React.Fragment>
+    </div>
   )
 }
 
