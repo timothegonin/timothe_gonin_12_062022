@@ -107,7 +107,7 @@ export class User_MOCKED {
       }
       userActivity.push(sessionData)
     })
-    return userActivity
+    return userActivity.reverse()
   }
 
   /* 
