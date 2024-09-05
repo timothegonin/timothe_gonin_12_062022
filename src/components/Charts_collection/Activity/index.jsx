@@ -110,7 +110,6 @@ Activity.propTypes = {
  */
 const ActivityWrapper = styled.article`
   height: 320px;
-  max-width: 835px;
 `
 
 const ActivityContainer = styled.div`
