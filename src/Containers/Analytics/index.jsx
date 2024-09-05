@@ -27,9 +27,9 @@ const Analytics = ({ data }) => {
   const activUser = data
 
   return (
-    <section className="flex flex-col lg:flex-row gap-4 pb-10">
+    <section className="flex flex-col lg:flex-row gap-4 lg:justify-between pb-10">
       <h2 className="hidden">Analytics</h2>
-      <div className="flex flex-col gap-7 w-full lg:w-2/3">
+      <div className="flex flex-col gap-7 w-full lg:w-2/3 grow">
         <Activity activity={activUser.userActivity} />
         <div className="flex flex-col sm:flex-row justify-between gap-8 items-center">
           <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
