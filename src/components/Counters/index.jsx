@@ -30,13 +30,13 @@ const Counters = ({ counterValues }) => {
         return (
           <CounterCard
             key={`counter-${index}`}
-            className="flex items-center rounded-md"
+            className="flex items-center rounded-md h-32 w-64 lg:h-16 lg:w-40"
           >
-            <figure className="flex justify-center items-center m-8 me-6">
+            <figure className="flex justify-center items-center m-8 me-6 size-16  lg:m-4 lg:me-3 lg:size-11">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
             <div>
-              <span className="text-2xl font-bold">{`${value}${counterUnit[index]}`}</span>
+              <span className="lg:text-lg text-2xl font-bold">{`${value}${counterUnit[index]}`}</span>
               <h3 className="text-sm font-medium">{`${counterLabel[index]}`}</h3>
             </div>
           </CounterCard>
@@ -64,12 +64,5 @@ Counters.propTypes = {
  */
 
 const CounterCard = styled.div`
-  height: 124px;
-  width: 258px;
   background: #fbfbfb;
-
-  figure {
-    height: 60px;
-    width: 60px;
-  }
 `
