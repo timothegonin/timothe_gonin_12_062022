@@ -29,46 +29,46 @@ const SessionsDuration = ({ sessionsDuration }) => {
       <SessionDurationInfo className="sessionDuration__info">
         <h3>Durée moyenne des sessions</h3>
       </SessionDurationInfo>
-      <ResponsiveContainer width="100%" height="60%">
-        <LineChart
-          data={sessionsDuration}
-          margin={{
-            top: 15,
-            right: 20,
-            left: 20,
-            bottom: -5,
+      <LineChart
+        data={sessionsDuration}
+        height={189}
+        width={258}
+        margin={{
+          top: 15,
+          right: 20,
+          left: 20,
+          bottom: 15,
+        }}
+      >
+        <XAxis
+          dataKey="day"
+          stroke="rgba(255, 255, 255, 0.5)"
+          fontSize={12}
+          axisLine={false}
+          tickLine={false}
+        />
+        <YAxis axisLine={false} mirror={true} tickCount={false} />
+        <Tooltip
+          content={
+            <CustomTooltip
+              styles="session"
+              units={sessionsDurationTooltipUnits}
+            />
+          }
+        />
+        <Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="#fff"
+          strokeWidth={2}
+          dot={false}
+          activeDot={{
+            stroke: 'rgba(255, 255, 255, 0.3)',
+            strokeWidth: 12,
+            r: 5,
           }}
-        >
-          <XAxis
-            dataKey="day"
-            stroke="rgba(255, 255, 255, 0.5)"
-            fontSize={12}
-            axisLine={false}
-            tickLine={false}
-          />
-          <YAxis axisLine={false} mirror={true} tickCount={false} />
-          <Tooltip
-            content={
-              <CustomTooltip
-                styles="session"
-                units={sessionsDurationTooltipUnits}
-              />
-            }
-          />
-          <Line
-            type="monotone"
-            dataKey="sessionLength"
-            stroke="#fff"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{
-              stroke: 'rgba(255, 255, 255, 0.3)',
-              strokeWidth: 12,
-              r: 5,
-            }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+        />
+      </LineChart>
     </SessionsDurationWrapper>
   )
 }
@@ -97,8 +97,6 @@ SessionsDuration.propTypes = {
 const SessionsDurationWrapper = styled.article`
   background: red;
   border-radius: 5px;
-  height: 263px;
-  width: 258px;
 `
 const SessionDurationInfo = styled.div`
   max-width: 150px;
