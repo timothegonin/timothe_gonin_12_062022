@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts'
+import { LineChart, Line, XAxis, Tooltip } from 'recharts'
 import CustomTooltip from '../../CustomTootip'
 
 /**
@@ -34,10 +27,10 @@ const SessionsDuration = ({ sessionsDuration }) => {
         height={189}
         width={258}
         margin={{
-          top: 15,
+          top: 30,
           right: 20,
           left: 20,
-          bottom: 15,
+          bottom: 30,
         }}
       >
         <XAxis
@@ -46,9 +39,12 @@ const SessionsDuration = ({ sessionsDuration }) => {
           fontSize={12}
           axisLine={false}
           tickLine={false}
+          tickMargin={15}
         />
-        <YAxis axisLine={false} mirror={true} tickCount={false} />
         <Tooltip
+          animationEasing={'ease-out'}
+          animationDuration={300}
+          cursor={false}
           content={
             <CustomTooltip
               styles="session"
