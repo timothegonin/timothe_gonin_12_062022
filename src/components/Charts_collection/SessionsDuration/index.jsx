@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LineChart, Line, Legend, Rectangle, XAxis, Tooltip } from 'recharts'
+import {
+  LineChart,
+  Line,
+  Legend,
+  Rectangle,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from 'recharts'
 import CustomTooltip from '../../CustomTootip'
 
 /**
@@ -17,8 +25,8 @@ import CustomTooltip from '../../CustomTootip'
 */
 const SessionsDuration = ({ sessionsDuration }) => {
   const sessionsDurationTooltipUnits = ['min']
-  const renderLegend = () => {
-    return <SessionDurationInfo>Durée moyenne des sessions</SessionDurationInfo>
+  const LegendTitle = () => {
+    return <h3>Durée moyenne des sessions</h3>
   }
   const CustomCursor = ({ points }) => {
     const [{ x }] = points
@@ -28,44 +36,43 @@ const SessionsDuration = ({ sessionsDuration }) => {
   }
   return (
     <SessionsDurationWrapper>
-      {/* <SessionDurationInfo className="sessionDuration__info">
-        <h3>Durée moyenne des sessions</h3>
-      </SessionDurationInfo> */}
       <LineChart
         data={sessionsDuration}
         height={263}
         width={258}
         margin={{
+          top: 30,
           right: 20,
           left: 20,
           bottom: 30,
         }}
       >
         <Legend
-          content={renderLegend}
+          content={LegendTitle}
           verticalAlign="top"
-          wrapperStyle={{ position: 'absolute', bottom: '0' }}
+          wrapperStyle={{
+            maxWidth: '150px',
+            paddingLeft: '14px',
+            fontWeight: 500,
+            fontSize: '0.9rem',
+            color: 'rgba(255, 255, 0255, 0.5)',
+          }}
         />
         <Tooltip
           animationEasing={'ease-out'}
           animationDuration={300}
-          content={
-            <CustomTooltip
-              styles="session"
-              units={sessionsDurationTooltipUnits}
-            />
-          }
+          content={<CustomTooltip units={sessionsDurationTooltipUnits} />}
           cursor={<CustomCursor />}
         />
-
         <XAxis
           dataKey="day"
           stroke="rgba(255, 255, 255, 0.5)"
           fontSize={12}
           axisLine={false}
           tickLine={false}
-          // tickMargin={15}
+          tickMargin={20}
         />
+        <YAxis type="number" domain={['dataMin', 'dataMax + 5']} hide="true" />
         <Line
           type="monotone"
           dataKey="sessionLength"
@@ -107,12 +114,4 @@ SessionsDuration.propTypes = {
 const SessionsDurationWrapper = styled.article`
   background: red;
   border-radius: 5px;
-`
-const SessionDurationInfo = styled.h3`
-  max-width: 150px;
-  padding-top: 29px;
-  padding-left: 34px;
-  font-weight: 500;
-  font-size: 15px;
-  color: rgba(255, 255, 0255, 0.5);
 `
