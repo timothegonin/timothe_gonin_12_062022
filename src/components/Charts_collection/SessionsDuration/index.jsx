@@ -20,25 +20,10 @@ const SessionsDuration = ({ sessionsDuration }) => {
   const renderLegend = () => {
     return <SessionDurationInfo>Durée moyenne des sessions</SessionDurationInfo>
   }
-  const CustomCursor = (props) => {
-    const { points } = props
-    const { x, y } = points[0]
+  const CustomCursor = ({ points }) => {
+    const [{ x }] = points
     return (
-      <Rectangle
-        fill="#e60000"
-        stroke="#e60000"
-        x={x}
-        y={y}
-        width={258}
-        height={500}
-        top={0}
-        margin={{
-          top: 30,
-          right: 20,
-          left: 20,
-          bottom: 30,
-        }}
-      />
+      <Rectangle fill="hsla(0, 0%, 0%, 8.50%)" x={x} width={258} height={263} />
     )
   }
   return (
@@ -124,11 +109,10 @@ const SessionsDurationWrapper = styled.article`
   border-radius: 5px;
 `
 const SessionDurationInfo = styled.h3`
-  /* max-width: 150px;
+  max-width: 150px;
   padding-top: 29px;
-  padding-left: 34px; */
+  padding-left: 34px;
   font-weight: 500;
   font-size: 15px;
   color: rgba(255, 255, 0255, 0.5);
-  background: transparent;
 `
