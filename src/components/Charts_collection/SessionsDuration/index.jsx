@@ -47,6 +47,14 @@ const SessionsDuration = ({ sessionsDuration }) => {
           bottom: 30,
         }}
       >
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="white" stopOpacity={0.4} />
+            <stop offset="50%" stopColor="white" stopOpacity={0.8} />
+            <stop offset="70%" stopColor="white" stopOpacity={1} />
+            <stop offset="100%" stopColor="white" />
+          </linearGradient>
+        </defs>
         <Legend
           content={LegendTitle}
           verticalAlign="top"
@@ -76,13 +84,14 @@ const SessionsDuration = ({ sessionsDuration }) => {
         <Line
           type="monotone"
           dataKey="sessionLength"
-          stroke="#fff"
-          strokeWidth={2}
+          stroke="url(#colorUv)"
+          strokeWidth={3}
+          strokeOpacity="0.8"
           dot={false}
           activeDot={{
-            stroke: 'rgba(255, 255, 255, 0.3)',
-            strokeWidth: 12,
-            r: 5,
+            stroke: 'rgba(255, 255, 255, 0.2)',
+            strokeWidth: 13,
+            r: 4,
           }}
         />
       </LineChart>
