@@ -20,7 +20,7 @@ function DataInfo() {
       <div
         role="alert"
         aria-live="assertive"
-        className="absolute top-28 right-5 inline-flex flex-col border border-slate-200 rounded-lg"
+        className="absolute top-28 right-5 ms-5 inline-flex flex-col border border-slate-200 rounded-lg"
       >
         <div className="flex justify-between px-5 py-1 bg-slate-200">
           <strong className="font-semibold">
