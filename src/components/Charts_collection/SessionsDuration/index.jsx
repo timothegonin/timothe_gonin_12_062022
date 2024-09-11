@@ -12,10 +12,13 @@ import {
 import CustomTooltip from '../../CustomTootip'
 
 /**
- * Displaying user's duration of sessions in RadialBarchart
- * @function SessionsDuration
- * @param {Array.<{ day: String, sessionLength: Integer}> } SessionsDuration User's duration of sessions data
- * @return {HTMLElement }
+ * Displays the user's average session duration using a LineChart.
+ * The chart visualizes the session length for each day, along with a custom tooltip and legend.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {Array.<{ day: String, sessionLength: Number }>} props.sessionsDuration - Array of session data for the user.
+ * @returns {JSX.Element} The rendered LineChart displaying the user's session durations.
  */
 
 /* 
@@ -25,9 +28,25 @@ import CustomTooltip from '../../CustomTootip'
 */
 const SessionsDuration = ({ sessionsDuration }) => {
   const sessionsDurationTooltipUnits = ['min']
+
+  /**
+   * Custom legend title for the LineChart.
+   *
+   * @function LegendTitle
+   * @returns {JSX.Element} The rendered title for the chart.
+   */
   const LegendTitle = () => {
     return <h3>Durée moyenne des sessions</h3>
   }
+
+  /**
+   * Custom cursor component for the LineChart tooltip.
+   * Displays a darkened rectangle when hovering over the chart.
+   *
+   * @function CustomCursor
+   * @param {Object} points - Tooltip cursor position data.
+   * @returns {JSX.Element} The rendered custom cursor.
+   */
   const CustomCursor = ({ points }) => {
     const [{ x }] = points
     return (
@@ -112,7 +131,7 @@ SessionsDuration.propTypes = {
       day: PropTypes.string,
       sessionLength: PropTypes.number,
     })
-  ),
+  ).isRequired,
 }
 
 /* 
