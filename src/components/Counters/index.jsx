@@ -19,18 +19,18 @@ import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Counters = ({ counterValues }) => {
+const Counters = ({ counterValues, className }) => {
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <article className="gap-8 lg:gap-1 inline-flex items-center justify-between flex-col flex-wrap">
+    <article className={`${className}`}>
       {Object.values(counterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}
-            className="flex items-center rounded-md h-32 w-64 lg:h-36 lg:w-40"
+            className="flex items-center rounded-md h-32 w-64 lg:h-36"
           >
             <figure className="flex justify-center items-center m-8 me-6 size-16  lg:m-4 lg:me-3 lg:size-11">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
