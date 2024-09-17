@@ -24,10 +24,10 @@ import CustomTooltip from '../../CustomTootip'
   └─────────────────────────────────────────────────────────────────────────┘
 */
 
-const Activity = ({ activity }) => {
+const Activity = ({ activity, className }) => {
   const activityTooltipUnits = ['kg', 'Kcal']
   return (
-    <ActivityWrapper>
+    <ActivityWrapper className={`${className}`}>
       <ActivityContainer>
         <ActivityInfo>
           <ActivityTitle className="ms-4">

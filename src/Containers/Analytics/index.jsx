@@ -27,20 +27,21 @@ const Analytics = ({ data }) => {
   const activUser = data
 
   return (
-    // <section className="flex flex-col lg:flex-row gap-4 md:gap-1 lg:justify-between pb-10 max-w-6xl">
-    <section className="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-1 pb-10 max-w-6xl">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-4 sm:gap-y-8 pb-10 max-w-6xl">
       <h2 className="hidden">Analytics</h2>
-      <div className="md:col-span-4 flex flex-col gap-7 md:gap-1 w-full grow max-w-4xl">
-        <Activity activity={activUser.userActivity} />
-        <div className="flex flex-col sm:flex-row justify-between gap-8 md:gap-1 items-center">
-          <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
-          <ActivityType activityType={activUser.userActivityType} />
-          <Score score={activUser.userTodayScore} />
-        </div>
+      <Activity
+        className="sm:col-span-2 md:col-span-4 flex flex-col gap-7 w-full grow max-w-4xl"
+        activity={activUser.userActivity}
+      />
+      {/* <div className="sm:col-span-1 flex flex-col sm:flex-row justify-between gap-8 md:gap-1 items-center"> */}
+      <div className="sm:col-span-1 sm:items-start flex flex-col justify-between gap-4 sm:gap-8 items-center">
+        <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
+        <ActivityType activityType={activUser.userActivityType} />
+        <Score score={activUser.userTodayScore} />
       </div>
       <Counters
         className={
-          'md:col-span-1 gap-8 lg:gap-1 inline-flex items-center justify-between flex-col flex-wrap'
+          'sm:col-span-1 sm:justify-start items-end gap-y-4 sm:gap-y-8 lg:gap-y-1 flex justify-between flex-col'
         }
         counterValues={activUser.userCounterValues}
       />
