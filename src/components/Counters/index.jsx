@@ -30,14 +30,14 @@ const Counters = ({ counterValues, className }) => {
         return (
           <CounterCard
             key={`counter-${index}`}
-            className="flex items-center rounded-md h-32 w-full sm:w-11/12 lg:w-full lg:h-36"
+            className="flex items-center rounded-md h-32 w-full sm:w-11/12 lg:w-full lg:h-36 xl:h-32"
             // className="flex items-center rounded-md h-32 w-64 sm:w-full"
           >
-            <figure className="flex justify-center items-center m-8 me-6 size-16  lg:m-4 lg:me-3 lg:size-11">
+            <figure className="flex justify-center items-center m-8 me-6 size-16 lg:m-4 lg:me-3 lg:size-11 xl:size-16 xl:me-6">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
             <div className="me-2">
-              <span className="lg:text-lg text-2xl font-bold">{`${value}${counterUnit[index]}`}</span>
+              <span className="text-2xl font-bold lg:text-lg xl:text-2xl">{`${value}${counterUnit[index]}`}</span>
               <h3 className="text-sm font-medium">{`${counterLabel[index]}`}</h3>
             </div>
           </CounterCard>
