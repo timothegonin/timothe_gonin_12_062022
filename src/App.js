@@ -13,7 +13,7 @@ function App() {
     <div className="App px-0">
       <Header />
       <Sidebar />
-      <MainWrapper className="flex flex-col items-center ms-24 px-20 xl:ms-32 ">
+      <MainWrapper className="flex flex-col items-center px-20 sm:ms-24 xl:ms-32 ">
         <Router />
       </MainWrapper>
     </div>

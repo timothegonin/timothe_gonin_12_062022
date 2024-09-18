@@ -27,7 +27,7 @@ const Analytics = ({ data }) => {
   const activUser = data
 
   return (
-    <section className="grid grid-cols-1 gap-y-4 pb-10 max-w-6xl sm:grid-cols-2 sm:gap-y-8 lg:grid-cols-5 lg:grid-rows-custom lg:gap-1 xl:grid-cols-custom xl:gap-8">
+    <section className="grid grid-cols-1 gap-y-4 pb-48 max-w-6xl sm:grid-cols-2 sm:gap-y-8 sm:pb-10 lg:grid-cols-5 lg:grid-rows-custom lg:gap-1 xl:grid-cols-custom xl:gap-8">
       <h2 className="hidden">Analytics</h2>
       <Activity
         className="row-start-1 flex flex-col w-full grow max-w-4xl sm:col-span-2 md:col-span-4"
