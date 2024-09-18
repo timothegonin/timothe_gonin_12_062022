@@ -16,7 +16,7 @@ import Logo from '../../assets/logo.svg'
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <header className="bg-secondary flex flex-row items-center justify-center  p-3 sm:py-4 sm:px-9 sticky top-0 z-10">
+    <header className="bg-secondary flex flex-row items-center justify-center  p-3 sm:py-4 sm:px-9 sticky top-0 z-[55]">
       <div className="max-w-[1440px] flex items-center justify-between w-full">
         <div className="flex justify-center items-center ">
           <img alt="SportSee's Logo" src={Logo} />{' '}
