@@ -14,25 +14,12 @@ import styled from 'styled-components'
  */
 function SquareButton(props) {
   return (
-    <ButtonWrapper>
+    <li className="hover:cursor-pointer size-12 sm:size-16">
       <button className="bg-slate-50 flex justify-center border items-center rounded h-full w-full">
         <img src={props.icon} alt={props.alt} />
       </button>
-    </ButtonWrapper>
+    </li>
   )
 }
 
 export default SquareButton
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const ButtonWrapper = styled.li`
-  height: 64px;
-  width: 64px;
-  &:hover {
-    cursor: pointer;
-  }
-`
