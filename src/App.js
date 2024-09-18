@@ -13,7 +13,7 @@ function App() {
     <div className="App px-0">
       <Header />
       <Sidebar />
-      <MainWrapper className="ms-24 xl:ms-32 px-20">
+      <MainWrapper className="flex flex-col items-center ms-24 px-20 xl:ms-32 ">
         <Router />
       </MainWrapper>
     </div>
@@ -28,10 +28,8 @@ export default App
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const MainWrapper = styled.main`
-  /* margin-left: 117px; */
-  /* padding: 0 90px; */
   @media screen and (max-width: 1155px) {
     padding: 0 16px;
-    /* max-width: 1126px; */
+    max-width: 1152px;
   }
 `

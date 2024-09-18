@@ -33,7 +33,7 @@ const Analytics = ({ data }) => {
         className="row-start-1 flex flex-col w-full grow max-w-4xl sm:col-span-2 md:col-span-4"
         activity={activUser.userActivity}
       />
-      <div className="flex flex-col justify-between gap-4 items-center sm:col-span-1 sm:items-start sm:gap-8 lg:col-span-4 lg:row-start-2 lg:flex-row lg:gap-1">
+      <div className="flex flex-col justify-between gap-4 items-center sm:col-span-1 sm:items-start sm:gap-8 lg:col-span-4 lg:row-start-2 lg:flex-row lg:gap-1 min-[1440px]:gap-8">
         <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
         <ActivityType activityType={activUser.userActivityType} />
         <Score score={activUser.userTodayScore} />
