@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-
 /**
  * Template of square button in the sidebar
  * @function SquareButton
