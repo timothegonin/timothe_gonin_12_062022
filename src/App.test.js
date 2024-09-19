@@ -19,11 +19,9 @@ test('Should render the Header component', () => {
     </MemoryRouter>
   )
   const homeLink = screen.getByRole('link', { name: 'Accueil' })
-  const disabledProfileLink = screen.getByRole('button', { name: 'Profil' })
-  const disabledSettingLink = screen.getByRole('button', { name: 'Réglage' })
-  const disabledCommunityLink = screen.getByRole('button', {
-    name: 'Communauté',
-  })
+  const disabledProfileLink = screen.getByText('Profil')
+  const disabledSettingLink = screen.getByText('Réglage')
+  const disabledCommunityLink = screen.getByText('Communauté')
   expect(homeLink).toBeInTheDocument()
   expect(disabledProfileLink).toBeInTheDocument()
   expect(disabledSettingLink).toBeInTheDocument()
