@@ -32,7 +32,7 @@ function Header() {
             Menu
           </button>
           {isOpen && (
-            <div className="absolute right-0 bg-secondary top-full w-full rounded-b-md sm:hidden">
+            <div className="absolute right-0 bg-secondary top-full rounded-b-md sm:hidden shadow-lg shadow-slate-500/50">
               <ul className="flex flex-col items-end p-3 gap-2">
                 <Link to="/">
                   <li className="text-slate-100 font-medium text-l hover:text-primary">

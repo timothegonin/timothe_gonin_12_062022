@@ -20,7 +20,7 @@ function DataInfo() {
       <div
         role="alert"
         aria-live="assertive"
-        className="absolute top-28 right-5 ms-5 inline-flex flex-col border border-slate-200 rounded-lg"
+        className="absolute top-28 right-5 ms-5 inline-flex flex-col border border-slate-200 rounded-lg bg-slate-50 shadow-lg shadow-slate-500/50"
       >
         <div className="flex justify-between px-5 py-1 bg-slate-200">
           <strong className="font-semibold">
@@ -42,7 +42,7 @@ function DataInfo() {
             </svg>
           </button>
         </div>
-        <p className="px-5 py-2 bg-slate-50">
+        <p className="px-5 py-2">
           Les données proviennent de : {`${dataModeMessage}`}
         </p>
       </div>
