@@ -158,14 +158,17 @@ export class User_MOCKED {
     const userActivityType = []
     const data = this._userActivityType.data
     const kind = this._userActivityType.kind
+    const firstUpperChar = (word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    }
 
     data.forEach((current, index) => {
       const activityTypeData = {
         value: current.value,
-        kind: kind[index + 1],
+        kind: firstUpperChar(kind[index + 1]),
       }
       userActivityType.push(activityTypeData)
     })
-    return userActivityType
+    return userActivityType.reverse()
   }
 }

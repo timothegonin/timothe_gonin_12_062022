@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-
 import Header from './Containers/Header'
 import Sidebar from './Containers/Sidebar'
 import Router from './utils/Router'
@@ -12,13 +10,13 @@ import Router from './utils/Router'
  */
 function App() {
   return (
-    <React.Fragment fluid className="App px-0">
+    <div className="App px-0">
       <Header />
       <Sidebar />
-      <MainWrapper>
+      <MainWrapper className="flex flex-col items-center px-20 sm:ms-24 xl:ms-32 ">
         <Router />
       </MainWrapper>
-    </React.Fragment>
+    </div>
   )
 }
 
@@ -30,10 +28,8 @@ export default App
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const MainWrapper = styled.main`
-  margin-left: 117px;
-  padding: 0 90px;
   @media screen and (max-width: 1155px) {
     padding: 0 16px;
-    max-width: 1126px;
+    max-width: 1152px;
   }
 `

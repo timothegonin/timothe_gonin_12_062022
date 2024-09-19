@@ -27,17 +27,23 @@ const Analytics = ({ data }) => {
   const activUser = data
 
   return (
-    <section className="flex gap-4 pb-10">
+    <section className="grid grid-cols-1 gap-y-4 pb-48 max-w-6xl sm:grid-cols-2 sm:gap-y-8 sm:pb-10 lg:grid-cols-5 lg:grid-rows-custom lg:gap-1 xl:grid-cols-custom xl:gap-8">
       <h2 className="hidden">Analytics</h2>
-      <div className="flex flex-col gap-7">
-        <Activity activity={activUser.userActivity} />
-        <div className="flex justify-between gap-8">
-          <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
-          <ActivityType activityType={activUser.userActivityType} />
-          <Score score={activUser.userTodayScore} />
-        </div>
+      <Activity
+        className="row-start-1 flex flex-col w-full grow max-w-4xl sm:col-span-2 md:col-span-4"
+        activity={activUser.userActivity}
+      />
+      <div className="flex flex-col justify-between gap-4 items-center sm:col-span-1 sm:items-start sm:gap-8 lg:col-span-4 lg:row-start-2 lg:flex-row lg:gap-1 min-[1440px]:gap-8">
+        <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
+        <ActivityType activityType={activUser.userActivityType} />
+        <Score score={activUser.userTodayScore} />
       </div>
-      <Counters counterValues={activUser.userCounterValues} />
+      <Counters
+        className={
+          'flex flex-col justify-between items-end gap-y-4 sm:col-span-1 sm:justify-start sm:gap-y-8 lg:col-span-1 lg:col-start-5 lg:row-span-2 lg:gap-1 xl:justify-between'
+        }
+        counterValues={activUser.userCounterValues}
+      />
     </section>
   )
 }

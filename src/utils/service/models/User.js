@@ -152,6 +152,6 @@ export class User {
       }
       userActivityType.push(activityTypeData)
     })
-    return userActivityType
+    return userActivityType.reverse()
   }
 }

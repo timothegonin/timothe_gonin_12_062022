@@ -19,24 +19,24 @@ import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Counters = ({ counterValues }) => {
+const Counters = ({ counterValues, className }) => {
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <article className="gap-8 inline-flex items-center justify-between flex-col w-1/4">
+    <article className={`${className}`}>
       {Object.values(counterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}
-            className="flex items-center rounded-md"
+            className="flex items-center rounded-md h-32 w-full sm:w-11/12 lg:w-full lg:h-36 xl:h-32"
           >
-            <figure className="flex justify-center items-center m-8 me-6">
+            <figure className="flex justify-center items-center m-8 me-6 size-16 lg:m-4 lg:me-3 lg:size-11 xl:size-16 xl:me-6">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
-            <div>
-              <span className="text-2xl font-bold">{`${value}${counterUnit[index]}`}</span>
+            <div className="me-2">
+              <span className="text-2xl font-bold lg:text-lg xl:text-2xl">{`${value}${counterUnit[index]}`}</span>
               <h3 className="text-sm font-medium">{`${counterLabel[index]}`}</h3>
             </div>
           </CounterCard>
@@ -64,12 +64,5 @@ Counters.propTypes = {
  */
 
 const CounterCard = styled.div`
-  height: 124px;
-  width: 258px;
   background: #fbfbfb;
-
-  figure {
-    height: 60px;
-    width: 60px;
-  }
 `
