@@ -2,7 +2,7 @@
 
 Sportsee is an application dedicated to sports coaching
 
-![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![styled-components SASS](https://img.shields.io/badge/Styles-styled--component/SASS_-ff69b4) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)![REACT](https://img.shields.io/badge/Framework-React-blue)![Tailwind CSS](https://img.shields.io/badge/CSS%20Framework-Tailwind_CSS-38bdf8)![Styled-Components](https://img.shields.io/badge/Styles-Styled--Components-DB7093)![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
 
 ---
 
