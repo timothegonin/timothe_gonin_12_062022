@@ -2,7 +2,7 @@
 
 SportSee is a sports coaching application that allows users to track their performance through interactive charts and personalized activity data. The application offers integration with an API or the use of mocked data for local testing.
 
-![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![Tailwind CSS](https://img.shields.io/badge/CSS%20Framework-Tailwind_CSS-38bdf8) ![Styled-Components](https://img.shields.io/badge/Styles-Styled--Components-DB7093) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF)
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow) ![REACT](https://img.shields.io/badge/Framework-React-61DAFB) ![Tailwind CSS](https://img.shields.io/badge/CSS%20Framework-Tailwind_CSS-38bdf8) ![Styled-Components](https://img.shields.io/badge/Styles-Styled--Components-DB7093) ![Rechart](https://img.shields.io/badge/Charts-Rechart-22B5BF) ![JSDoc](https://img.shields.io/badge/Documentation-JSDoc-006fbb)
 
 ## Prerequisites
 
