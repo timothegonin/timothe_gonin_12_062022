@@ -44,43 +44,47 @@ import Logo from '../../assets/logo.svg'
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    &lt;header className="bg-secondary flex flex-row items-center justify-between  p-3 sm:py-4 sm:px-9 sticky top-0 z-10">
-      &lt;div className="flex justify-center items-center">
-        &lt;img alt="SportSee's Logo" src={Logo} />{' '}
-        &lt;h1 className="text-red-500 font-medium ms-4 text-2xl">SportSee&lt;/h1>
-      &lt;/div>
-      &lt;nav className="relative flex justify-end w-2/6 sm:w-3/4 sm:px-7 md:pe-14">
-        &lt;button
-          className="text-slate-50 font-medium text-xl p-2 sm:hidden"
-          onClick={() => {
-            setIsOpen(!isOpen)
-          }}
-        >
-          Menu
-        &lt;/button>
-        {isOpen &amp;&amp; (
-          &lt;div className="absolute right-0 bg-secondary top-full w-full rounded-b-md">
-            &lt;ul className="flex flex-col items-end p-3 gap-2">
-              &lt;Link to="/">
-                &lt;li className="text-slate-100 font-medium text-l hover:text-primary">
-                  Accueil
+    &lt;header className="bg-secondary flex flex-row items-center justify-center  p-3 sm:py-4 sm:px-9 sticky top-0 z-[55]">
+      &lt;div className="max-w-[1440px] flex items-center justify-between w-full">
+        &lt;div className="flex justify-center items-center ">
+          &lt;img alt="SportSee's Logo" src={Logo} />{' '}
+          &lt;h1 className="text-red-500 font-medium ms-4 text-2xl">SportSee&lt;/h1>
+        &lt;/div>
+        &lt;nav className="relative flex justify-end w-2/6 sm:w-3/4 sm:px-7 md:pe-14">
+          &lt;button
+            className="text-slate-50 font-medium text-xl p-2 sm:hidden"
+            onClick={() => {
+              setIsOpen(!isOpen)
+            }}
+          >
+            Menu
+          &lt;/button>
+          {isOpen &amp;&amp; (
+            &lt;div className="absolute right-0 bg-secondary top-full rounded-b-md sm:hidden shadow-lg shadow-slate-500/50">
+              &lt;ul className="flex flex-col items-end p-3 gap-2">
+                &lt;Link to="/">
+                  &lt;li className="text-slate-100 font-medium text-l hover:text-primary">
+                    Accueil
+                  &lt;/li>
+                &lt;/Link>
+                &lt;li className="text-slate-100 font-medium text-l">Profil&lt;/li>
+                &lt;li className="text-slate-100 font-medium text-l">Réglage&lt;/li>
+                &lt;li className="text-slate-100 font-medium text-l">
+                  Communauté
                 &lt;/li>
-              &lt;/Link>
-              &lt;li className="text-slate-100 font-medium text-l">Profil&lt;/li>
-              &lt;li className="text-slate-100 font-medium text-l">Réglage&lt;/li>
-              &lt;li className="text-slate-100 font-medium text-l">Communauté&lt;/li>
-            &lt;/ul>
-          &lt;/div>
-        )}
-        &lt;ul className="hidden sm:flex flex-row grow justify-between">
-          &lt;Link to="/">
-            &lt;li className="text-slate-50 font-medium text-xl">Accueil&lt;/li>
-          &lt;/Link>
-          &lt;li className="text-slate-50 font-medium text-xl">Profil&lt;/li>
-          &lt;li className="text-slate-50 font-medium text-xl">Réglage&lt;/li>
-          &lt;li className="text-slate-50 font-medium text-xl">Communauté&lt;/li>
-        &lt;/ul>
-      &lt;/nav>
+              &lt;/ul>
+            &lt;/div>
+          )}
+          &lt;ul className="hidden sm:flex flex-row grow justify-between">
+            &lt;Link to="/">
+              &lt;li className="text-slate-50 font-medium text-xl">Accueil&lt;/li>
+            &lt;/Link>
+            &lt;li className="text-slate-50 font-medium text-xl">Profil&lt;/li>
+            &lt;li className="text-slate-50 font-medium text-xl">Réglage&lt;/li>
+            &lt;li className="text-slate-50 font-medium text-xl">Communauté&lt;/li>
+          &lt;/ul>
+        &lt;/nav>
+      &lt;/div>
     &lt;/header>
   )
 }
@@ -96,13 +100,13 @@ export default Header
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#handleErrorRedirection">handleErrorRedirection</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Sep 11 2024 10:53:27 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 23 2024 14:59:16 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -47,24 +47,24 @@ import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Counters = ({ counterValues }) => {
+const Counters = ({ counterValues, className }) => {
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    &lt;article className="gap-8 lg:gap-1 inline-flex items-center justify-between flex-col flex-wrap">
+    &lt;article className={`${className}`}>
       {Object.values(counterValues).map((value, index) => {
         return (
           &lt;CounterCard
             key={`counter-${index}`}
-            className="flex items-center rounded-md h-32 w-64 lg:h-36 lg:w-40"
+            className="flex items-center rounded-md h-32 w-full sm:w-11/12 lg:w-full lg:h-36 xl:h-32"
           >
-            &lt;figure className="flex justify-center items-center m-8 me-6 size-16  lg:m-4 lg:me-3 lg:size-11">
+            &lt;figure className="flex justify-center items-center m-8 me-6 size-16 lg:m-4 lg:me-3 lg:size-11 xl:size-16 xl:me-6">
               &lt;img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             &lt;/figure>
-            &lt;div>
-              &lt;span className="lg:text-lg text-2xl font-bold">{`${value}${counterUnit[index]}`}&lt;/span>
+            &lt;div className="me-2">
+              &lt;span className="text-2xl font-bold lg:text-lg xl:text-2xl">{`${value}${counterUnit[index]}`}&lt;/span>
               &lt;h3 className="text-sm font-medium">{`${counterLabel[index]}`}&lt;/h3>
             &lt;/div>
           &lt;/CounterCard>
@@ -104,13 +104,13 @@ const CounterCard = styled.div`
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#handleErrorRedirection">handleErrorRedirection</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Sep 11 2024 10:53:27 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 23 2024 14:59:16 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
