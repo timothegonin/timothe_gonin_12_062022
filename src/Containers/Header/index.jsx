@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/logo.svg'
 
 /**
@@ -15,61 +14,51 @@ import Logo from '../../assets/logo.svg'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 function Header() {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <HeaderWrapper bg="secondary" expand="md" variant="dark">
-      <Container className="m-0 px-4" fluid>
-        <LinkContainer to="/">
-          <LogoWrapper>
-            <img alt="SportSee's Logo" src={Logo} /> <span>SportSee</span>
-          </LogoWrapper>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse
-          id="basic-navbar-nav"
-          className="justify-content-center"
-        >
-          <Nav className="w-100 d-flex justify-content-around text-primary">
-            <LinkContainer to="/">
-              <NavLink>Accueil</NavLink>
-            </LinkContainer>
-            <NavLink>Profil</NavLink>
-            <NavLink>Réglage</NavLink>
-            <NavLink>Communauté</NavLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </HeaderWrapper>
+    <header className="bg-secondary flex flex-row items-center justify-center  p-3 sm:py-4 sm:px-9 sticky top-0 z-[55]">
+      <div className="max-w-[1440px] flex items-center justify-between w-full">
+        <div className="flex justify-center items-center ">
+          <img alt="SportSee's Logo" src={Logo} />{' '}
+          <h1 className="text-red-500 font-medium ms-4 text-2xl">SportSee</h1>
+        </div>
+        <nav className="relative flex justify-end w-2/6 sm:w-3/4 sm:px-7 md:pe-14">
+          <button
+            className="text-slate-50 font-medium text-xl p-2 sm:hidden"
+            onClick={() => {
+              setIsOpen(!isOpen)
+            }}
+          >
+            Menu
+          </button>
+          {isOpen && (
+            <div className="absolute right-0 bg-secondary top-full rounded-b-md sm:hidden shadow-lg shadow-slate-500/50">
+              <ul className="flex flex-col items-end p-3 gap-2">
+                <Link to="/">
+                  <li className="text-slate-100 font-medium text-l hover:text-primary">
+                    Accueil
+                  </li>
+                </Link>
+                <li className="text-slate-100 font-medium text-l">Profil</li>
+                <li className="text-slate-100 font-medium text-l">Réglage</li>
+                <li className="text-slate-100 font-medium text-l">
+                  Communauté
+                </li>
+              </ul>
+            </div>
+          )}
+          <ul className="hidden sm:flex flex-row grow justify-between">
+            <Link to="/">
+              <li className="text-slate-50 font-medium text-xl">Accueil</li>
+            </Link>
+            <li className="text-slate-50 font-medium text-xl">Profil</li>
+            <li className="text-slate-50 font-medium text-xl">Réglage</li>
+            <li className="text-slate-50 font-medium text-xl">Communauté</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   )
 }
 
 export default Header
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const HeaderWrapper = styled(Navbar)`
-  display: flex;
-  justify-content: space-between;
-  z-index: 999;
-`
-const LogoWrapper = styled(Navbar.Brand)`
-  margin: 0;
-  display: flex;
-  align-items: center;
-  span {
-    color: #ff0000;
-    margin-left: 8px;
-    font-weight: 400;
-    font-size: 24px;
-    letter-spacing: 1px;
-  }
-`
-
-const NavLink = styled(Nav.Link)`
-  letter-spacing: 1px;
-  font-weight: 400;
-  font-size: 24px;
-  color: white !important;
-`

@@ -20,7 +20,7 @@ const UserCards = () => {
   const ids = [12, 18]
 
   return (
-    <section className="mt-5 d-flex justify-content-evenly">
+    <section className="mt-12 flex flex-col sm:flex-row justify-center gap-10">
       {ids.map((id, index) => (
         <UserCard id={id} key={`userCard ${index}`} />
       ))}

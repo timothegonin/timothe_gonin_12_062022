@@ -24,14 +24,14 @@ import CustomTooltip from '../../CustomTootip'
   └─────────────────────────────────────────────────────────────────────────┘
 */
 
-const Activity = ({ activity }) => {
+const Activity = ({ activity, className }) => {
   const activityTooltipUnits = ['kg', 'Kcal']
   return (
-    <ActivityWrapper>
+    <ActivityWrapper className={`${className}`}>
       <ActivityContainer>
         <ActivityInfo>
           <ActivityTitle className="ms-4">
-            <p className="m-0">Activité quotidienne</p>
+            <h3 className="m-0 font-semibold">Activité quotidienne</h3>
           </ActivityTitle>
           <ActivityLegend>
             <div className="d-flex align-items-center me-4">
@@ -108,9 +108,8 @@ Activity.propTypes = {
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ActivityWrapper = styled.div`
+const ActivityWrapper = styled.article`
   height: 320px;
-  max-width: 835px;
 `
 
 const ActivityContainer = styled.div`

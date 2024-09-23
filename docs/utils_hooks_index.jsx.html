@@ -32,39 +32,48 @@ import { User_MOCKED } from '../../utils/service/models/User_MOCKED'
 import { User } from '../../utils/service/models/User'
 
 /**
- * Custom hook : return data, if data is loading.
- * If an error is detected, there will be a redirect to the error page
+ * Custom hook to fetch and manage user data, either from an API or mocked data based on the environment configuration.
+ * It handles data fetching, loading states, and error management. If an error occurs, it redirects to an error page.
+ *
  * @function useFetchUserData
- * @param {string} idFromURL Id catched in url, matches user id
- * @param {Array.&lt;String>} urls Routes used by the api
- * @returns {Object} user data
- * @returns {Boolean} is data loading or not
+ * @param {string} idFromURL - The user ID extracted from the URL.
+ * @returns {Object} An object containing the following properties:
+ *  - `data`: The fetched user data (from API or mocked data).
+ *  - `isLoading`: A boolean indicating whether the data is currently being loaded.
+ *
+ * @example
+ * const { data, isLoading } = useFetchUserData(userId);
  */
+export function useFetchUserData(idFromURL) {
+  // API routes for fetching user data
+  const urls = [
+    `http://localhost:3000/user/${idFromURL}`,
+    `http://localhost:3000/user/${idFromURL}/activity`,
+    `http://localhost:3000/user/${idFromURL}/average-sessions`,
+    `http://localhost:3000/user/${idFromURL}/performance`,
+  ]
 
-export function useFetchUserData(idFromURL, urls) {
-  // data object destination
   const [data, setData] = useState([])
-  // is loading or not status
   const [isLoading, setLoading] = useState(true)
-  // error catched or not
   const [error, setError] = useState(null)
-  // constant will be used to check datamode
+  // Determine if we are using mocked data or live API data
   const dataMode = process.env.REACT_APP_DATA_MODE
-  // used for redirection when an error is detected
   const navigate = useNavigate()
 
   useEffect(() => {
     /**
-     * Fetch data with the API
+     * Fetch user data from the API using the provided URLs.
+     *
+     * @async
      * @function fetchData
-     * @return {Object|Boolean} user's data from API or catched error
+     * @returns {Promise&lt;void>} Updates the `data` state with the user's data from API responses.
      */
     async function fetchData() {
       try {
         const arrayOfResponses = await Promise.all(
           urls.map((url) => fetch(url).then((res) => res.json()))
         )
-        return setData(new User(arrayOfResponses))
+        setData(new User(arrayOfResponses))
       } catch (err) {
         setError(err)
       } finally {
@@ -73,13 +82,14 @@ export function useFetchUserData(idFromURL, urls) {
     }
 
     /**
-     * Fetch data with Mocked Data
+     * Fetch mocked user data instead of using the API.
+     *
      * @function fetchMockedData
-     * @return {Object|Boolean} user's data from mocked data file or catched error
+     * @returns {void} Updates the `data` state with mocked user data.
      */
     function fetchMockedData() {
       try {
-        return setData(new User_MOCKED(Number(idFromURL)))
+        setData(new User_MOCKED(Number(idFromURL)))
       } catch (err) {
         navigate('/error', {
           state: { message: err.message },
@@ -89,19 +99,28 @@ export function useFetchUserData(idFromURL, urls) {
       }
     }
 
-    //Datamode checking
+    // Determine whether to fetch live API data or mocked data based on the environment setting
     dataMode === 'MOCK' ? fetchMockedData() : fetchData()
   }, [idFromURL])
 
   /**
-   * A way to clean up the error state when the component unmounts.
+   * Cleanup effect to reset the error state when the component using this hook is unmounted.
+   *
    * @function cleanupError
+   * @returns {void}
    */
   useEffect(() => {
     return () => {
-      setError(null)
+      setError(null) // Reset the error state when component unmounts
     }
   }, [])
+
+  /**
+   * Effect that triggers a redirection to the error page when an error occurs.
+   *
+   * @function handleErrorRedirection
+   * @returns {void}
+   */
   useEffect(() => {
     if (error) {
       navigate('/error', {
@@ -110,6 +129,7 @@ export function useFetchUserData(idFromURL, urls) {
     }
   }, [error, navigate])
 
+  // Return the loading status and fetched data
   return { isLoading, data }
 }
 </code></pre>
@@ -122,13 +142,13 @@ export function useFetchUserData(idFromURL, urls) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#handleErrorRedirection">handleErrorRedirection</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Mar 13 2023 15:05:42 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 23 2024 14:59:16 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

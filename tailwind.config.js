@@ -1,0 +1,19 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#ff0000',
+        secondary: '#020203',
+      },
+      gridTemplateRows: {
+        custom: '320px 263px',
+      },
+      gridTemplateColumns: {
+        custom: '1fr 1fr 1fr 1fr 258px',
+      },
+    },
+  },
+  plugins: [],
+}

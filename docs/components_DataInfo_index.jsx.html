@@ -27,8 +27,6 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useState } from 'react'
-import { ToastContainer } from 'react-bootstrap'
-import Toast from 'react-bootstrap/Toast'
 
 /**
  * Component that displays a Toast with information about the data source (API or mock data).
@@ -46,21 +44,37 @@ function DataInfo() {
     dataMode === 'API' ? `API` : `mock des données de l'API`
 
   return (
-    &lt;ToastContainer
-      className="p-5 mt-5"
-      position="top-end"
-      style={{ zIndex: '999' }}
-    >
-      &lt;Toast show={toastDisplayed} onClose={handleToast}>
-        &lt;Toast.Header closeButton={true}>
-          &lt;strong className="me-auto">DATA MODE&lt;/strong>
-          &lt;small>📌&lt;/small>
-        &lt;/Toast.Header>
-        &lt;Toast.Body>
-          Les données proviennent de : {`${dataModeMessage}`} .
-        &lt;/Toast.Body>
-      &lt;/Toast>
-    &lt;/ToastContainer>
+    toastDisplayed &amp;&amp; (
+      &lt;div
+        role="alert"
+        aria-live="assertive"
+        className="absolute top-28 right-5 ms-5 inline-flex flex-col border border-slate-200 rounded-lg bg-slate-50 shadow-lg shadow-slate-500/50"
+      >
+        &lt;div className="flex justify-between px-5 py-1 bg-slate-200">
+          &lt;strong className="font-semibold">
+            &lt;span className="animate-ping">🔴&lt;/span> DATA MODE
+          &lt;/strong>
+          &lt;button
+            className="hover:fill-red-500 hover:stroke-red-500"
+            onClick={handleToast}
+          >
+            &lt;svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-x-l"
+              viewBox="0 0 16 16"
+            >
+              &lt;path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            &lt;/svg>
+          &lt;/button>
+        &lt;/div>
+        &lt;p className="px-5 py-2">
+          Les données proviennent de : {`${dataModeMessage}`}
+        &lt;/p>
+      &lt;/div>
+    )
   )
 }
 
@@ -75,13 +89,13 @@ export default DataInfo
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#handleErrorRedirection">handleErrorRedirection</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Mar 13 2023 15:05:42 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 23 2024 14:59:16 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

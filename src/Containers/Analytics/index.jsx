@@ -1,10 +1,3 @@
-import { Fragment } from 'react'
-import styled from 'styled-components'
-import { Col, Container, Row } from 'react-bootstrap'
-
-//User banner
-import HelloUser from '../../components/HelloUser'
-// Charts components
 import Activity from '../../components/Charts_collection/Activity'
 import SessionsDuration from '../../components/Charts_collection/SessionsDuration'
 import ActivityType from '../../components/Charts_collection/ActivityType'
@@ -16,12 +9,12 @@ import Counters from '../../components/Counters'
  * Displaying Chart's container and transmits the data to the components
  * @function Analitics
  * @param {Object} data Derived from Dashborad's page (fetch)
- * @param {String} activeUser.userFirstname User's firstName
- * @param {Object} activeUser.userActivity User's activity
- * @param {Object} activeUser.userAverageSessions User's average sessions
- * @param {Object} activeUser.userActivityType User's activity type
- * @param {Object} activeUser.userTodayScore User's today score
- * @param {Object} activeUser.userCounterValues User's counters values
+ * @param {String} activUser.userFirstname User's firstName
+ * @param {Object} activUser.userActivity User's activity
+ * @param {Object} activUser.userAverageSessions User's average sessions
+ * @param {Object} activUser.userActivityType User's activity type
+ * @param {Object} activUser.userTodayScore User's today score
+ * @param {Object} activUser.userCounterValues User's counters values
  * @returns {HTMLElement}
  */
 
@@ -31,72 +24,28 @@ import Counters from '../../components/Counters'
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Analytics = ({ data }) => {
-  const activeUser = data
+  const activUser = data
 
   return (
-    <Fragment>
-      <section>
-        <HelloUser firstName={activeUser.userFirstName} />
-      </section>
-      <section>
-        <ContentWrapper fluid className="mx-0">
-          <Row className="d-flex justify-content-center">
-            <ChartsWrapper>
-              <Row>
-                <ChartFullSize>
-                  <Activity activity={activeUser.userActivity} />
-                </ChartFullSize>
-              </Row>
-              <Row>
-                <ChartsGroup>
-                  <SessionsDuration
-                    sessionsDuration={activeUser.userAverageSessions}
-                  />
-                  <ActivityType activityType={activeUser.userActivityType} />
-                  <Score score={activeUser.userTodayScore} />
-                </ChartsGroup>
-              </Row>
-            </ChartsWrapper>
-            <Counters counterValues={activeUser.userCounterValues} />
-          </Row>
-        </ContentWrapper>
-      </section>
-    </Fragment>
+    <section className="grid grid-cols-1 gap-y-4 pb-48 max-w-6xl sm:grid-cols-2 sm:gap-y-8 sm:pb-10 lg:grid-cols-5 lg:grid-rows-custom lg:gap-1 xl:grid-cols-custom xl:gap-8">
+      <h2 className="hidden">Analytics</h2>
+      <Activity
+        className="row-start-1 flex flex-col w-full grow max-w-4xl sm:col-span-2 md:col-span-4"
+        activity={activUser.userActivity}
+      />
+      <div className="flex flex-col justify-between gap-4 items-center sm:col-span-1 sm:items-start sm:gap-8 lg:col-span-4 lg:row-start-2 lg:flex-row lg:gap-1 min-[1440px]:gap-8">
+        <SessionsDuration sessionsDuration={activUser.userAverageSessions} />
+        <ActivityType activityType={activUser.userActivityType} />
+        <Score score={activUser.userTodayScore} />
+      </div>
+      <Counters
+        className={
+          'flex flex-col justify-between items-end gap-y-4 sm:col-span-1 sm:justify-start sm:gap-y-8 lg:col-span-1 lg:col-start-5 lg:row-span-2 lg:gap-1 xl:justify-between'
+        }
+        counterValues={activUser.userCounterValues}
+      />
+    </section>
   )
 }
 
 export default Analytics
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const ContentWrapper = styled(Container)`
-  max-width: 1126px;
-`
-
-const ChartsWrapper = styled(Container)`
-  width: 835px;
-  height: 611px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
-const ChartFullSize = styled(Col)`
-  margin: 0;
-  padding: 0;
-`
-
-const ChartsGroup = styled(Col)`
-  max-width: 835px;
-  height: 265px;
-  margin: 10px 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  @media screen and (min-width: 1406px) {
-    margin-bottom: 0;
-  }
-`

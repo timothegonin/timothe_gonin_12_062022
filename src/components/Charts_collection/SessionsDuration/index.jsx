@@ -3,18 +3,22 @@ import styled from 'styled-components'
 import {
   LineChart,
   Line,
+  Legend,
+  Rectangle,
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer,
 } from 'recharts'
 import CustomTooltip from '../../CustomTootip'
 
 /**
- * Displaying user's duration of sessions in RadialBarchart
- * @function SessionsDuration
- * @param {Array.<{ day: String, sessionLength: Integer}> } SessionsDuration User's duration of sessions data
- * @return {HTMLElement }
+ * Displays the user's average session duration using a LineChart.
+ * The chart visualizes the session length for each day, along with a custom tooltip and legend.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {Array.<{ day: String, sessionLength: Number }>} props.sessionsDuration - Array of session data for the user.
+ * @returns {JSX.Element} The rendered LineChart displaying the user's session durations.
  */
 
 /* 
@@ -24,51 +28,92 @@ import CustomTooltip from '../../CustomTootip'
 */
 const SessionsDuration = ({ sessionsDuration }) => {
   const sessionsDurationTooltipUnits = ['min']
+
+  /**
+   * Custom legend title for the LineChart.
+   *
+   * @function LegendTitle
+   * @returns {JSX.Element} The rendered title for the chart.
+   */
+  const LegendTitle = () => {
+    return <h3>Durée moyenne des sessions</h3>
+  }
+
+  /**
+   * Custom cursor component for the LineChart tooltip.
+   * Displays a darkened rectangle when hovering over the chart.
+   *
+   * @function CustomCursor
+   * @param {Object} points - Tooltip cursor position data.
+   * @returns {JSX.Element} The rendered custom cursor.
+   */
+  const CustomCursor = ({ points }) => {
+    const [{ x }] = points
+    return (
+      <Rectangle fill="hsla(0, 0%, 0%, 8.50%)" x={x} width={258} height={263} />
+    )
+  }
   return (
     <SessionsDurationWrapper>
-      <SessionDurationInfo className="sessionDuration__info">
-        <p>Durée moyenne des sessions</p>
-      </SessionDurationInfo>
-      <ResponsiveContainer width="100%" height="60%">
-        <LineChart
-          data={sessionsDuration}
-          margin={{
-            top: 15,
-            right: 20,
-            left: 20,
-            bottom: -5,
+      <LineChart
+        data={sessionsDuration}
+        height={263}
+        width={258}
+        margin={{
+          top: 30,
+          right: 20,
+          left: 20,
+          bottom: 30,
+        }}
+      >
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="white" stopOpacity={0.4} />
+            <stop offset="50%" stopColor="white" stopOpacity={0.8} />
+            <stop offset="70%" stopColor="white" stopOpacity={1} />
+            <stop offset="100%" stopColor="white" />
+          </linearGradient>
+        </defs>
+        <Legend
+          content={LegendTitle}
+          verticalAlign="top"
+          wrapperStyle={{
+            maxWidth: '150px',
+            paddingLeft: '14px',
+            fontWeight: 500,
+            fontSize: '0.9rem',
+            color: 'rgba(255, 255, 0255, 0.5)',
           }}
-        >
-          <XAxis
-            dataKey="day"
-            stroke="rgba(255, 255, 255, 0.5)"
-            fontSize={12}
-            axisLine={false}
-            tickLine={false}
-          />
-          <YAxis axisLine={false} mirror={true} tickCount={false} />
-          <Tooltip
-            content={
-              <CustomTooltip
-                styles="session"
-                units={sessionsDurationTooltipUnits}
-              />
-            }
-          />
-          <Line
-            type="monotone"
-            dataKey="sessionLength"
-            stroke="#fff"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{
-              stroke: 'rgba(255, 255, 255, 0.3)',
-              strokeWidth: 12,
-              r: 5,
-            }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+        />
+        <Tooltip
+          animationEasing={'ease-out'}
+          animationDuration={300}
+          content={<CustomTooltip units={sessionsDurationTooltipUnits} />}
+          cursor={<CustomCursor />}
+        />
+        <XAxis
+          dataKey="day"
+          stroke="rgba(255, 255, 255, 0.5)"
+          fontSize={12}
+          axisLine={false}
+          tickLine={false}
+          tickMargin={20}
+        />
+        <YAxis type="number" domain={['dataMin', 'dataMax + 5']} hide="true" />
+        <Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="url(#colorUv)"
+          strokeWidth={3}
+          strokeOpacity="0.8"
+          dot={false}
+          activeDot={{
+            stroke: 'rgba(255, 255, 255, 0.2)',
+            strokeWidth: 13,
+            r: 4,
+          }}
+        />
+      </LineChart>
     </SessionsDurationWrapper>
   )
 }
@@ -86,7 +131,7 @@ SessionsDuration.propTypes = {
       day: PropTypes.string,
       sessionLength: PropTypes.number,
     })
-  ),
+  ).isRequired,
 }
 
 /* 
@@ -94,17 +139,7 @@ SessionsDuration.propTypes = {
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const SessionsDurationWrapper = styled.div`
+const SessionsDurationWrapper = styled.article`
   background: red;
   border-radius: 5px;
-  height: 263px;
-  width: 258px;
-`
-const SessionDurationInfo = styled.div`
-  max-width: 150px;
-  padding-top: 29px;
-  padding-left: 34px;
-  font-weight: 500;
-  font-size: 15px;
-  color: rgba(255, 255, 0255, 0.5);
 `

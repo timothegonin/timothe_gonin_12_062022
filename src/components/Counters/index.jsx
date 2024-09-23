@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Col } from 'react-bootstrap'
 
 //ICONS
 import CaloriesIcon from '../../assets/icons/right-counters/calories-icon.svg'
@@ -20,30 +19,30 @@ import LipidesIcon from '../../assets/icons/right-counters/lipides-icon.svg'
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Counters = ({ counterValues }) => {
+const Counters = ({ counterValues, className }) => {
   const counterLabel = ['Calories', 'Proteines', 'Glucides', 'Lipides']
   const counterUnit = ['kCal', 'g', 'g', 'g']
   const countersIcons = [CaloriesIcon, ProteinesIcon, GlucidesIcon, LipidesIcon]
 
   return (
-    <CounterWrapper>
+    <article className={`${className}`}>
       {Object.values(counterValues).map((value, index) => {
         return (
           <CounterCard
             key={`counter-${index}`}
-            className="d-flex align-items-center "
+            className="flex items-center rounded-md h-32 w-full sm:w-11/12 lg:w-full lg:h-36 xl:h-32"
           >
-            <figure className="d-flex justify-content-center align-items-center">
+            <figure className="flex justify-center items-center m-8 me-6 size-16 lg:m-4 lg:me-3 lg:size-11 xl:size-16 xl:me-6">
               <img src={countersIcons[index]} alt={`${counterLabel[index]}`} />
             </figure>
-            <div>
-              <span>{`${value}${counterUnit[index]}`}</span>
-              <p className="m-0">{`${counterLabel[index]}`}</p>
+            <div className="me-2">
+              <span className="text-2xl font-bold lg:text-lg xl:text-2xl">{`${value}${counterUnit[index]}`}</span>
+              <h3 className="text-sm font-medium">{`${counterLabel[index]}`}</h3>
             </div>
           </CounterCard>
         )
       })}
-    </CounterWrapper>
+    </article>
   )
 }
 
@@ -63,43 +62,7 @@ Counters.propTypes = {
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const CounterWrapper = styled(Col)`
-  padding: 0;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  min-height: 280px;
-  max-width: 835px;
-  @media screen and (min-width: 1395px) {
-    max-width: 258px;
-    justify-content: flex-end;
-    align-content: space-between;
-    margin: 0;
-  }
-`
 
 const CounterCard = styled.div`
-  height: 124px;
-  width: 258px;
   background: #fbfbfb;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-  border-radius: 5px;
-
-  figure {
-    height: 60px;
-    width: 60px;
-    margin: 32px;
-    margin-right: 24px;
-  }
-  span {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  p {
-    font-size: 14px;
-    font-weight: 500;
-  }
 `

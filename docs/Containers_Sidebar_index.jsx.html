@@ -27,8 +27,6 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react'
-import styled from 'styled-components'
-import ListGroup from 'react-bootstrap/ListGroup'
 
 import YogaIcon from '../../assets/icons/sidebar/yoga-icon.svg'
 import SwimIcon from '../../assets/icons/sidebar/swim-icon.svg'
@@ -53,46 +51,22 @@ import Footer from '../../components/Footer'
 
 function Sidebar() {
   return (
-    &lt;SideBarWrapper className="bg-secondary">
-      &lt;nav>
-        &lt;ListGroup className="justify-content-between">
+    // &lt;aside className="h-full top-0 z-11">
+    &lt;aside className="bg-secondary w-full fixed bottom-0 left-0 flex flex-col justify-end z-50 p-4 gap-2 sm:h-full sm:w-24 sm:top-0 sm:z-11 xl:p-8">
+      &lt;nav className="flex justify-center h-2/5">
+        &lt;ul className="flex justify-center items-center h-full grow gap-6 sm:flex-col sm:justify-between">
           &lt;SquareButton icon={YogaIcon} alt="Yoga icon" />
           &lt;SquareButton icon={SwimIcon} alt="Swin icon" />
           &lt;SquareButton icon={BikeIcon} alt="Bike icon" />
           &lt;SquareButton icon={Dumbbell} alt="Dumbbel icon" />
-        &lt;/ListGroup>
+        &lt;/ul>
       &lt;/nav>
       &lt;Footer />
-    &lt;/SideBarWrapper>
+    &lt;/aside>
   )
 }
 
 export default Sidebar
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const SideBarWrapper = styled.aside`
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-  padding-top: 84px;
-  width: 117px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  nav {
-    height: 316px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 164px;
-  }
-`
 </code></pre>
         </article>
     </section>
@@ -103,13 +77,13 @@ const SideBarWrapper = styled.aside`
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SessionsDuration">SessionsDuration</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li><li><a href="User_MOCKED.html">User_MOCKED</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityType">ActivityType</a></li><li><a href="global.html#Analitics">Analitics</a></li><li><a href="global.html#Counters">Counters</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DataInfo">DataInfo</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#ErrorMessage">ErrorMessage</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GlobalStyle">GlobalStyle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HelloUser">HelloUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LegendTitle">LegendTitle</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Router">Router</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SquareButton">SquareButton</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#UserCards">UserCards</a></li><li><a href="global.html#cleanupError">cleanupError</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchMockedData">fetchMockedData</a></li><li><a href="global.html#handleErrorRedirection">handleErrorRedirection</a></li><li><a href="global.html#ids">ids</a></li><li><a href="global.html#useFetchUserData">useFetchUserData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Mar 13 2023 15:05:42 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 23 2024 14:59:16 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
