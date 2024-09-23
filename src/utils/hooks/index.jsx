@@ -13,7 +13,14 @@ import { User } from '../../utils/service/models/User'
  * @returns {Boolean} is data loading or not
  */
 
-export function useFetchUserData(idFromURL, urls) {
+export function useFetchUserData(idFromURL) {
+  //Routes used for api calls
+  const urls = [
+    `http://localhost:3000/user/${idFromURL}`,
+    `http://localhost:3000/user/${idFromURL}/activity`,
+    `http://localhost:3000/user/${idFromURL}/average-sessions`,
+    `http://localhost:3000/user/${idFromURL}/performance`,
+  ]
   // data object destination
   const [data, setData] = useState([])
   // is loading or not status

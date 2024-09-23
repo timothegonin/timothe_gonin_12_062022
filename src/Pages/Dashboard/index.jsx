@@ -20,15 +20,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
  */
 const Dashboard = () => {
   const idFromURL = useParams().id
-
-  //Routes used for api calls
-  const urls = [
-    `http://localhost:3000/user/${idFromURL}`,
-    `http://localhost:3000/user/${idFromURL}/activity`,
-    `http://localhost:3000/user/${idFromURL}/average-sessions`,
-    `http://localhost:3000/user/${idFromURL}/performance`,
-  ]
-  const { data, isLoading } = useFetchUserData(idFromURL, urls)
+  const { data, isLoading } = useFetchUserData(idFromURL)
   const activUser = data
 
   return (
