@@ -8,9 +8,15 @@ import { Fragment } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 /**
- * Displaying the dashboard page, loader, data info Toast
- * @function DashBoard
- * @returns {HTMLElement} Returns a React Fragment that contains a DataInfo component and an Analytics component with data passed in as props
+ * Dashboard component that fetches and displays user-specific data including activity and analytics.
+ *
+ * - Uses `useParams` to extract the user ID from the URL.
+ * - Fetches user data via the `useFetchUserData` hook.
+ * - Displays a loader while data is being fetched.
+ * - Renders various components to present user data once loaded.
+ *
+ * @component
+ * @returns {JSX.Element} A React component that renders the dashboard page.
  */
 
 /* 
@@ -20,15 +26,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
  */
 const Dashboard = () => {
   const idFromURL = useParams().id
-
-  //Routes used for api calls
-  const urls = [
-    `http://localhost:3000/user/${idFromURL}`,
-    `http://localhost:3000/user/${idFromURL}/activity`,
-    `http://localhost:3000/user/${idFromURL}/average-sessions`,
-    `http://localhost:3000/user/${idFromURL}/performance`,
-  ]
-  const { data, isLoading } = useFetchUserData(idFromURL, urls)
+  const { data, isLoading } = useFetchUserData(idFromURL)
   const activUser = data
 
   return (
